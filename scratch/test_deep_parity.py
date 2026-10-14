@@ -101,6 +101,14 @@ for i in range(1, 22):
     if not has_md_synth:
         errors.append(f"Chapter {i}: Missing synthesis section in MD")
 
+    # 9. Check that HTML has zero unrendered markdown syntax leaks (**bold**, broken strong tags)
+    md_bolds_in_html = re.findall(r'\*\*[^\*\n]+\*\*', html_content)
+    broken_tags = re.findall(r'(\*\*</?strong>|<strong>\*\*|\*\*</?em>|<em>\*\*)', html_content)
+    if md_bolds_in_html:
+        errors.append(f"Chapter {i}: Found {len(md_bolds_in_html)} unrendered markdown bold token(s) in HTML")
+    if broken_tags:
+        errors.append(f"Chapter {i}: Found {len(broken_tags)} broken markdown/HTML tag(s) in HTML")
+
 if not errors:
     print("✅ All 21 chapters passed deep parity, verbatim titles, synthesis, quote sync, navigation, timeline, and image integrity checks!")
     sys.exit(0)

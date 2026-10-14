@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 14</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch14">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΔΕΚΑΤΟ ΤΕΤΑΡΤΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Ινδία & Κίνα</h1>
+        <p class="chapter-subtitle">Το Απόγειο των Μουγκάλ, η Απαγορευμένη Πόλη των Μινγκ και η Ψευδαίσθηση της Αυτάρκειας των Τσινγκ.</p>
+        
+        <a href="https://www.youtube.com/watch?v=I5Ce4KSe5XY" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube (Διάρκεια: 1 ώρα & 38 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο τους Θησαυροφορους Στολους στην Πρεσβεια Μακαρτνεϊ</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">1405–1433</div>
+            <div class="timeline-desc">Οι επικοί στόλοι του ναυάρχου Τσενγκ Χι – Η αφρικανική καμηλοπάρδαλη φτάνει στο Πεκίνο ως ιερό «Τσιλίν» (1414).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1420</div>
+            <div class="timeline-desc">Ολοκλήρωση της Απαγορευμένης Πόλης στο Πεκίνο υπό τον αυτοκράτορα Γιονγκλέ (Δυναστεία Μινγκ).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1556–1605</div>
+            <div class="timeline-desc">Βασιλεία του Μεγάλου Ακμπάρ: Ο αναλφάβητος σοφός, κατάργηση της Jizya και διάλογος θρησκειών (*Ibadat Khana*).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">16ος–18ος αι.</div>
+            <div class="timeline-desc">Η Κολομβιανή Ανταλλαγή: Τσίλι, ντομάτες και καλαμπόκι μεταμορφώνουν την ασιατική κουζίνα και διπλασιάζουν τον πληθυσμό της Κίνας.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1632–1653</div>
+            <div class="timeline-desc">Ανέγερση του Ταζ Μαχάλ από τον Σαχ Τζαχάν στην Άγκρα ως μαυσωλείο της Μουμτάζ Μαχάλ.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1793</div>
+            <div class="timeline-desc">Η Πρεσβεία Μακάρτνεϊ στο Πεκίνο: «Ο φόρος υποτελείας των κοκκινομάλληδων βαρβάρων» και η αυτάρκεια των Τσινγκ.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Body Content -->
+      <article class="chapter-body">
+
+        <h2>1. Η Ινδία των Μουγκάλ: Ο Μέγας Ακμπάρ και η Καθολική Ειρήνη</h2>
+
+        <p>Στο δέκατο τέταρτο μάθημα της σειράς, η Μαρία Ευθυμίου εξετάζει δύο από τα πιο εκθαμβωτικά πολιτισμικά και δημογραφικά μεγαθήρια της ανθρωπότητας: <strong>την Αυτοκρατορία των Μουγκάλ στην Ινδία</strong> και <strong>την Αυτοκρατορική Κίνα των δυναστειών Μινγκ και Τσινγκ</strong>.</p>
+
+        <p>Ενώ η Ευρώπη του 16ου αιώνα σπαρασσόταν από τους θρησκευτικούς πολέμους και τις πυρές της Ιεράς Εξέτασης, στην Ινδία ο <strong>Μέγας Ακμπάρ (Akbar the Great, βασ. 1556–1605)</strong> οικοδομούσε ένα πρωτοφανές καθεστώς διαθρησκειακής αρμονίας:</p>
+
+        <ul>
+          <li><strong>Το Παράδοξο του Αναλφάβητου Σοφού:</strong> Παρότι ο Ακμπάρ κυβέρνησε μια αχανή αυτοκρατορία και υπήρξε ένας από τους πιο πολυμαθείς μονάρχες της ιστορίας, <strong>ήταν εντελώς αναλφάβητος και δυσλεκτικός</strong>! Δεν έμαθε ποτέ να διαβάζει ή να γράφει. Κι όμως, δημιούργησε μια κολοσσιαία αυτοκρατορική βιβλιοθήκη με πάνω από <strong>24.000 σπάνια χειρόγραφα</strong>. Κάθε απόγευμα, λόγιοι, ποιητές, φιλόσοφοι και επιστήμονες του διάβαζαν φωναχτά κείμενα επί ώρες. Διαθέτοντας μια ασύλληπτη φωτογραφική μνήμη, ο Ακμπάρ συγκρατούσε τα πάντα και συζητούσε με κοφτερή οξύνοια περί θεολογίας, μαθηματικών και φιλοσοφίας!</li>
+          <li><strong>Κατάργηση των Διακρίσεων:</strong> Κατήργησε τον κεφαλικό φόρο των μη μουσουλμάνων (<em>Jizya</em>) και τον φόρο των ινδουιστικών προσκυνημάτων, παντρεύτηκε Ινδουίστριες πριγκίπισσες των Ρατζπούτ (όπως την Τζόντα Μπάι) επιτρέποντάς τους να διατηρήσουν τη λατρεία τους, και διόρισε Ινδουιστές στα ανώτατα αξιώματα (όπως τον υπουργό Οικονομικών Ράτζα Τόνταρ Μαλ).</li>
+          <li><strong>Το Ibadat Khana (Οίκος Λατρείας):</strong> Στην πρωτεύουσά του, το Φατεχπούρ Σικρί, οργάνωσε μια αίθουσα όπου συγκέντρωνε λογίους από όλες τις παραδόσεις: Σουνίτες, Σιίτες, Ινδουιστές βραχμάνους, Ζωροάστρες, Τζαϊνιστές και Ιησουίτες μοναχούς από τη Γκόα, συζητώντας ισότιμα περί θείας αλήθειας.</li>
+          <li><strong>Sulh-i-kul (Καθολική Ειρήνη):</strong> Διακήρυξε την αρχή της συμφιλίωσης όλων των δογμάτων και δημιούργησε τη συγκρητιστική πνευματική τάση <em>Din-i-Ilahi</em> («Θεία Πίστη»).</li>
+        </ul>
+
+        <!-- Plate 1: Akbar Court Miniature -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/akbar_court_miniature.jpg" alt="Ο Αυτοκράτορας Ακμπάρ στην Αυλή του (Μικρογραφία Akbarnama, περ. 1600)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 1: Ο Αυτοκράτορας Ακμπάρ στην Αυλή του (Μικρογραφία Akbarnama, περ. 1600, Chester Beatty Library, Δουβλίνο)</strong>
+            <span class="map-badge">Chester Beatty Library</span>
+            Ο Ακμπάρ εικονίζεται περιστοιχισμένος από αξιωματούχους και σοφούς διαφόρων δογμάτων. Ο μεγάλος αυτοκράτορας κατήργησε τον κεφαλικό φόρο *Jizya*, παντρεύτηκε Ινδουίστριες πριγκίπισσες και ίδρυσε το <em>Ibadat Khana</em> («Οίκο Λατρείας»), όπου διεξάγονταν διαθρησκειακοί διάλογοι μεταξύ Μουσουλμάνων, Ινδουιστών, Ζωροαστρών και Ιησουϊτών.
+          </div>
+        </div>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=I5Ce4KSe5XY&t=2080s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 0ω 34:40</a>
+          </div>
+          <div class="box-maria-quote">
+            «Σκεφτείτε το μέγεθος του παραδόξου! Την ίδια ακριβώς δεκαετία που στο Παρίσι σφάζουν τους ανθρώπους στους δρόμους για το αν θα κοινωνούν με ψωμί ή με όστια, στην Ινδία ένας μουσουλμάνος αυτοκράτορας, ο Ακμπάρ —ένας άνθρωπος που δεν ήξερε καν να διαβάζει και να γράφει!— κάθεται στο χαλί μαζί με Ιησουίτες παπάδες, Ινδουιστές βραχμάνους και Ζωροάστρες και συζητάει ώρες ολόκληρες λέγοντας: "Κανείς δεν κατέχει ολόκληρη την αλήθεια του Θεού!". Είναι μια ασύλληπτη στιγμή πολιτισμικού μεγαλείου!»
+          </div>
+        </div>
+
+        <h2>2. Το Ταζ Μαχάλ και η Παρακμή: Σαχ Τζαχάν & Αουρανγκζέμπ</h2>
+
+        <p>Το αρχιτεκτονικό απόγειο των Μουγκάλ έφτασε υπό τον εγγονό του Ακμπάρ, τον <strong>Σαχ Τζαχάν (Shah Jahan, 1628–1658)</strong>, ο οποίος ανήγειρε στην Άγκρα το αξεπέραστο <strong>Ταζ Μαχάλ (1632–1653)</strong> ως μαυσωλείο για την πολυαγαπημένη του σύζυγο Μουμτάζ Μαχάλ.</p>
+
+        <!-- Plate 2: Taj Mahal -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/taj_mahal.jpg" alt="Το Ταζ Μαχάλ στην Άγκρα της Ινδίας" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 2: Το Ταζ Μαχάλ (1632–1653, Άγκρα, Ινδία)</strong>
+            <span class="map-badge">UNESCO Μνημειο Παγκοσμιας Κληρονομιας</span>
+            Κατασκευασμένο από λευκό μάρμαρο του Ρατζαστάν, ενσωματώνει την τέλεια συμμετρία της ινδο-ισλαμικής αρχιτεκτονικής. Ο κεντρικός τρούλος περιβάλλεται από τέσσερις μιναρέδες και καθρεφτίζεται στις επιμήκεις δεξαμενές των παραδείσιων κήπων (Charbagh). Χρειάστηκαν 20.000 τεχνίτες και 22 χρόνια για να ολοκληρωθεί.
+          </div>
+        </div>
+
+        <p>Η δυναστεία οδηγήθηκε σε παρακμή υπό τον γιο του, τον <strong>Αουρανγκζέμπ (Aurangzeb, 1658–1707)</strong>. Φανατικός σουνίτης, φυλάκισε τον πατέρα του, δολοφόνησε τον φωτισμένο αδελφό του <strong>Ντάρα Σικόχ</strong> (που είχε μεταφράσει τις Ουπανισάδες στα περσικά), επανέφερε τον φόρο <em>Jizya</em>, κατέστρεψε ινδουιστικούς ναούς και κατασπατάλησε τον πλούτο της αυτοκρατορίας σε ατέρμονες πολέμους στο Ντεκάν. Μετά τον θάνατό του, η κατακερματισμένη Ινδία έγινε εύκολη λεία για τη βρετανική <strong>Εταιρεία Ανατολικών Ινδιών</strong>.</p>
+
+        <h2>3. Η Κολομβιανή Ανταλλαγή: Πώς η Αμερική Άλλαξε την Κουζίνα & τη Δημογραφία της Ασίας</h2>
+
+        <div class="box-history">
+          <div class="box-history-title">🌶️ Το Μεγάλο Γαστρονομικό Παράδοξο</div>
+          <p>Σήμερα θεωρούμε την ινδική κουζίνα, την ταϊλανδέζικη και την κινεζική κουζίνα του Σετσουάν συνώνυμες με τις καυτερές <strong>κόκκινες πιπεριές (τσίλι)</strong> και τις πλούσιες σάλτσες <strong>ντομάτας</strong>. Κι όμως, πριν από το 1492, <strong>δεν υπήρχε ούτε μία πιπεριά τσίλι, ούτε μία ντομάτα, ούτε μία πατάτα σε ολόκληρο τον Παλαιό Κόσμο (Ασία, Ευρώπη, Αφρική)!</strong></p>
+          <p>Το παραδοσιακό ινδικό κάρι καρυκευόταν αποκλειστικά με μαύρο πιπέρι, τζίντζερ, κάρδαμο και σπόρους μουστάρδας. Στο Σετσουάν της Κίνας δεν γνώριζαν το κόκκινο τσίλι, στην Ιταλία δεν υπήρχε σάλτσα ντομάτας στα μακαρόνια, και στη Ρωσία δεν υπήρχαν πατάτες! Ήταν οι Πορτογάλοι και Ισπανοί έμποροι που έφεραν τα φυτά της Αμερικής στην Ασία, αλλάζοντας για πάντα τη γεύση της ανθρωπότητας.</p>
+        </div>
+
+        <p><strong>Η Δημογραφική Έκρηξη της Κίνας:</strong> Πέρα από τη γεύση, τα αμερικανικά φυτά έσωσαν εκατομμύρια ζωές. Η <strong>γλυκοπατάτα</strong>, το <strong>καλαμπόκι</strong> και τα <strong>φιστίκια</strong> μπορούσαν να καλλιεργηθούν σε άγονα, ορεινά εδάφη όπου το ρύζι και το σιτάρι δεν ευδοκιμούσαν. Χάρη στις νέες αυτές καλλιέργειες, η Κίνα υπό τη δυναστεία των Τσινγκ ξεπέρασε τους καταστροφικούς λιμούς και ο πληθυσμός της εκτοξεύτηκε θεαματικά από τα 140 εκατομμύρια στα 300 και πλέον εκατομμύρια μέσα στον 18ο αιώνα!</p>
+
+        <h2>4. Η Κίνα των Μινγκ: Η Απαγορευμένη Πόλη & οι Στόλοι του Τσενγκ Χι</h2>
+
+        <p>Το 1368, η εθνική δυναστεία των <strong>Μινγκ (Ming, 1368–1644)</strong> έδιωξε τους Μογγόλους και αποκατέστησε την κυριαρχία των Χαν. Ο αυτοκράτορας <strong>Γιονγκλέ (Yongle)</strong> μετέφερε την πρωτεύουσα στο Πεκίνο και έχτισε την <strong>Απαγορευμένη Πόλη (Zijincheng)</strong>, το μεγαλύτερο παλατιακό σύμπλεγμα του κόσμου με 980 κτίρια και 9.999,5 δωμάτια.</p>
+
+        <!-- Plate 3: Forbidden City -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/forbidden_city_beijing.jpg" alt="Η Απαγορευμένη Πόλη στο Πεκίνο" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 3: Η Απαγορευμένη Πόλη (Ολοκληρώθηκε το 1420, Πεκίνο)</strong>
+            <span class="map-badge">Πεκινο / Κινα</span>
+            Η έδρα 24 αυτοκρατόρων των δυναστειών Μινγκ και Τσινγκ. Με 980 κτίρια και παραδοσιακή γεωμαντική διάταξη (Feng Shui), αποτελούσε το ιερό κέντρο της Ουράνιας Αυτοκρατορίας, απόλυτα απρόσιτο για τους κοινούς θνητούς.
+          </div>
+        </div>
+
+        <p>Την ίδια περίοδο (1405–1433), ο μουσουλμάνος ευνούχος ναύαρχος <strong>Τσενγκ Χι (Zheng He)</strong> οδήγησε επτά κολοσσιαίες ναυτικές εκστρατείες στον Ινδικό Ωκεανό, με «θησαυροφόρα πλοία» (<em>Baochuan</em>) μήκους άνω των 120 μέτρων (τετραπλάσια από τα πλοία του Κολόμβου!), φτάνοντας μέχρι την Αραβία και τις ακτές της Κένυας στην Αφρική.</p>
+
+        <p><strong>Το Θαύμα του «Τσιλίν» (1414):</strong> Το 1414, ο στόλος του Τσενγκ Χι επέστρεψε φέρνοντας από το Μαλίντι της Αφρικής μια ζωντανή <strong>καμηλοπάρδαλη</strong>! Ο αυτοκράτορας Γιονγκλέ και η αυλή έμειναν έκθαμβοι: θεώρησαν ότι το παράξενο ζώο με τον μακρύ λαιμό ήταν το μυθικό, ιερό <strong>Τσιλίν (Qilin)</strong>, το ουράνιο πλάσμα που εμφανίζεται στη γη μόνο υπό τη βασιλεία ενός απόλυτα ενάρετου και θεοπρόβλητου μονάρχη! Ζωγράφοι της αυλής φιλοτέχνησαν μεταξωτούς πίνακες της καμηλοπάρδαλης και ποιητές συνέθεσαν θριαμβευτικούς ύμνους για το θεϊκό σημάδι.</p>
+
+        <p>Ωστόσο, μετά τον θάνατο του Γιονγκλέ, η Κίνα <strong>έκλεισε εθελούσια τα σύνορά της</strong>: οι συντηρητικοί μανδαρίνοι θεώρησαν τα ταξίδια αυτά περιττή σπατάλη, διέλυσαν τους στόλους και απαγόρευσαν τη ναυσιπλοΐα με ποινή θανάτου, παραχωρώντας τους παγκόσμιους ωκεανούς στους Ευρωπαίους εξερευνητές!</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=I5Ce4KSe5XY&t=3855s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:04:15</a>
+          </div>
+          <div class="box-maria-quote">
+            «Για φανταστείτε τη σκηνή: επιστρέφει ο τεράστιος στόλος του Τσενγκ Χι από την Αφρική και ξεφορτώνει στο Πεκίνο μια ζωντανή καμηλοπάρδαλη! Ο Αυτοκράτορας και όλοι οι μανδαρίνοι πέφτουν στα γόνατα συγκινημένοι! Λένε: "Είναι το Τσιλίν! Το μυθικό πλάσμα που κατεβαίνει από τον ουρανό μόνο όταν κυβερνά ένας απόλυτα δίκαιος αυτοκράτορας!". Και αντί να πουν: "Α, τι ωραία, ας εξερευνήσουμε τον κόσμο, ας κάνουμε εμπόριο", λένε: "Αφού ο Ουρανός μας επιβραβεύει και είμαστε το κέντρο της Γης, δεν χρειαζόμαστε κανέναν άλλον!". Και καίνε τα πλοία! Ασύλληπτη απόφαση που άλλαξε την παγκόσμια ιστορία!»
+          </div>
+        </div>
+
+        <h2>5. Η Δυναστεία των Τσινγκ: Ο Αυτοκράτορας Τσιανλόνγκ & η Ψευδαίσθηση της Αυτάρκειας</h2>
+
+        <p>Το 1644, οι <strong>Μαντσού</strong> εισέβαλαν από τον βορρά και ίδρυσαν τη δυναστεία των <strong>Τσινγκ (Qing, 1644–1912)</strong>. Επί του αυτοκράτορα <strong>Τσιανλόνγκ (Qianlong, 1735–1796)</strong>, η Κίνα διπλασίασε την επικράτειά της, αριθμώντας πάνω από 300 εκατομμύρια υπηκόους και παράγοντας πάνω από το ένα τρίτο του παγκόσμιου πλούτου.</p>
+
+        <!-- Plate 4: Qianlong Emperor -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/emperor_qianlong_court.jpg" alt="Ο Αυτοκράτορας Τσιανλόνγκ σε επίσημη πανοπλία (Giuseppe Castiglione, 1758)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 4: Ο Αυτοκράτορας Τσιανλόνγκ (Giuseppe Castiglione / Lang Shining, 1758, Μουσείο Ανακτόρων, Πεκίνο)</strong>
+            <span class="map-badge">Μουσειο Ανακτορων / Πεκινο</span>
+            Ο Τσιανλόνγκ έφιππος με τελετουργική πανοπλία, έργο του Ιταλού Ιησουίτη ζωγράφου της αυτοκρατορικής αυλής. Ο Τσιανλόνγκ απέρριψε υπεροπτικά τα αιτήματα της βρετανικής πρεσβείας Μακάρτνεϊ (1793) για άνοιγμα του εμπορίου, βέβαιος για την απόλυτη αυτάρκεια της Κίνας, μια στάση που οδήγησε στην καταστροφή των Πολέμων του Οπίου.
+          </div>
+        </div>
+
+        <p><strong>Η Πρεσβεία Μακάρτνεϊ (1793): «Ο Φόρος Υποτελείας των Κοκκινομάλληδων Βαρβάρων»:</strong> Το 1793, η Μεγάλη Βρετανία απέστειλε στο Πεκίνο τον Λόρδο Τζορτζ Μακάρτνεϊ με 600 κιβώτια γεμάτα από τα πιο εξελιγμένα θαύματα της βρετανικής βιομηχανίας (τηλεσκόπια, χρονόμετρα, αστρονομικά πλανητάρια, ατμομηχανές), ζητώντας το άνοιγμα του ελεύθερου εμπορίου. Οι Κινέζοι αξιωματούχοι, με αδιαπέραστη υπεροψία, κρέμασαν κίτρινα λάβαρα πάνω στα πλοιάρια των Βρετανών που έγραφαν: <em>«Ο φόρος υποτελείας από τους κοκκινομάλληδες βαρβάρους της Αγγλίας»</em>!</p>
+
+        <p>Όταν ο Μακάρτνεϊ αρνήθηκε να γονατίσει και να χτυπήσει εννέα φορές το μέτωπο στο πάτωμα (<em>kowtow</em>), ο Τσιανλόνγκ απάντησε με το περίφημο διάταγμα προς τον βασιλιά Γεώργιο Γ΄: <em>«Η Ουράνια Αυτοκρατορία μας διαθέτει τα πάντα σε υπεραφθονία και δεν στερείται κανενός αγαθού εντός των συνόρων της. Δεν έχουμε καμία ανάγκη να εισάγουμε τα κατασκευάσματα των ξένων βαρβάρων...»</em>. Αυτή η υπεροπτική αυτάρκεια και τεχνολογική στασιμότητα άνοιξε τον δρόμο για τη συντριβή της Κίνας στους Πολέμους του Οπίου.</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=I5Ce4KSe5XY&t=5130s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:25:30</a>
+          </div>
+          <div class="box-maria-quote">
+            «Όταν ο Λόρδος Μακάρτνεϊ πήγε το 1793 στον αυτοκράτορα Τσιανλόνγκ και του έφερε τα πιο προηγμένα ρολόγια, ατμομηχανές και τηλεσκόπια της βρετανικής βιομηχανίας, ο Κινέζος αυτοκράτορας δεν καταδέχτηκε καν να σηκωθεί από τον θρόνο του! Έστειλε γράμμα στον βασιλιά της Αγγλίας λέγοντας: "Εμείς έχουμε τα πάντα, δεν χρειαζόμαστε τα μπιχλιμπίδια των βαρβάρων!". Αυτή η αλαζονεία, αυτό το βαθύ αίσθημα αυτάρκειας ήταν που κόστισε στην Κίνα τον διαμελισμό της από τους Ευρωπαίους σαράντα χρόνια μετά!»
+          </div>
+        </div>
+
+        <h2>6. Ετυμολογικό Εργαστήρι</h2>
+
+        <div class="box-etymology">
+          <div class="box-etymology-title">🗣️ Ετυμολογικο Εργαστηρι: Ορολογια της Αυτοκρατορικης Ανατολης</div>
+          <div class="box-etymology-content">
+            Οι λέξεις των μεγάλων ανατολικών αυλών:
+            <ul>
+              <li><strong>Μουγκάλ (Mughal):</strong> Περσική παραλλαγή της λέξης <em>Μογγόλος</em>.</li>
+              <li><strong>Ταζ Μαχάλ (Taj Mahal):</strong> «Το Στέμμα του Παλατιού» (από το <em>Taj</em> = στέμμα και το όνομα της συζύγου <em>Mumtaz Mahal</em> = το εκλεκτό κόσμημα του ανακτόρου).</li>
+              <li><strong>Απαγορευμένη Πόλη (Zijincheng):</strong> Κυριολεκτικά «Πορφυρή Απαγορευμένη Πόλη», εμπνευσμένη από το πορφυρό χρώμα του Πολικού Αστέρα, γύρω από τον οποίο περιστρέφεται το σύμπαν.</li>
+              <li><strong>Μανδαρίνος (Mandarin):</strong> Από το πορτογαλικό <em>mandarim</em>, που ριζώνει στο σανσκριτικό <em>mantri</em> (σύμβουλος / υπουργός).</li>
+              <li><strong>Kowtow (Κοου-τόου):</strong> Από το κινεζικό <em>kòutóu</em> (χτυπώ το μέτωπο στο πάτωμα), η παραδοσιακή πράξη υπέρτατης υποταγής στον αυτοκράτορα.</li>
+            </ul>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">🐉</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Η Εσωστρέφεια των Γιγάντων</h3>
+        <p class="synthesis-text">
+          «Τον 17ο και 18ο αιώνα, η Ινδία και η Κίνα αποτελούσαν από κοινού τα δύο μεγαλύτερα δημογραφικά και οικονομικά μεγαθήρια του πλανήτη, παράγοντας πάνω από το 50% του παγκόσμιου ΑΕΠ. Κι όμως, η εσωστρέφεια, η αυτάρκεια και ο θρησκευτικός δογματισμός τις άφησαν απροετοίμαστες απέναντι στην επιθετική βιομηχανική και στρατιωτική εξάπλωση των ευρωπαϊκών δυνάμεων.
+          <br><br>
+          Έχοντας ολοκληρώσει αυτό το μεγάλο ταξίδι από τους κυνηγούς-τροφοσυλλέκτες μέχρι τις μεγάλες αυτοκρατορίες της Ασίας (Κεφάλαια 1 έως 14), τα επόμενα κεφάλαια οδηγούν την αφήγηση προς την Ιαπωνία, τη Ρωσία και τον σύγχρονο παγκοσμιοποιημένο κόσμο.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch13.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">13. Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+        <a href="ch15.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">15. Κίνα & Ιαπωνία (Σύντομα διαθέσιμο)</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

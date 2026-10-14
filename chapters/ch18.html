@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 18</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch18">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΔΕΚΑΤΟ ΟΓΔΟΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Ρωσία & ο Κόσμος</h1>
+        <p class="chapter-subtitle">Από τον Ναπολέοντα στο 1812, την Επανάσταση του 1917, το Στάλινγκραντ και την Κατάρρευση της ΕΣΣΔ.</p>
+        
+        <a href="https://www.youtube.com/watch?v=tsrgC8mIVd0" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube / BLOD (Διάρκεια: 2 ώρες & 36 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο τις Φλογες της Μοσχας στο Τελος της Σοβιετικης Ενωσης</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">1812</div>
+            <div class="timeline-desc">Εισβολή του Ναπολέοντα – Μάχη του Μποροντίνο – Πυρπόληση της Μόσχας και συντριβή της Μεγάλης Στρατιάς.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1825</div>
+            <div class="timeline-desc">Εξέγερση των Δεκεμβριστών στην Πετρούπολη: Οι ευγενείς αξιωματικοί ζητούν Σύνταγμα και ελευθερία.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1861</div>
+            <div class="timeline-desc">Ο Τσάρος Αλέξανδρος Β΄ καταργεί τη Δουλοπαροικία – Απελευθέρωση 23 εκατομμυρίων χωρικών.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1917</div>
+            <div class="timeline-desc">Οκτωβριανή Επανάσταση: Ο Λένιν και οι Μπολσεβίκοι ανατρέπουν την κυβέρνηση – Ίδρυση της ΕΣΣΔ (1922).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1942–1943</div>
+            <div class="timeline-desc">Μάχη του Στάλινγκραντ: Η καμπή του Β΄ Παγκοσμίου Πολέμου – 27 εκατομμύρια Σοβιετικοί νεκροί.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1991</div>
+            <div class="timeline-desc">Διάλυση της Σοβιετικής Ένωσης υπό τον Μιχαήλ Γκορμπατσόφ – Τέλος του Ψυχρού Πολέμου.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Article -->
+      <article class="chapter-body">
+
+        <h2 id="sec-1">1. Ο Πατριωτικός Πόλεμος του 1812: Ο Ναπολέων στις Φλόγες της Μόσχας</h2>
+        
+        <p>
+          Στο 18ο μάθημα της σειράς, η <strong>Μαρία Ευθυμίου</strong> αναλύει την πορεία της Ρωσίας στη διεθνή σκηνή κατά τον 19ο και 20ό αιώνα: από τη σύγκρουση με τη ναπολεόντεια Ευρώπη έως τη σεισμική κομμουνιστική επανάσταση και τη γέννηση της Σοβιετικής υπερδύναμης.
+        </p>
+
+        <p>
+          Το καλοκαίρι του 1812, ο Ναπολέων Βοναπάρτης εισέβαλε στη Ρωσία επικεφαλής της μεγαλύτερης στρατιάς που είχε δει μέχρι τότε ο κόσμος: της <strong>Μεγάλης Στρατιάς (Grande Armée)</strong>, αποτελούμενης από πάνω από <strong>600.000 άνδρες</strong> από είκοσι διαφορετικά ευρωπαϊκά έθνη.
+        </p>
+
+        <p>
+          Ο ηλικιωμένος αρχιστράτηγος <strong>Μιχαήλ Κουτούζοφ</strong> εφάρμοσε την αδυσώπητη τακτική της «καμένης γης». Μετά την τιτάνια <strong>Μάχη του Μποροντίνο</strong> (όπου έπεσαν 70.000 στρατιώτες σε μία μέρα!), ο Ναπολέων εισήλθε στη Μόσχα, μόνο για να δει τους ίδιους τους Ρώσους να πυρπολούν την ιερή τους πόλη!
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/napoleon_1812_retreat.jpg" alt="Η υποχώρηση των Γάλλων στρατιωτών μέσα στον ρωσικό χειμώνα (Ιλαριόν Πριανίσνικοφ, 1874, Πινακοθήκη Τρετιακόφ)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 18.1:</strong> <em>«Το 1812»</em> (Ιλαριόν Πριανίσνικοφ, 1874, Πινακοθήκη Τρετιακόφ, Μόσχα). Εξαθλιωμένοι Γάλλοι αιχμάλωτοι οδηγούνται μέσα στα χιόνια από Ρώσους χωρικούς αντάρτες κατά την καταστροφική υποχώρηση της Grande Armée.
+          </figcaption>
+        </figure>
+
+        <!-- Maria Quote Box 1 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=tsrgC8mIVd0&t=1120s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 18:40</a>
+          </div>
+          <p class="box-maria-quote">
+            «Η εκστρατεία του 1812 ήταν η πρώτη φορά που η Ευρώπη κατάλαβε τι σημαίνει η ρωσική γεωγραφία. Ο Ναπολέων δεν νικήθηκε από έναν καλύτερο στρατηγό· νικήθηκε από το αχανές μέγεθος της γης, από την πείσμονα άρνηση των Ρώσων να συνθηκολογήσουν ακόμη κι αν καεί η ίδια τους η πρωτεύουσα, και από αυτόν τον απίστευτο πατριωτισμό που ενώνει τον Ρώσο αγρότη με τον Τσάρο του όταν κινδυνεύει η μητέρα-πατρίδα!»
+          </p>
+        </div>
+
+        <h2 id="sec-2">2. Οι Δεκεμβριστές & η Κατάργηση της Δουλοπαροικίας</h2>
+
+        <p>
+          Οι νεαροί ευγενείς αξιωματικοί που παρέλασαν στο Παρίσι το 1814 επέστρεψαν με ευρωπαϊκές ιδέες ελευθερίας. Τον Δεκέμβριο του 1825 οργάνωσαν την <strong>Εξέγερση των Δεκεμβριστών</strong> στην Αγία Πετρούπολη ζητώντας Σύνταγμα, για να συντριβούν από τα κανόνια του Νικολάου Α΄.
+        </p>
+
+        <p>
+          Ωστόσο, η ανάγκη για εκσυγχρονισμό ήταν αδήριτη. Το <strong>1861</strong>, μετά το σοκ της ήττας στον Κριμαϊκό Πόλεμο, ο Τσάρος <strong>Αλέξανδρος Β΄ ο Ελευθερωτής</strong> πήρε την ιστορική απόφαση και **κατήργησε τη δουλοπαροικία**, απελευθερώνοντας 23 εκατομμύρια ψυχές. Όμως η γη που δόθηκε στους χωρικούς ήταν ελάχιστη και τα λύτρα εξαγοράς δυσβάσταχτα, τροφοδοτώντας την κοινωνική έκρηξη.
+        </p>
+
+        <h2 id="sec-3">3. Η Οκτωβριανή Επανάσταση του 1917 & ο Λένιν</h2>
+
+        <p>
+          Η κατάρρευση του ρωσικού μετώπου στον Α΄ Παγκόσμιο Πόλεμο και ο λιμός οδήγησαν στην πτώση της δυναστείας των Ρομανόφ τον Φεβρουάριο του 1917. 
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/lenin_speech_1920.jpg" alt="Ο Βλαντίμιρ Ίλιτς Λένιν απευθύνεται στους εργάτες και στρατιώτες στη Μόσχα (1920)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 18.2:</strong> Ο Βλαντίμιρ Ίλιτς Λένιν εκφωνεί λόγο σε πλήθος επαναστατημένων στρατιωτών και εργατών στη Μόσχα (1920). Στα δεξιά του στα σκαλοπάτια διακρίνεται ο Λέων Τρότσκι.
+          </figcaption>
+        </figure>
+
+        <p>
+          Ο <strong>Βλαντίμιρ Ίλιτς Λένιν</strong>, επιστρέφοντας από την Ελβετία, συνάρπασε τις μάζες με τα συνθήματα <em>«Όλη η εξουσία στα Σοβιέτ!»</em> και <em>«Ειρήνη, Γη και Ψωμί!»</em>. Στις 25 Οκτωβρίου (7 Νοεμβρίου) 1917, οι Μπολσεβίκοι κατέλαβαν τα Χειμερινά Ανάκτορα, εγκαθιδρύοντας το πρώτο κομμουνιστικό κράτος στον πλανήτη.
+        </p>
+
+        <p>
+          Για να διασώσει την επανάσταση, ο Λένιν επέδειξε ακραίο πολιτικό πραγματισμό (<em>Realpolitik</em>): υπέγραψε την ταπεινωτική <strong>Συνθήκη του Μπρεστ-Λιτόφσκ (Μάρτιος 1918)</strong> με τη Γερμανία, παραχωρώντας το ένα τρίτο του πληθυσμού και το 54% της ρωσικής βιομηχανίας (Ουκρανία, Βαλτική, Πολωνία) ώστε να κερδίσει χρόνο και να συντρίψει τους εσωτερικούς αντιπάλους στον αιματηρό Εμφύλιο Πόλεμο (1917–1922).
+        </p>
+
+        <!-- Maria Quote Box 2 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=tsrgC8mIVd0&t=3495s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 58:15</a>
+          </div>
+          <p class="box-maria-quote">
+            «Η Οκτωβριανή Επανάσταση δεν άλλαξε απλώς τη Ρωσία· άλλαξε τον ρου ολόκληρου του 20ού αιώνα! Για πρώτη φορά στην ιστορία της ανθρωπότητας, μια κυβέρνηση επιχείρησε να καταργήσει ολοκληρωτικά τον καπιταλισμό και την ατομική ιδιοκτησία, εφαρμόζοντας στην πράξη τις θεωρίες του Μαρξ. Και ολόκληρος ο δυτικός καπιταλισμός, από τον τρόμο του μήπως οι εργάτες του ακολουθήσουν το παράδειγμα των Μπολσεβίκων, αναγκάστηκε να δημιουργήσει το Κοινωνικό Κράτος, την οκτάωρη εργασία, τις συντάξεις και τη δωρεάν υγεία!»
+          </p>
+        </div>
+
+        <h2 id="sec-4">4. Ο Στάλιν, το Στάλινγκραντ & η Νίκη στον Β΄ Παγκόσμιο Πόλεμο</h2>
+
+        <p>
+          Υπό τη σιδερένια πυγμή του <strong>Ιωσήφ Στάλιν</strong>, η ΕΣΣΔ μετατράπηκε σε βιομηχανικό γίγαντα με τίμημα εκατομμύρια νεκρούς στα Γκουλάγκ και στον Μεγάλο Λιμό (Γολοντομόρ).
+        </p>
+
+        <p>
+          Όταν η ναζιστική Γερμανία εισέβαλε το 1941, ο ρωσικός λαός έδωσε τον τιτάνιο <strong>Μεγάλο Πατριωτικό Πόλεμο</strong>. Στη <strong>Μάχη του Στάλινγκραντ (1942–43)</strong>, μέσα στα ερείπια σώμα με σώμα, ο Κόκκινος Στρατός συνέτριψε την 6η Στρατιά της Βέρμαχτ. Λίγους μήνες μετά, στη γιγαντιαία <strong>Μάχη του Κουρσκ (Ιούλιος 1943)</strong> —τη μεγαλύτερη αρματομαχία στην παγκόσμια ιστορία με 6.000 τεθωρακισμένα— η γερμανική επιθετική ισχύς τσακίστηκε οριστικά. Με συνολικό κόστος <strong>27 εκατομμύρια νεκρούς</strong>, η Σοβιετική Ένωση σήκωσε το κύριο βάρος της συντριβής του ναζισμού και ύψωσε τη σημαία της στο Βερολίνο το 1945.
+        </p>
+
+        <!-- Maria Quote Box 3 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=tsrgC8mIVd0&t=5710s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:35:10</a>
+          </div>
+          <p class="box-maria-quote">
+            «Κοιτάξτε να δείτε το μέγεθος της θυσίας: είκοσι επτά εκατομμύρια νεκροί! Δεν υπάρχει ρωσική οικογένεια που να μην έχασε πατέρα, αδελφό, γιο. Και στο Στάλινγκραντ, πολεμούσαν δωμάτιο με δωμάτιο, σκάλα με σκάλα, μέσα στα ερείπια! Οι στρατιώτες του Κόκκινου Στρατού ήξεραν ότι πίσω τους ήταν ο Βόλγας και δεν υπήρχε πουθενά να υποχωρήσουν. Αυτή η ασύλληπτη αντοχή του ρωσικού λαού στον πόνο ήταν που τσάκισε τη ναζιστική μηχανή και έσωσε την Ευρώπη!»
+          </p>
+        </div>
+
+        <div class="did-you-know">
+          <div class="did-you-know-title">💡 ΓΝΩΡΙΖΑΤΕ ΟΤΙ;</div>
+          <p>
+            Στις 12 Απριλίου 1961, ο 27χρονος Σοβιετικός κοσμοναύτης <strong>Γιούρι Γκαγκάριν</strong> έγινε ο πρώτος άνθρωπος στην ιστορία που ταξίδεψε στο διάστημα, ολοκληρώνοντας μια πλήρη τροχιά γύρω από τη Γη με το διαστημόπλοιο <em>Βοστόκ 1</em> μέσα σε 108 λεπτά!
+          </p>
+        </div>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/yuri_gagarin.jpg" alt="Ο Γιούρι Γκαγκάριν, ο πρώτος άνθρωπος στο διάστημα (1961)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 18.3:</strong> Ο Γιούρι Γκαγκάριν (1934–1968), ο πρώτος άνθρωπος που πέταξε στο διάστημα (12 Απριλίου 1961). Το απόγειο του σοβιετικού τεχνολογικού θριάμβου στον Ψυχρό Πόλεμο.
+          </figcaption>
+        </figure>
+
+        <h2 id="sec-5">5. Ο Ψυχρός Πόλεμος, η Κρίση της Κούβας & η Κατάρρευση του 1991</h2>
+
+        <p>
+          Στον Ψυχρό Πόλεμο, η ένταση έφτασε στο απόγειό της τον Οκτώβριο του 1962 με την <strong>Πυραυλική Κρίση της Κούβας</strong>: επί 13 ημέρες, η ανθρωπότητα ισορρόπησε στο χείλος του πυρηνικού ολέθρου ανάμεσα στον Νικίτα Χρουστσόφ και τον Τζον Κένεντι, προτού επιτευχθεί ο συμβιβασμός απομάκρυνσης των σοβιετικών πυραύλων από την Κούβα και των αμερικανικών από την Τουρκία.
+        </p>
+
+        <p>
+          Παρά την υπεροπλία και τις διαστημικές κατακτήσεις, η σοβιετική κεντρικά σχεδιασμένη οικονομία κατέρρευσε υπό το βάρος των εξοπλισμών και της ανεπάρκειας αγαθών. 
+        </p>
+
+        <p>
+          Οι μεταρρυθμίσεις της <strong>Γκλάσνοστ</strong> και της <strong>Περεστρόικα</strong> του <strong>Μιχαήλ Γκορμπατσόφ</strong> οδήγησαν στην πτώση του Τείχους του Βερολίνου (1989) και, τελικά, στην επίσημη διάλυση της Σοβιετικής Ένωσης τα Χριστούγεννα του 1991.
+        </p>
+
+        <!-- Summary Table -->
+        <h2 id="sec-6">6. Συνοπτικός Πίνακας: Οι Σταθμοί της Σύγχρονης Ρωσίας</h2>
+        <div class="table-responsive">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Έτος</th>
+                <th>Γεγονός</th>
+                <th>Κεντρική Προσωπικότητα</th>
+                <th>Ιστορικός Αντίκτυπος</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1812</strong></td>
+                <td>Πατριωτικός Πόλεμος κατά του Ναπολέοντα</td>
+                <td>Αλέξανδρος Α΄ / Κουτούζοφ</td>
+                <td>Καταστροφή Grande Armée, απελευθέρωση Ευρώπης</td>
+              </tr>
+              <tr>
+                <td><strong>1861</strong></td>
+                <td>Κατάργηση της Δουλοπαροικίας</td>
+                <td>Αλέξανδρος Β΄</td>
+                <td>Απελευθέρωση 23 εκατ. χωρικών</td>
+              </tr>
+              <tr>
+                <td><strong>1917</strong></td>
+                <td>Οκτωβριανή Επανάσταση</td>
+                <td>Β. Ι. Λένιν / Λ. Τρότσκι</td>
+                <td>Πτώση Τσαρισμού, μπολσεβίκικη κατάληψη εξουσίας</td>
+              </tr>
+              <tr>
+                <td><strong>1918</strong></td>
+                <td>Συνθήκη Μπρεστ-Λιτόφσκ</td>
+                <td>Β. Ι. Λένιν</td>
+                <td>Έξοδος από Α΄ ΠΠ, παραχώρηση εδαφών για σωτηρία επανάστασης</td>
+              </tr>
+              <tr>
+                <td><strong>1942–43</strong></td>
+                <td>Στάλινγκραντ & Μάχη του Κουρσκ</td>
+                <td>Ιωσήφ Στάλιν / Γκ. Ζούκοφ</td>
+                <td>Συντριβή Βέρμαχτ, μεγαλύτερη αρματομαχία, 27 εκ. νεκροί</td>
+              </tr>
+              <tr>
+                <td><strong>1961</strong></td>
+                <td>Πρώτος άνθρωπος στο Διάστημα</td>
+                <td>Γιούρι Γκαγκάριν</td>
+                <td>Θρίαμβος στην Κούρσα του Διαστήματος</td>
+              </tr>
+              <tr>
+                <td><strong>1962</strong></td>
+                <td>Πυραυλική Κρίση της Κούβας</td>
+                <td>Ν. Χρουστσόφ / Τζ. Κένεντι</td>
+                <td>13 ημέρες στο χείλος του πυρηνικού πολέμου</td>
+              </tr>
+              <tr>
+                <td><strong>1991</strong></td>
+                <td>Διάλυση της Σοβιετικής Ένωσης</td>
+                <td>Μιχαήλ Γκορμπατσόφ</td>
+                <td>Τέλος Ψυχρού Πολέμου, γέννηση 15 κρατών</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">🌍</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Το Μεγάλο Εκκρεμές</h3>
+        <p class="synthesis-text">
+          «Η ιστορία της Ρωσίας κινείται σαν ένα τεράστιο εκκρεμές: από την προσέγγιση με την Ευρώπη στην απομόνωση, από την αυτοκρατορική δόξα στην επαναστατική καταστροφή, και από τη σοβιετική παντοδυναμία στην ταπείνωση του 1991. Η κατανόηση αυτού του εκκρεμούς είναι απαραίτητη για να αντιληφθούμε τις γεωπολιτικές συγκρούσεις του σήμερα.
+          <br><br>
+          Στο επόμενο κεφάλαιο (Κεφάλαιο 19), επιστρέφουμε στη Δύση για να εξετάσουμε τον απόλυτο μετασχηματισμό της ανθρωπότητας: τη <strong>Βιομηχανική Επανάσταση</strong>, τη δύναμη του ατμού, τα ανθρακωρυχεία, τον Μαρξισμό, και τη διανομή του πλανήτη στη Διάσκεψη του Βερολίνου.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch17.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">17. Ρωσία</span>
+        </a>
+        <a href="ch19.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">19. Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

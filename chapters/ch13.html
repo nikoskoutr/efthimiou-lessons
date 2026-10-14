@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 13</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch13">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΔΕΚΑΤΟ ΤΡΙΤΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Αραβικός Πολιτισμός & Ινδία</h1>
+        <p class="chapter-subtitle">Η Χρυσή Εποχή της Επιστήμης στη Βαγδάτη, η Αλ-Ανταλούς της Κόρδοβας και το Σουλτανάτο του Δελχί.</p>
+        
+        <a href="https://www.youtube.com/watch?v=uAcqnNOeTI8" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube (Διάρκεια: 2 ώρες & 42 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο την Ιδρυση της Βαγδατης στη Μαχη του Πανιπατ</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">750 μ.Χ.</div>
+            <div class="timeline-desc">Η Επανάσταση των Αββασιδών & ίδρυση της κυκλικής Βαγδάτης (762).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">751 μ.Χ.</div>
+            <div class="timeline-desc">Μάχη του Ταλάς: Αιχμαλωσία Κινέζων χαρτοποιών – Έναρξη της επανάστασης του χαρτιού και έκρηξη των βιβλιοθηκών.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">~830 μ.Χ.</div>
+            <div class="timeline-desc">Ο Χαλίφης Αλ-Μαμούν ιδρύει τον «Οίκο της Σοφίας» (Bayt al-Hikma) & ακμή του Αλ-Χουαρίζμι.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">929–1031 μ.Χ.</div>
+            <div class="timeline-desc">Το Χαλιφάτο της Κόρδοβας στην Ισπανία: Το απόγειο της συνύπαρξης (*Convivencia*) στην Αλ-Ανταλούς.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1025 μ.Χ.</div>
+            <div class="timeline-desc">Ο Μαχμούντ του Γκάζνι λεηλατεί τον πλούσιο ναό Σομνάθ στη Βόρεια Ινδία.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1206 μ.Χ.</div>
+            <div class="timeline-desc">Ίδρυση του Σουλτανάτου του Δελχί και ανέγερση του μιναρέ Qutb Minar.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1526 μ.Χ.</div>
+            <div class="timeline-desc">Μάχη του Πανιπάτ: Ο Μπαμπούρ νικά με πυροβολικό και ιδρύει την Αυτοκρατορία των Μουγκάλ.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Body Content -->
+      <article class="chapter-body">
+
+        <h2>1. Το Χαλιφάτο των Αββασιδών: Η Βαγδάτη ως Μητρόπολη του Κόσμου</h2>
+
+        <p>Στο δέκατο τρίτο μάθημα της σειράς, η Μαρία Ευθυμίου αναλύει την ασύλληπτη πνευματική, επιστημονική και καλλιτεχνική έκρηξη του μεσαιωνικού ισλαμικού κόσμου: <strong>τη Χρυσή Εποχή του Ισλάμ</strong>. Το 750 μ.Χ., οι Αββασίδες ανέτρεψαν τους Ομεϋάδες και μετέφεραν το κέντρο βάρους από τη Συρία στη Μεσοποταμία.</p>
+
+        <p>Το 762 μ.Χ., ο Χαλίφης Αλ-Μανσούρ έχτισε τη νέα πρωτεύουσα: τη <strong>Βαγδάτη (<em>Madinat as-Salam</em> = Πόλη της Ειρήνης)</strong>, μια απόλυτα κυκλική πόλη με ομόκεντρα τείχη πάνω στον ποταμό Τίγρη. Επί του Χαλίφη <strong>Χαρούν αλ-Ρασίντ</strong> (των <em>Χιλίων και Μίας Νυχτών</em>) και του γιου του <strong>Αλ-Μαμούν</strong>, η πόλη ξεπέρασε το ένα εκατομμύριο κατοίκους, αποτελώντας το λαμπρότερο κέντρο εμπορίου, επιστήμης και πλούτου στον πλανήτη.</p>
+
+        <h3>Η Μάχη του Ταλάς (751 μ.Χ.) & η Επανάσταση του Χαρτιού</h3>
+        <p>Τον Ιούλιο του <strong>751 μ.Χ.</strong>, στις όχθες του ποταμού Ταλάς στην Κεντρική Ασία, οι Αββασίδες συγκρούστηκαν με τον αυτοκρατορικό στρατό της κινεζικής δυναστείας των Τανγκ. Ανάμεσα στους Κινέζους αιχμαλώτους βρίσκονταν <strong>τεχνίτες που κατείχαν το μυστικό της κατασκευής χαρτιού</strong>! Οι Άραβες μετέφεραν την τεχνογνωσία στη Σαμαρκάνδη και κατόπιν στη Βαγδάτη.</p>
+
+        <p>Στη δυτική Ευρώπη, τα βιβλία γράφονταν σε περγαμηνή (δέρμα ζώου), όπου για ένα μόνο αντίτυπο της Βίβλου απαιτούνταν η <strong>σφαγή 200–300 προβάτων</strong>! Αντίθετα, οι Άραβες κατασκεύασαν φθηνό, ανθεκτικό χαρτί από κουρέλια λιναριού και βαμβάκι. Μέσα σε λίγες δεκαετίες, η Βαγδάτη γέμισε με πάνω από 100 βιβλιοπωλεία και εργαστήρια αντιγραφέων στην αγορά <em>Suq al-Warraqin</em>, πυροδοτώντας μια άνευ προηγουμένου διάχυση της γνώσης.</p>
+
+        <h2>2. Ο «Οίκος της Σοφίας» (Bayt al-Hikma) & το Κίνημα των Μεταφράσεων</h2>
+
+        <p>Στη Βαγδάτη, ο Χαλίφης Αλ-Μαμούν ίδρυσε τον περίφημο <strong>Οίκο της Σοφίας (<em>Bayt al-Hikma</em>)</strong>. Εκεί πραγματοποιήθηκε ένα από τα μεγαλύτερα πνευματικά θαύματα της ιστορίας: λόγιοι κάθε πίστης —Μουσουλμάνοι, Νεστοριανοί Χριστιανοί, Ιουδαίοι και Ζωροάστρες— συγκέντρωσαν, μετέφρασαν στα αραβικά και σχολίασαν όλα τα σωζόμενα έργα της κλασικής ελληνικής γραμματείας (Αριστοτέλη, Πλάτωνα, Ευκλείδη, Γαληνό, Ιπποκράτη, Αρχιμήδη, Πτολεμαίο), καθώς και περσικά και ινδικά συγγράμματα.</p>
+
+        <p>Ο επικεφαλής των μεταφραστών, ο χριστιανός Άραβας λόγιος <strong>Χουναΐν ιμπν Ισχάκ (Hunayn ibn Ishaq)</strong>, απολάμβανε μια μυθική αμοιβή: ο Χαλίφης τον αντάμειβε <strong>πληρώνοντάς τον σε καθαρό χρυσάφι ίσο με το βάρος κάθε μεταφρασμένου βιβλίου</strong>!</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=uAcqnNOeTI8&t=2475s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 0ω 41:15</a>
+          </div>
+          <div class="box-maria-quote">
+            «Φανταστείτε τον Χαλίφη της Βαγδάτης, τον Αλ-Μαμούν, να λέει στον μεταφραστή: "Ό,τι μεταφράζεις από τα ελληνικά στα αραβικά, θα σου το πληρώνω σε καθαρό χρυσάφι, ίσο με το βάρος του βιβλίου!". Και τι έκανε ο δαιμόνιος χριστιανός γιατρός Χουναΐν; Έγραφε με τεράστια γράμματα, σε παχύ, βαρύ χαρτί, με ατελείωτα περιθώρια! Το έβαζαν στην πλάστιγγα: πέντε κιλά το βιβλίο; Πέντε κιλά χρυσάφι στο χέρι! Αυτή ήταν η δίψα των Αράβων για τη γνώση: πλήρωναν μυθικά ποσά για ένα χειρόγραφο του Αριστοτέλη ή του Γαληνού!»
+          </div>
+        </div>
+
+        <h3>Η Τετραπλή Αλυσίδα: Πώς Διασώθηκε η Αρχαία Σοφία</h3>
+        <p>Η διάσωση της αρχαιοελληνικής κληρονομιάς υπήρξε μια σκυταλοδρομία τεσσάρων σταθμών:</p>
+        <ol>
+          <li><strong>Ελληνικό Πρωτότυπο:</strong> Έργα Αριστοτέλη, Γαληνού, Ευκλείδη σε Αλεξάνδρεια, Αντιόχεια και Κωνσταντινούπολη.</li>
+          <li><strong>Συριακή Μετάφραση:</strong> Από Νεστοριανούς και Μονοφυσίτες χριστιανούς λογίους στην Έδεσσα και τη Νίσιβη.</li>
+          <li><strong>Αραβική Μετάφραση & Εμπλουτισμός:</strong> Στον Οίκο της Σοφίας στη Βαγδάτη και στην Κόρδοβα, όπου τα κείμενα σχολιάστηκαν και αναπτύχθηκαν από τον Αβικέννα και τον Αβερρόη.</li>
+          <li><strong>Λατινική Μετάφραση:</strong> Τον 12ο αιώνα, στη <em>Σχολή Μεταφραστών του Τολέδο</em> στην Ισπανία (Γεράρδος της Κρεμόνας), όπου μεταφράστηκαν στα λατινικά, γονιμοποιώντας τα πρώτα ευρωπαϊκά πανεπιστήμια (Παρίσι, Οξφόρδη, Μπολόνια).</li>
+        </ol>
+
+        <!-- Plate 1: House of Wisdom Miniature -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/house_of_wisdom_miniature.jpg" alt="Λόγιοι σε βιβλιοθήκη της Βαγδάτης (Μικρογραφία του Yahya al-Wasiti, 1237, BnF)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 1: Ο Οίκος της Σοφίας στη Βαγδάτη (Yahya al-Wasiti, 1237, Εθνική Βιβλιοθήκη της Γαλλίας, BnF)</strong>
+            <span class="map-badge">BnF / Παρισι</span>
+            Μικρογραφία από τις <em>Μακαμάτ</em> του Αλ-Χαρίρι που αποτυπώνει λογίους σε αραβική βιβλιοθήκη. Στον Οίκο της Σοφίας διασώθηκαν και πολλαπλασιάστηκαν τα άπαντα της αρχαίας ελληνικής επιστήμης και φιλοσοφίας, προσφέροντας στην ανθρωπότητα τη γέφυρα προς τον Διαφωτισμό.
+          </div>
+        </div>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=uAcqnNOeTI8&t=3130s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 0ω 52:10</a>
+          </div>
+          <div class="box-maria-quote">
+            «Πρέπει να συνειδητοποιήσουμε ότι χωρίς τον αραβικό πολιτισμό, η ευρωπαϊκή Αναγέννηση δεν θα είχε συμβεί ποτέ! Όταν η Δυτική Ευρώπη ήταν ένα βυθισμένο στον αναλφαβητισμό χωριό, στη Βαγδάτη οι Άραβες όχι μόνο μετέφραζαν τον Αριστοτέλη, τον Ιπποκράτη και τον Ευκλείδη, αλλά τους ανέπτυσσαν! Εφηύραν την άλγεβρα, πήραν τα ινδικά ψηφία και το μηδέν, έκαναν εγχειρήσεις καταρράκτη και μέτρησαν την περιφέρεια της γης με ακρίβεια εκατομέτρων!»
+          </div>
+        </div>
+
+        <h2>3. Οι Γίγαντες της Επιστήμης και της Σκέψης</h2>
+
+        <ul>
+          <li><strong>Αλ-Χουαρίζμι (Al-Khwarizmi, 780–850):</strong> Ο θεμελιωτής της <strong>Άλγεβρας</strong> (*Al-Jabr*), από το όνομα του οποίου προήλθε ο όρος <strong>αλγόριθμος</strong>. Εισήγαγε στον κόσμο τα ινδικά ψηφία και το μηδέν (*sifr*).</li>
+          <li><strong>Αλ-Μπιρουνί (Al-Biruni, 973–1048):</strong> Υπολόγισε την ακτίνα της Γης με αστρολάβο από την κορυφή ενός λόφου στην Παντζάμπ, βρίσκοντας 6.335,7 χλμ. (απόκλιση μόλις 0,6% από τη σύγχρονη δορυφορική μέτρηση των 6.371 χλμ.!).</li>
+          <li><strong>Ιμπν Σίνα / Αβικέννας (Ibn Sina, 980–1037):</strong> Συγγραφέας του <em>Κανόνα της Ιατρικής (*Al-Qanun fi al-Tibb*)</em>, που αποτέλεσε τη βάση της ιατρικής εκπαίδευσης στην Ευρώπη επί έξι αιώνες.</li>
+          <li><strong>Ιμπν αλ-Χαϊθάμ / Αλχαζέν (Alhazen, 965–1040):</strong> Πατέρας της σύγχρονης <strong>Οπτικής</strong>, ανακάλυψε τη λειτουργία της σκοτεινής κάμερας (*camera obscura*) και απέδειξε ότι το φως εισέρχεται στο μάτι από τα αντικείμενα.</li>
+          <li><strong>Ιμπν Ρουσντ / Αβερρόης (Ibn Rushd, 1126–1198):</strong> Ο μέγιστος φιλόσοφος της Κόρδοβας, υπερασπιστής της επιστημονικής λογικής και της αυτονομίας της φιλοσοφίας.</li>
+        </ul>
+
+        <h2>4. Η Αλ-Ανταλούς: Το Θαύμα της Κόρδοβας</h2>
+
+        <p>Στην Ιβηρική Χερσόνησο, ο επιζών των Ομεϋαδών πρίγκιπας <strong>Αμπντ αλ-Ραχμάν Α΄</strong> ίδρυσε το 756 μ.Χ. το ανεξάρτητο εμιράτο της <strong>Αλ-Ανταλούς (Al-Andalus)</strong>. Η πρωτεύουσά του, η <strong>Κόρδοβα</strong>, υπήρξε το φωτεινό στολίδι της μεσαιωνικής Ευρώπης, με 400.000 κατοίκους, πλακόστρωτους δρόμους με νυχτερινό φωτισμό λαμπτήρων, εκατοντάδες λουτρά και 70 δημόσιες βιβλιοθήκες.</p>
+
+        <!-- Plate 2: Mezquita of Cordoba -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/cordoba_mezquita.jpg" alt="Το Μεγάλο Τέμενος της Κόρδοβας (Mezquita de Córdoba, Ανδαλουσία)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 2: Το Μεγάλο Τέμενος της Κόρδοβας (Mezquita, 8ος–10ος αι. μ.Χ., Ανδαλουσία)</strong>
+            <span class="map-badge">Ανδαλουσια / Ισπανια</span>
+            Το περίφημο «δάσος των 856 κιόνων» με τις διώροφες ριγωτές πεταλοειδείς αψίδες από κόκκινο τούβλο και λευκό πωρόλιθο. Η Mezquita συμβολίζει το απόγειο της αρμονικής συμβίωσης (*Convivencia*) Μουσουλμάνων, Χριστιανών και Εβραίων στην ανδαλουσιανή γη.
+          </div>
+        </div>
+
+        <p>Στην Κόρδοβα άνθισε η λεγόμενη <strong>Convivencia (Συνύπαρξη)</strong>. Εδώ έζησε και συνέγραψε τον *Οδηγό των Απορούντων* ο κορυφαίος Εβραίος φιλόσοφος του Μεσαίωνα, ο <strong>Μωυσής Μαϊμονίδης (Maimonides)</strong>.</p>
+
+        <h2>5. Το Ισλάμ στην Ινδία: Από τον Μαχμούντ του Γκάζνι στον Μπαμπούρ</h2>
+
+        <p>Στην Ανατολή, το Ισλάμ προέλασε στην αχανή ινδική υποήπειρο. Τον 11ο αιώνα, ο Τούρκος ηγεμόνας <strong>Μαχμούντ του Γκάζνι</strong> εξαπέλυσε 17 καταστροφικές επιδρομές, λεηλατώντας τα αμύθητα πλούτη των ινδουιστικών ναών (όπως του ναού Σομνάθ). Το 1206 μ.Χ. ιδρύθηκε το <strong>Σουλτανάτο του Δελχί (1206–1526)</strong>, εδραιώνοντας τη μουσουλμανική διακυβέρνηση.</p>
+
+        <p>Η συνάντηση του ανεικονικού, μονοθεϊστικού Ισλάμ με τον πολυθεϊστικό, πολυδαίδαλο Ινδουισμό των καστών υπήρξε ταυτόχρονα συγκρουσιακή και γόνιμη. Οι μυστικοί <strong>Σούφι</strong> προσέλκυσαν εκατομμύρια Ινδούς των κατώτερων καστών (Ανέγγιχτους) με το κήρυγμα της αδελφοσύνης. Παράλληλα, αναπτύχθηκε το κίνημα <strong>Μπάκτι</strong> και τον 15ο αιώνα ιδρύθηκε ο <strong>Σιχισμός</strong> από τον Γκουρού Νάνακ.</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=uAcqnNOeTI8&t=5900s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:38:20</a>
+          </div>
+          <div class="box-maria-quote">
+            «Όταν το Ισλάμ έφτασε στην Ινδία, συνάντησε το πιο άκαμπτο σύστημα στον πλανήτη: τις κάστες. Αν είχες γεννηθεί Ανέγγιχτος, δεν μπορούσες ούτε να πλησιάσεις άλλον άνθρωπο, ούτε να πιεις από το ίδιο πηγάδι! Και ξαφνικά εμφανίζονται οι μυστικοί δερβίσηδες, οι Σούφι, με μουσικές, με αγάπη, και λένε: "Μπροστά στον Θεό είμαστε όλοι ίσοι! Μπες μέσα, προσευχήσου δίπλα στον πρίγκιπα!". Τι νομίζετε ότι έκαναν εκατομμύρια απελπισμένοι Ινδοί; Έτρεξαν στο Ισλάμ! Όχι με το σπαθί, αλλά από την ανάγκη τους να νιώσουν ισότιμα ανθρώπινα όντα!»
+          </div>
+        </div>
+
+        <!-- Plate 3: Babur Reading Miniature -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/babur_reading_miniature.jpg" alt="Ο αυτοκράτορας Μπαμπούρ διαβάζει υπό το δέντρο (Μικρογραφία του Baburnama, 16ος αι.)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 3: Ο Μπαμπούρ, ιδρυτής της Αυτοκρατορίας των Μουγκάλ (16ος αι., Βρετανική Βιβλιοθήκη)</strong>
+            <span class="map-badge">Βρετανικη Βιβλιοθηκη / Λονδινο</span>
+            Ο Μπαμπούρ, λόγιος ποιητής και αδίστακτος πολεμιστής, απόγονος του Ταμερλάνου και του Τζένγκις Χαν, συνέτριψε το Σουλτανάτο του Δελχί στη Μάχη του Πανιπάτ (1526) εισάγοντας για πρώτη φορά πυροβολικό, και ίδρυσε τη θρυλική δυναστεία των Μουγκάλ.
+          </div>
+        </div>
+
+        <h2>6. Ετυμολογικό Εργαστήρι: Η Αραβική Κληρονομιά στο Λεξιλόγιό μας</h2>
+
+        <div class="box-etymology">
+          <div class="box-etymology-title">🗣️ Ετυμολογικο Εργαστηρι: Αραβικα Δανεια στον Πολιτισμο</div>
+          <div class="box-etymology-content">
+            Λέξεις που χρησιμοποιούμε καθημερινά και μαρτυρούν την αραβική επιστημονική και εμπορική πρωτοπορία:
+            <ul>
+              <li><strong>Άλγεβρα (Algebra):</strong> Από το <em>al-jabr</em> (η αποκατάσταση, συνένωση τεμαχισμένων στοιχείων).</li>
+              <li><strong>Αλγόριθμος (Algorithm):</strong> Παραφθορά του ονόματος του μαθηματικού <em>Al-Khwarizmi</em>.</li>
+              <li><strong>Αλχημεία / Χημεία (Alchemy):</strong> Από το αραβικό <em>al-kimiya</em>.</li>
+              <li><strong>Αλκοόλ (Alcohol):</strong> Από το <em>al-kuhl</em> (λεπτή πούδρα αντιμονίου -> εκλεπτυσμένο απόσταγμα).</li>
+              <li><strong>Ζενίθ & Ναδίρ:</strong> Από τα <em>samt ar-ra's</em> (το υψηλότερο σημείο) και <em>nazir</em> (το αντίστοιχο χαμηλότερο σημείο).</li>
+              <li><strong>Τσεκ (Cheque):</strong> Από το <em>saqq</em> (το γραπτό πιστωτικό έγγραφο των εμπόρων της Βαγδάτης).</li>
+              <li><strong>Ταρίφα (Tariff):</strong> Από το <em>ta'rifa</em> (επίσημη γνωστοποίηση τιμών και δασμών).</li>
+            </ul>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">🏺</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Η Γέφυρα της Παγκόσμιας Γνώσης</h3>
+        <p class="synthesis-text">
+          «Από τη Βαγδάτη των Αββασιδών έως την Κόρδοβα της Ισπανίας και το Δελχί της Ινδίας, ο ισλαμικός πολιτισμός λειτούργησε ως η ζωτική γέφυρα που διατήρησε, εμπλούτισε και συνέδεσε τις επιστημονικές παραδόσεις της Ελλάδας, της Περσίας και της Ινδίας.
+          <br><br>
+          Στο επόμενο κεφάλαιο, ταξιδεύουμε στην Ανατολή: στην Ινδία του Μεγάλου Ακμπάρ και του Ταζ Μαχάλ, και στην αυτοκρατορική Κίνα των Μινγκ και των Τσινγκ, για να γνωρίσουμε τα δύο μεγαλύτερα δημογραφικά και πολιτισμικά μεγαθήρια της ανθρωπότητας.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch12.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">12. Ισλάμ</span>
+        </a>
+        <a href="ch14.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">14. Ινδία & Κίνα</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

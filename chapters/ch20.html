@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 20</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch20">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΕΙΚΟΣΤΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</h1>
+        <p class="chapter-subtitle">Χαρακώματα, η Μεγάλη Ύφεση, το Ολοκαύτωμα, η Χιροσίμα και το Στοίχημα της Παγκοσμιοποίησης.</p>
+        
+        <a href="https://www.youtube.com/watch?v=T_LQ6xJvhy0" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube / BLOD (Διάρκεια: 2 ώρες & 00 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο το Σεραγεβο στην Ψηφιακη Εποχη</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">1914–1918</div>
+            <div class="timeline-desc">Α΄ Παγκόσμιος Πόλεμος: Βιομηχανοποιημένος θάνατος στα χαρακώματα – Κατάρρευση 4 αυτοκρατοριών.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1929</div>
+            <div class="timeline-desc">Κραχ της Wall Street – Παγκόσμια Μεγάλη Ύφεση και άνοδος του Χίτλερ στην εξουσία (1933).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1939–1945</div>
+            <div class="timeline-desc">Β΄ Παγκόσμιος Πόλεμος: Το Ολοκαύτωμα των 6 εκατομμυρίων Εβραίων – Ατομικές βόμβες στη Χιροσίμα και το Ναγκασάκι.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1947–1960s</div>
+            <div class="timeline-desc">Κύμα Αποαποικιοποίησης: Ανεξαρτησία Ινδίας, Αφρικής και Ασίας – Ψυχρός Πόλεμος & ίδρυση ΕΟΚ.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1989 / Σήμερα</div>
+            <div class="timeline-desc">Πτώση του Τείχους του Βερολίνου – Ψηφιακή Επανάσταση, Διαδίκτυο και η πρόκληση της Κλιματικής Αλλαγής.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Article -->
+      <article class="chapter-body">
+
+        <h2 id="sec-1">1. Η Αυτοκτονία της Ευρώπης: Ο Α΄ Παγκόσμιος Πόλεμος (1914–1918)</h2>
+        
+        <p>
+          Στο 20ό μάθημα της σειράς (το πρώτο μέρος του μεγάλου τελικού κλεισίματος), η <strong>Μαρία Ευθυμίου</strong> εξετάζει τον πιο βίαιο, αιματηρό αλλά και τεχνολογικά εκρηκτικό αιώνα της ανθρώπινης ιστορίας: τον <strong>20ό αιώνα</strong>.
+        </p>
+
+        <p>
+          Το καλοκαίρι του 1914, η Ευρώπη βρισκόταν στο απόγειο της ακμής της (Belle Époque). Όμως η δολοφονία του αρχιδούκα Φραγκίσκου Φερδινάνδου στο Σεράγεβο πυροδότησε το μοιραίο ντόμινο των συμμαχιών. Οι νέοι ξεκίνησαν για το μέτωπο τραγουδώντας, πεπεισμένοι ότι θα γύριζαν νικητές τα Χριστούγεννα!
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/somme_trench_1916.jpg" alt="Βρετανοί στρατιώτες στα χαρακώματα της μάχης του Σομ (Ιούλιος 1916)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 20.1:</strong> Βρετανοί στρατιώτες σε χαράκωμα κατά τη Μάχη του Σομ (Ιούλιος 1916). Ο βιομηχανοποιημένος πόλεμος χαρακωμάτων κόστισε εκατομμύρια ζωές για ελάχιστα μέτρα λάσπης. (Imperial War Museums, Λονδίνο).
+          </figcaption>
+        </figure>
+
+        <p>
+          Η έκβαση του πολέμου κρίθηκε από την είσοδο των <strong>ΗΠΑ (Απρίλιος 1917)</strong>, μετά τον απεριόριστο υποβρύχιο πόλεμο των Γερμανών (βύθιση <em>Λουζιτάνια</em>) και το τηλεγράφημα Τσίμερμαν. Ο πρόεδρος <strong>Γούντροου Ουίλσον</strong> εισήγαγε τα περίφημα <strong>«14 Σημεία»</strong> για την αυτοδιάθεση των λαών και την ίδρυση της Κοινωνίας των Εθνών.
+        </p>
+
+        <p>
+          Στο τέλος του πολέμου, η καταπονημένη ανθρωπότητα χτυπήθηκε από την <strong>Ισπανική Γρίπη (1918–1920)</strong>: μια σαρωτική πανδημία στελέχους H1N1 που μόλυνε το ένα τρίτο του παγκόσμιου πληθυσμού και εξόντωσε πάνω από <strong>50 εκατομμύρια ανθρώπους</strong> —περισσότερους από όλες τις μάχες του Α΄ Παγκοσμίου Πολέμου μαζί.
+        </p>
+
+        <!-- Maria Quote Box 1 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=T_LQ6xJvhy0&t=1335s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 22:15</a>
+          </div>
+          <p class="box-maria-quote">
+            «Ο Α΄ Παγκόσμιος Πόλεμος ήταν η απόλυτη αυτοκτονία της Ευρώπης! Μέχρι το 1914, η Ευρώπη ήταν ο αδιαφιλονίκητος κυρίαρχος του πλανήτη. Και μέσα σε τέσσερα χρόνια, τα πιο φωτισμένα, τα πιο καλλιεργημένα έθνη της Γης —η πατρίδα του Μπετόβεν, του Γκαίτε, του Βολταίρου και του Σαίξπηρ— έθαψαν μια ολόκληρη γενιά παιδιών μες στις λάσπες και στα χημικά αέρια! Και το χειρότερο απ' όλα; Η Συνθήκη των Βερσαλλιών του 1919 δεν έφερε ειρήνη· έσπειρε τους σπόρους για έναν ακόμη πιο τερατώδη πόλεμο είκοσι χρόνια αργότερα!»
+          </p>
+        </div>
+
+        <h2 id="sec-2">2. Ο Μεσοπόλεμος, το Κραχ του 1929 & η Άνοδος του Ολοκληρωτισμού</h2>
+
+        <p>
+          Η κατάρρευση του Χρηματιστηρίου της Νέας Υόρκης τη «Μαύρη Τρίτη» του Οκτωβρίου 1929 παρέσυρε ολόκληρο τον πλανήτη στη Μεγάλη Ύφεση. 
+        </p>
+
+        <p>
+          Στη Γερμανία, η εξαθλίωση και η ανεργία οδήγησαν τις μάζες στην αγκαλιά του Αδόλφου Χίτλερ και του Εθνικοσοσιαλισμού (1933). Ολοκληρωτικά καθεστώτα υποδούλωσαν το άτομο στην παντοδυναμία του Κράτους και της Φυλής, μετατρέποντας τον αντισημιτισμό σε επίσημη κρατική πολιτική.
+        </p>
+
+        <h2 id="sec-3">3. Β΄ Παγκόσμιος Πόλεμος, Ολοκαύτωμα, Χιροσίμα & η Δίκη της Νυρεμβέργης</h2>
+
+        <p>
+          Ο Β΄ Παγκόσμιος Πόλεμος (1939–1945) υπήρξε η πιο καταστροφική σύγκρουση στην ανθρώπινη ιστορία, με πάνω από 75 εκατομμύρια νεκρούς.
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/atomic_cloud_hiroshima.jpg" alt="Το ατομικό μανιτάρι πάνω από τη Χιροσίμα (6 Αυγούστου 1945)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 20.2:</strong> Το ατομικό μανιτάρι πάνω από τη Χιροσίμα στις 6 Αυγούστου 1945. Η ανθρωπότητα εισήλθε στην Πυρηνική Εποχή: για πρώτη φορά απέκτησε τη δύναμη να αφανίσει ολόκληρη τη ζωή στον πλανήτη.
+          </figcaption>
+        </figure>
+
+        <p>
+          Δύο ορόσημα σημάδεψαν αμετάκλητα τον αιώνα:
+        </p>
+
+        <ul>
+          <li><strong>Το Ολοκαύτωμα (Shoah):</strong> Η ψυχρή, βιομηχανική εξόντωση 6 εκατομμυρίων Εβραίων και εκατοντάδων χιλιάδων Ρομά στα ναζιστικά στρατόπεδα θανάτου (Άουσβιτς-Μπιρκενάου) —το απόλυτο ναδίρ του ανθρώπινου πολιτισμού.</li>
+          <li><strong>Οι Ατομικές Βόμβες (Χιροσίμα & Ναγκασάκι, 1945):</strong> Η αυγή της Πυρηνικής Εποχής, όπου η επιστήμη προσέφερε στον άνθρωπο τη δυνατότητα της οριστικής αυτοκαταστροφής.</li>
+        </ul>
+
+        <p>
+          Μετά την κατάρρευση του Γ΄ Ράιχ, η <strong>Δίκη της Νυρεμβέργης (1945–1946)</strong> έθεσε για πρώτη φορά στην ιστορία τους ηγέτες ενός κράτους ενώπιον Διεθνούς Στρατιωτικού Δικαστηρίου, εισάγοντας στο παγκόσμιο δίκαιο τις έννοιες των <strong>«Εγκλημάτων κατά της Ανθρωπότητας»</strong> και της <strong>«Γενοκτονίας»</strong> και καταργώντας το άλλοθι των «ανώτερων διαταγών».
+        </p>
+
+        <!-- Maria Quote Box 2 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=T_LQ6xJvhy0&t=4360s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1ω 12:40</a>
+          </div>
+          <p class="box-maria-quote">
+            «Το Άουσβιτς και η Χιροσίμα είναι τα δύο ορόσημα που άλλαξαν για πάντα τη σχέση του ανθρώπου με τον εαυτό του. Στο Άουσβιτς είδαμε ότι η επιστήμη, η οργάνωση και η γραφειοκρατία μπορούν να χρησιμοποιηθούν για την πιο απόλυτη, σατανική βαρβαρότητα. Και στη Χιροσίμα συνειδητοποιήσαμε ότι παίζουμε με τη φωτιά των θεών. Από το 1945 και μετά, η επιβίωση του είδους μας δεν εξαρτάται πλέον από τη φύση, αλλά από τη δική μας αυτοσυγκράτηση!»
+          </p>
+        </div>
+
+        <h2 id="sec-4">4. Η Μεταπολεμική Εποχή: Αποαποικιοποίηση, Ψυχρός Πόλεμος & Ευρωπαϊκή Ένωση</h2>
+
+        <p>
+          Στον απόηχο του 1945, η ανθρωπότητα αναδιοργανώθηκε σε τρεις μεγάλους άξονες:
+        </p>
+
+        <h3>1. Η Μεγάλη Αποαποικιοποίηση</h3>
+        <p>
+          Οι εξαντλημένες ευρωπαϊκές αυτοκρατορίες (Βρετανία, Γαλλία, Ολλανδία) δεν μπορούσαν πλέον να διατηρήσουν τις υπερπόντιες κτήσεις τους:
+        </p>
+        <ul>
+          <li>Η <strong>Ινδία</strong> κέρδισε την ανεξαρτησία της το 1947 υπό την ηγεσία του <strong>Μαχάτμα Γκάντι</strong> και τη φιλοσοφία της μη-βίας (<em>Satyagraha</em>), αν και η οδυνηρή διχοτόμηση (Partition) με το Πακιστάν οδήγησε σε εκατόμβες νεκρών και εκατομμύρια πρόσφυγες.</li>
+          <li>Στην Αφρική και την Ασία, δεκάδες νέα ανεξάρτητα έθνη αναδύθηκαν, διαμορφώνοντας τον λεγόμενο «Τρίτο Κόσμο» (Κίνημα των Αδεσμεύτων, Διάσκεψη του Μπαντούνγκ 1955).</li>
+        </ul>
+
+        <h3>2. Ο Ψυχρός Πόλεμος & η Ισορροπία του Τρόμου</h3>
+        <p>
+          Ο πλανήτης χωρίστηκε σε δύο αντίπαλα πυρηνικά στρατόπεδα: τις ΗΠΑ (ΝΑΤΟ) και την ΕΣΣΔ (Σύμφωνο της Βαρσοβίας). Η <strong>Αμοιβαία Εξασφαλισμένη Καταστροφή (MAD)</strong> απέτρεψε έναν Γ΄ Παγκόσμιο Πόλεμο, αλλά οδήγησε σε αιματηρούς περιφερειακούς πολέμους δι' αντιπροσώπων (<em>proxy wars</em>) στην Κορέα, το Βιετνάμ, τη Μέση Ανατολή και το Αφγανιστάν.
+        </p>
+
+        <h3>3. Το Θαύμα της Ευρωπαϊκής Ενοποίησης</h3>
+        <p>
+          Στην καθημαγμένη Ευρώπη, οραματιστές ηγέτες (Ρομπέρ Σουμάν, Ζαν Μονέ, Κόνραντ Αντενάουερ) πέτυχαν το αδιανόητο: ένωσαν τη γαλλογερμανική παραγωγή άνθρακα και χάλυβα (ΕΚΑΧ, 1951) και έθεσαν τα θεμέλια της <strong>Ευρωπαϊκής Οικονομικής Κοινότητας (Συνθήκη της Ρώμης, 1957)</strong>. Οι προαιώνιοι εχθροί έγιναν εταίροι, εγκαινιάζοντας τη μακροβιότερη περίοδο ειρήνης και ευημερίας στην ευρωπαϊκή ιστορία.
+        </p>
+
+        <!-- Maria Quote Box 3 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=T_LQ6xJvhy0&t=6310s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:45:10</a>
+          </div>
+          <p class="box-maria-quote">
+            «Κοιτάξτε να δείτε το θαύμα της Ευρωπαϊκής Ένωσης: αυτοί οι λαοί —οι Γάλλοι και οι Γερμανοί— πολεμούσαν μεταξύ τους επί χίλια χρόνια! Είχαν γεμίσει την ήπειρο νεκροταφεία και ορφανά. Και μετά το 1945 κάθισαν στο ίδιο τραπέζι δύο γέροντες πολιτικοί, ο Σουμάν και ο Αντενάουερ, και είπαν: "Φτάνει πια το αίμα!". Και ένωσαν τα σύνορά τους, την οικονομία τους, τη μοίρα τους. Είναι το πιο μεγαλειώδες πείραμα ειρήνης στην ιστορία της ανθρωπότητας, κι ας το γκρινιάζουμε καμιά φορά για τη γραφειοκρατία των Βρυξελλών!»
+          </p>
+        </div>
+
+        <h2 id="sec-5">5. Ο Κόσμος Σήμερα: Παγκοσμιοποίηση, Ψηφιακή Επανάσταση & οι Νέες Προκλήσεις</h2>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/berlin_wall.jpg" alt="Η πτώση του Τείχους του Βερολίνου (Νοέμβριος 1989)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 20.3:</strong> Η πτώση του Τείχους του Βερολίνου τον Νοέμβριο του 1989. Σηματοδότησε το τέλος του Ψυχρού Πολέμου και την επανένωση της Γερμανίας και της Ευρώπης.
+          </figcaption>
+        </figure>
+
+        <p>
+          Με την πτώση του Τείχους του Βερολίνου (1989) και τη διάλυση της ΕΣΣΔ (1991), ξεκίνησε η εποχή της ανεξέλεγκτης <strong>Παγκοσμιοποίησης</strong>:
+        </p>
+        <ul>
+          <li><strong>Η Ψηφιακή Επανάσταση:</strong> Υπολογιστές, Διαδίκτυο, έξυπνα τηλέφωνα και τεχνητή νοημοσύνη έχουν ενώσει οκτώ δισεκατομμύρια ανθρώπους σε ένα ενιαίο παγκόσμιο δίκτυο στιγμιαίας πληροφόρησης.</li>
+          <li><strong>Οι Μεγάλες Προκλήσεις του 21ου Αιώνα:</strong>
+            <ol>
+              <li>Η <strong>Κλιματική Κρίση</strong> και η υπερθέρμανση του πλανήτη ως αποτέλεσμα δύο αιώνων καύσης ορυκτών καυσίμων.</li>
+              <li>Οι νέες γεωπολιτικές εντάσεις και η επάνοδος του αυταρχισμού.</li>
+              <li>Η ασύλληπτη πρόοδος της βιοτεχνολογίας και της τεχνητής νοημοσύνης, που θέτουν για πρώτη φορά ερωτήματα για το ίδιο το μέλλον της ανθρώπινης υπόστασης.</li>
+            </ol>
+          </li>
+        </ul>
+
+        <!-- Summary Table -->
+        <h2 id="sec-6">6. Συνοπτικός Πίνακας: Οι Μεγάλες Τομές του 20ού Αιώνα</h2>
+        <div class="table-responsive">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Περίοδος</th>
+                <th>Κομβικό Γεγονός</th>
+                <th>Ιστορικός Αντίκτυπος</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1914–1918</strong></td>
+                <td>Α΄ Παγκόσμιος Πόλεμος & Έξοδος ΗΠΑ (1917)</td>
+                <td>20 εκατ. νεκροί, πτώση 4 αυτοκρατοριών, 14 Σημεία Ουίλσον</td>
+              </tr>
+              <tr>
+                <td><strong>1918–1920</strong></td>
+                <td>Πανδημία Ισπανικής Γρίπης</td>
+                <td>50+ εκατ. νεκροί παγκοσμίως (H1N1)</td>
+              </tr>
+              <tr>
+                <td><strong>1929–1933</strong></td>
+                <td>Μεγάλη Ύφεση & Άνοδος Χίτλερ</td>
+                <td>Κατάρρευση δημοκρατιών, εθνικιστικός φανατισμός</td>
+              </tr>
+              <tr>
+                <td><strong>1939–1945</strong></td>
+                <td>Β΄ Παγκόσμιος Πόλεμος</td>
+                <td>75+ εκατ. νεκροί, Ολοκαύτωμα, Χιροσίμα (Ατομική Εποχή)</td>
+              </tr>
+              <tr>
+                <td><strong>1945–1946</strong></td>
+                <td>Δίκη της Νυρεμβέργης</td>
+                <td>Καθιέρωση Εγκλημάτων κατά της Ανθρωπότητας & Γενοκτονίας</td>
+              </tr>
+              <tr>
+                <td><strong>1947–1960s</strong></td>
+                <td>Αποαποικιοποίηση</td>
+                <td>Ανεξαρτησία Ινδίας και Αφρικής – Τέλος ευρωπαϊκών αυτοκρατοριών</td>
+              </tr>
+              <tr>
+                <td><strong>1989 / 1991</strong></td>
+                <td>Πτώση Τείχους Βερολίνου & ΕΣΣΔ</td>
+                <td>Τέλος Ψυχρού Πολέμου – Παγκοσμιοποίηση και Ψηφιακή Επανάσταση</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">🕊️</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Η Εύθραυστη Ανθρωπότητα</h3>
+        <p class="synthesis-text">
+          «Ο 20ός αιώνας μας άφησε μια τρομακτική κληρονομιά: μάθαμε μέχρι πού μπορεί να φτάσει η βαρβαρότητά μας όταν τυφλωθούμε από το μίσος, αλλά μάθαμε επίσης ότι είμαστε ικανοί να ενωθούμε, να φτάσουμε στα αστέρια και να δημιουργήσουμε θεσμούς παγκόσμιας αλληλεγγύης.
+          <br><br>
+          Και τώρα, φτάνουμε στο μεγάλο φινάλε. Στο τελευταίο μάθημα (Κεφάλαιο 21), η Μαρία Ευθυμίου συνθέτει ολόκληρο το πανόραμα των 300.000 ετών της ανθρώπινης πορείας: μια συγκλονιστική ανακεφαλαίωση μέσα από εικόνες, αρχέγονους ήχους, πολυφωνίες και τα μεγάλα φιλοσοφικά διδάγματα της ιστορίας.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch19.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">19. Ο Σύγχρονος Κόσμος</span>
+        </a>
+        <a href="ch21.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">21. Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

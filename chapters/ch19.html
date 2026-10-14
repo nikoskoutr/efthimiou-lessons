@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 19</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch19">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΔΕΚΑΤΟ ΕΝΑΤΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Ο Σύγχρονος Κόσμος</h1>
+        <p class="chapter-subtitle">Η Βιομηχανική Επανάσταση, η Δύναμη του Ατμού, ο Μαρξισμός και ο Διαμελισμός της Αφρικής.</p>
+        
+        <a href="https://www.youtube.com/watch?v=jCLI4vE4uKQ" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube / BLOD (Διάρκεια: 2 ώρες & 53 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο την Ατμομηχανη στη Διασκεψη του Βερολινου</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">1769–1776</div>
+            <div class="timeline-desc">Ο Τζέιμς Βατ τελειοποιεί την ατμομηχανή – Έναρξη της Βιομηχανικής Επανάστασης στη Μεγάλη Βρετανία.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1829</div>
+            <div class="timeline-desc">Η ατμομηχανή «Rocket» του Στέφενσον εγκαινιάζει την εποχή των σιδηροδρόμων (Λίβερπουλ–Μάντσεστερ).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1848</div>
+            <div class="timeline-desc">Ο Καρλ Μαρξ και ο Φρίντριχ Ένγκελς δημοσιεύουν το «Κομμουνιστικό Μανιφέστο» – «Προλετάριοι όλων των χωρών, ενωθείτε!».</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1866</div>
+            <div class="timeline-desc">Πόντιση του πρώτου λειτουργικού υπερατλαντικού τηλεγραφικού καλωδίου: Στιγμιαία επικοινωνία Ευρώπης–Αμερικής.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1884–1885</div>
+            <div class="timeline-desc">Διάσκεψη του Βερολίνου υπό τον Βίσμαρκ: Ο διαμελισμός της Αφρικής ανάμεσα στις ευρωπαϊκές αποικιακές αυτοκρατορίες.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Article -->
+      <article class="chapter-body">
+
+        <h2 id="sec-1">1. Η Βιομηχανική Επανάσταση: Η Δεύτερη Μεγάλη Τομή της Ανθρωπότητας</h2>
+        
+        <p>
+          Στο 19ο μάθημα της σειράς, η <strong>Μαρία Ευθυμίου</strong> αναλύει το φαινόμενο που άλλαξε τη μοίρα του είδους <em>Homo sapiens</em> περισσότερο από οτιδήποτε άλλο μετά την ανακάλυψη της γεωργίας πριν από 10.000 χρόνια: τη <strong>Βιομηχανική Επανάσταση</strong>.
+        </p>
+
+        <p>
+          Επί δέκα χιλιετίες, η ανθρώπινη παραγωγή βασιζόταν αποκλειστικά στη μυϊκή δύναμη ανθρώπων και ζώων, στον άνεμο και στο νερό. Στα τέλη του 18ου αιώνα στη Μεγάλη Βρετανία, ο άνθρωπος ξεκλείδωσε τα ορυκτά καύσιμα με την τελειοποίηση της **ατμομηχανής του Τζέιμς Βατ (James Watt, 1769–1776)**.
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/coalbrookdale_by_night.jpg" alt="Το Κόουλμπρουκντεϊλ τη νύχτα (Φίλιπ Γιάκομπ ντε Λούθερμπουργκ, 1801, Μουσείο Επιστημών Λονδίνου)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 19.1:</strong> <em>«Coalbrookdale by Night»</em> (Philipp Jakob Loutherbourg, 1801, Science Museum, Λονδίνο). Οι υψικάμινοι σιδήρου στην Αγγλία φωτίζουν τον νυχτερινό ουρανό —το εμβληματικό πρόσωπο της αυγής της βιομηχανικής εποχής.
+          </figcaption>
+        </figure>
+
+        <!-- Maria Quote Box 1 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=jCLI4vE4uKQ&t=990s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 16:30</a>
+          </div>
+          <p class="box-maria-quote">
+            «Η Βιομηχανική Επανάσταση είναι το πιο ριζοσπαστικό γεγονός στην ιστορία του ανθρώπου! Μέχρι το 1750, ένας χωρικός στη Γαλλία ζούσε με τρόπο σχεδόν ίδιο με έναν χωρικό της αρχαίας Ρώμης ή της αρχαίας Αιγύπτου: με το βόδι, το αλέτρι, το κερί και τον ήλιο. Και ξαφνικά, μέσα σε εκατό χρόνια, έχουμε ατμομηχανές, τρένα, ηλεκτρισμό, εργοστάσια, φωταέριο και τηλέγραφο! Ο άνθρωπος νίκησε τη νύχτα, νίκησε τις αποστάσεις, αλλά δημιούργησε και μια κόλαση για τους εργάτες του!»
+          </p>
+        </div>
+
+        <h2 id="sec-2">2. Σίδηρος, Ατμός & Σιδηρόδρομοι</h2>
+
+        <p>
+          Η επανάσταση ξεκίνησε από την κλωστοϋφαντουργία και εκτοξεύτηκε με την ανάπτυξη των σιδηροδρόμων. Το 1829, η ατμομηχανή <em>Rocket</em> του **Τζορτζ Στέφενσον** έδειξε ότι οι αποστάσεις μπορούσαν να συνθλιβούν.
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/stephenson_rocket.jpg" alt="Η ατμομηχανή The Rocket του George Stephenson στις δοκιμές του Rainhill (1829)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 19.2:</strong> Η ιστορική ατμομηχανή <em>The Rocket</em> του George Stephenson στις δοκιμές του Rainhill (1829). Άνοιξε τον δρόμο για τη σιδηροδρομική ένωση των ηπείρων.
+          </figcaption>
+        </figure>
+
+        <p>
+          Σιδηρόδρομοι, ατμόπλοια και υποθαλάσσια τηλεγραφικά καλώδια ένωσαν για πρώτη φορά τον κόσμο σε μια ενιαία παγκόσμια αγορά. Ένα μήνυμα από το Λονδίνο στη Νέα Υόρκη απαιτούσε πλέον δευτερόλεπτα αντί για εβδομάδες!
+        </p>
+
+        <h2 id="sec-3">3. Το Κοινωνικό Δράμα & η Παιδική Εργασία</h2>
+
+        <p>
+          Ο πλούτος των βιομηχάνων στηρίχθηκε στην εξαθλίωση εκατομμυρίων εργατών: 14 έως 16 ώρες δουλειάς την ημέρα, ανήλιαγες τρώγλες, χολέρα και προσδόκιμο ζωής κάτω από τα 20 χρόνια στα εργατικά προάστια του Μάντσεστερ.
+        </p>
+
+        <!-- Maria Quote Box 2 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=jCLI4vE4uKQ&t=3250s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 54:10</a>
+          </div>
+          <p class="box-maria-quote">
+            «Όταν διαβάζεις τις εκθέσεις του βρετανικού κοινοβουλίου για την παιδική εργασία του 19ου αιώνα, σου σηκώνεται η τρίχα! Παιδάκια εφτά χρονών δούλευαν στο σκοτάδι δεκατέσσερις ώρες την ημέρα, παραμορφωμένα από τη ραχίτιδα, με κομμένα δάχτυλα, χωρίς να δουν ποτέ το φως του ήλιου! Ο σύγχρονος πολιτισμός μας χτίστηκε πάνω στο αίμα και στα κοκαλάκια αυτών των παιδιών!»
+          </p>
+        </div>
+
+        <h2 id="sec-4">4. Ο Καρλ Μαρξ, ο Ιστορικός Υλισμός & το Κομμουνιστικό Μανιφέστο (1848)</h2>
+
+        <p>
+          Μπροστά σε αυτή τη φρίκη, γεννήθηκε το εργατικό κίνημα. Στην αρχή, οι απελπισμένοι εργάτες έσπαγαν τις μηχανές πιστεύοντας ότι αυτές τους έκλεβαν το ψωμί (<strong>Λουδδισμός</strong>). Σύντομα όμως, η αντίσταση οργανώθηκε σε εργατικά συνδικάτα (<em>Trade Unions</em>) και πολιτική θεωρία.
+        </p>
+
+        <h3>Το Κομμουνιστικό Μανιφέστο (1848):</h3>
+        <p>
+          Στις παραμονές των ευρωπαϊκών επαναστάσεων της «Άνοιξης των Λαών» το 1848, δύο Γερμανοί διανοούμενοι, ο <strong>Καρλ Μαρξ (Karl Marx)</strong> και ο <strong>Φρίντριχ Ένγκελς (Friedrich Engels)</strong>, δημοσίευσαν στο Λονδίνο ένα κείμενο που συγκλόνισε τον πλανήτη:
+        </p>
+        <ul>
+          <li><strong>«Η ιστορία όλων των κοινωνιών μέχρι σήμερα είναι η ιστορία ταξικών αγώνων»</strong>: Ελεύθερος και δούλος, πατρίκιος και πληβείος, φεουδάρχης και δουλοπάροικος, και τώρα <strong>Αστός (Μπουρζουά)</strong> και <strong>Προλετάριος</strong>.</li>
+          <li><strong>Η Θεωρία της Υπεραξίας:</strong> Ο καπιταλιστής πλουτίζει ιδιοποιούμενος την αξία της εργασίας που παράγει ο εργάτης, πληρώνοντάς του μόνο ένα ελάχιστο μεροκάματο επιβίωσης.</li>
+          <li><strong>Διεθνισμός:</strong> Το προλεταριάτο δεν έχει πατρίδα: <em>«Οι προλετάριοι δεν έχουν να χάσουν τίποτα εκτός από τις αλυσίδες τους. Έχουν έναν κόσμο να κερδίσουν. Προλετάριοι όλων των χωρών, ενωθείτε!»</em>.</li>
+        </ul>
+        <p>
+          Ο Μαρξισμός έδωσε στο εργατικό κίνημα επιστημονική αυτοπεποίθηση: η κατάρρευση του καπιταλισμού δεν ήταν απλώς μια ευχή, αλλά μια ιστορική αναγκαιότητα.
+        </p>
+
+        <h2 id="sec-5">5. Η Αμερικανική Βιομηχανική Άνοδος & ο Εμφύλιος Πόλεμος (1861–1865)</h2>
+
+        <p>
+          Στην άλλη πλευρά του Ατλαντικού, οι ΗΠΑ μεταμορφώθηκαν ραγδαία. Ο <strong>Αμερικανικός Εμφύλιος Πόλεμος (1861–1865)</strong> ήταν η πρώτη αναμέτρηση της σύγχρονης βιομηχανικής εποχής: ο εκβιομηχανισμένος Βορράς των εργοστασίων, των τηλεγράφων και των σιδηροδρόμων συγκρούστηκε με τον αγροτικό Νότο των φυτειών βαμβακιού και των 4 εκατομμυρίων σκλάβων.
+        </p>
+
+        <p>
+          Με την ηγεσία του <strong>Αβραάμ Λίνκολν</strong> και τη Διακήρυξη Χειραφέτησης (1863), η δουλεία καταργήθηκε οριστικά (13η Τροπολογία). Η νίκη των Βορείων ενοποίησε την αμερικανική επικράτεια σε μια γιγαντιαία καπιταλιστική εσωτερική αγορά, θέτοντας τις βάσεις για να ξεπεράσουν οι ΗΠΑ τη Βρετανία ως η πρώτη βιομηχανική δύναμη του πλανήτη.
+        </p>
+
+        <h2 id="sec-6">6. Η 2η Βιομηχανική Επανάσταση & τα Μεγάλα Κανάλια (Σουέζ & Παναμάς)</h2>
+
+        <p>
+          Στα τέλη του 19ου αιώνα, η βιομηχανική εξέλιξη επιταχύνθηκε ιλιγγιωδώς με τη <strong>Δεύτερη Βιομηχανική Επανάσταση</strong>: ο φθηνός χάλυβας (μέθοδος Bessemer), η χημική βιομηχανία και η μηχανή εσωτερικής καύσης άλλαξαν την καθημερινότητα.
+        </p>
+
+        <p>
+          Στον ηλεκτρισμό, ο «Πόλεμος των Ρευμάτων» ανάμεσα στον <strong>Τόμας Έντισον</strong> (συνεχές ρεύμα - DC) και τον <strong>Νίκολα Τέσλα</strong> με τον Τζορτζ Γουέστινγκχαους (εναλλασσόμενο ρεύμα - AC) κατέληξε στη νίκη του εναλλασσόμενου ρεύματος, φωτίζοντας τις μεγαλουπόλεις και τροφοδοτώντας τις γραμμές μαζικής παραγωγής.
+        </p>
+
+        <p>
+          Ταυτόχρονα, τιτάνια έργα υποδομής ανασχημάτισαν τους ωκεανούς: η <strong>Διώρυγα του Σουέζ (1869)</strong> ένωσε τη Μεσόγειο με την Ερυθρά Θάλασσα συντομεύοντας τη ρότα προς την Ασία κατά 7.000 χλμ., ενώ η <strong>Διώρυγα του Παναμά (1914)</strong> ένωσε τον Ατλαντικό με τον Ειρηνικό παρακάμπτοντας το επικίνδυνο Ακρωτήριο Χορν.
+        </p>
+
+        <h2 id="sec-7">7. Ο Νέος Ιμπεριαλισμός & ο Διαμελισμός της Αφρικής (1884–1885)</h2>
+
+        <p>
+          Η δίψα για πρώτες ύλες (καουτσούκ, πετρέλαιο, χαλκό) και νέες αγορές οδήγησε τις ευρωπαϊκές δυνάμεις στην ολοκληρωτική κατάκτηση του πλανήτη. 
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/berlin_conference_1884.jpg" alt="Η Διάσκεψη του Βερολίνου για τον διαμελισμό της Αφρικής (1884)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 19.3:</strong> Η Διάσκεψη του Βερολίνου (1884–1885) υπό την προεδρία του καγκελάριου Ότο φον Βίσμαρκ. Δεκατέσσερα ευρωπαϊκά κράτη διαμέλισαν την Αφρική με χάρακες στον χάρτη, χωρίς την παρουσία ούτε ενός Αφρικανού εκπροσώπου.
+          </figcaption>
+        </figure>
+
+        <p>
+          Με την εφεύρεση της <strong>κινίνης</strong> κατά της ελονοσίας και του <strong>πολυβόλου Μάξιμ (Maxim gun)</strong>, οι Ευρωπαίοι υπέταξαν ολόκληρη την αφρικανική ήπειρο. Στη <strong>Διάσκεψη του Βερολίνου (1884–1885)</strong> υπό τον καγκελάριο Βίσμαρκ, χάραξαν ευθείες γραμμές σε έναν χάρτη, διαμοιράζοντας το 90% της ηπείρου μέσα σε μόλις τριάντα χρόνια.
+        </p>
+
+        <p>
+          Η πιο σκοτεινή πτυχή γράφτηκε στο Κογκό του βασιλιά <strong>Λεοπόλδου Β΄ του Βελγίου</strong>, όπου η καταναγκαστική συγκομιδή καουτσούκ και οι ακρωτηριασμοί χεριών κόστισαν τη ζωή σε σχεδόν 10 εκατομμύρια ανθρώπους.
+        </p>
+
+        <!-- Maria Quote Box 3 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=jCLI4vE4uKQ&t=6150s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:42:30</a>
+          </div>
+          <p class="box-maria-quote">
+            «Κοιτάξτε τι έκαναν στο Βερολίνο το 1884: μαζεύτηκαν δεκατέσσερις Ευρωπαίοι κύριοι με ρεντιγκότες και ψηλά καπέλα γύρω από ένα τραπέζι, έβαλαν έναν τεράστιο χάρτη της Αφρικής, πήραν χάρακες και μολύβια, και άρχισαν να τραβούν ίσιες γραμμές! "Αυτό δικό μου, αυτό δικό σου!". Χωρίς να ξέρουν καν τι λαοί ζουν εκεί, χωρίς να ρωτήσουν ούτε έναν Αφρικανό, χώρισαν φυλές στη μέση και ένωσαν θανάσιμους εχθρούς στο ίδιο τεχνητό κράτος! Αυτές οι ίσιες γραμμές με τον χάρακα του 1884 είναι η αιτία για όλους τους εμφυλίους πολέμους και τις σφαγές που βασανίζουν την Αφρική μέχρι σήμερα!»
+          </p>
+        </div>
+
+        <!-- Summary Table -->
+        <h2 id="sec-8">8. Συνοπτικός Πίνακας: Ο Κόσμος του 19ου Αιώνα</h2>
+        <div class="table-responsive">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Τομέας</th>
+                <th>Πριν το 1750 (Αγροτική Εποχή)</th>
+                <th>1η & 2η Βιομηχανική Εποχή (1780–1914)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Πηγή Ενέργειας</strong></td>
+                <td>Μυώνες, άλογα, άνεμος, τρεχούμενο νερό</td>
+                <td>Λιθάνθρακας, Ατμός, Πετρέλαιο, Ηλεκτρισμός (AC/DC)</td>
+              </tr>
+              <tr>
+                <td><strong>Ταχύτητα Μετακίνησης</strong></td>
+                <td>Άμαξες & ιστιοφόρα (20–40 χλμ./ημέρα)</td>
+                <td>Σιδηρόδρομος, ατμόπλοιο, Διώρυγες Σουέζ (1869) & Παναμά (1914)</td>
+              </tr>
+              <tr>
+                <td><strong>Επικοινωνία</strong></td>
+                <td>Έφιπποι ταχυδρόμοι (εβδομάδες/μήνες)</td>
+                <td>Ηλεκτρικός τηλέγραφος (στιγμιαία υπερατλαντικά σήματα)</td>
+              </tr>
+              <tr>
+                <td><strong>Κοινωνική Σύνθεση</strong></td>
+                <td>Φεουδάρχες & Αγρότες (85% στην ύπαιθρο)</td>
+                <td>Αστοί καπιταλιστές & Βιομηχανικό προλεταριάτο στις πόλεις</td>
+              </tr>
+              <tr>
+                <td><strong>Αποικιοκρατία</strong></td>
+                <td>Εμπορικοί παράκτιοι σταθμοί</td>
+                <td>Πλήρης εδαφικός διαμελισμός ηπείρων (90% Αφρικής, Scramble)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">⚙️</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Η Εποχή της Ύβρεως & η Αναπόφευκτη Σύγκρουση</h3>
+        <p class="synthesis-text">
+          «Στα τέλη του 19ου αιώνα, η Ευρώπη ζούσε στην απόλυτη ψευδαίσθηση της παντοδυναμίας της: είχε δαμάσει τη φύση, είχε υποτάξει τον υπόλοιπο πλανήτη και πίστευε ότι η επιστήμη θα εξασφάλιζε μια αιώνια Belle Époque προόδου και ευημερίας.
+          <br><br>
+          Όμως οι ίδιες οι μηχανές, τα τρένα, τα χημικά εργοστάσια και τα πολυβόλα που γέννησαν τη βιομηχανική υπεροχή, στράφηκαν πολύ σύντομα εναντίον της ίδιας της Ευρώπης. Στο επόμενο κεφάλαιο (Κεφάλαιο 20), θα παρακολουθήσουμε την αυτοκαταστροφή της Belle Époque στα χαρακώματα του Α΄ Παγκοσμίου Πολέμου, την άνοδο του Ολοκληρωτισμού, το Ολοκαύτωμα και τη Χιροσίμα.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch18.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">18. Ρωσία & ο Κόσμος</span>
+        </a>
+        <a href="ch20.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">20. Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

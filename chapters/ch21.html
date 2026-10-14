@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 21 (Τελικό)</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch21">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΕΙΚΟΣΤΟ ΠΡΩΤΟ • ΜΕΓΑΛΟ ΦΙΝΑΛΕ & ΑΝΑΚΕΦΑΛΑΙΩΣΗ</span>
+        <h1 class="chapter-title">Παγκόσμια Ιστορία: Ανακεφαλαίωση με Μουσικές & Εικόνες</h1>
+        <p class="chapter-subtitle">Το Μεγάλο Ταξίδι των 300.000 Ετών: Ήχοι, Τέχνες και τα Αιώνια Διδάγματα της Ανθρώπινης Περιπέτειας.</p>
+        
+        <a href="https://www.youtube.com/watch?v=hOELIFPuha0" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube / BLOD (Διάρκεια: 2 ώρες & 19 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Τα Τρια Μεγαλα Κυματα της Ανθρωπινης Περιπετειας</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">300.000 π.Χ.</div>
+            <div class="timeline-desc">Εμφάνιση του <em>Homo sapiens</em> στην Αφρική – Εργαλεία, συμβολική σκέψη, τέχνη των σπηλαίων (Λασκώ).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">10.000 π.Χ.</div>
+            <div class="timeline-desc"><strong>1ο Κύμα: Γεωργική Επανάσταση</strong> – Μόνιμοι οικισμοί, πόλεις, γραφή, νόμοι, κοινωνική διαστρωμάτωση.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">800–200 π.Χ.</div>
+            <div class="timeline-desc"><strong>2ο Κύμα: Αξονική Εποχή</strong> – Φιλοσοφική & θρησκευτική αφύπνιση: Βούδας, Κομφούκιος, Σωκράτης, Προφήτες.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1750–Σήμερα</div>
+            <div class="timeline-desc"><strong>3ο Κύμα: Βιομηχανική & Ψηφιακή Επανάσταση</strong> – Άνθρακας, άτομο, διάστημα, υπολογιστές, τεχνητή νοημοσύνη.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Article -->
+      <article class="chapter-body">
+
+        <h2 id="sec-1">1. Το Μεγάλο Πανόραμα: Από τις Σαβάνες στα Αστέρια</h2>
+        
+        <p>
+          Στο 21ο και τελευταίο μάθημα του εμβληματικού αυτού κύκλου, η καθηγήτρια <strong>Μαρία Ευθυμίου</strong> προσφέρει στο ακροατήριο μια ανεπανάληπτη, συγκινητική και βαθιά φιλοσοφική σύνθεση: μια ανακεφαλαίωση ολόκληρης της ανθρώπινης περιπέτειας μέσα από την αλληλεπίδραση της ιστορικής αφήγησης, των εικαστικών αριστουργημάτων και των αυθεντικών μουσικών ακουσμάτων της υφηλίου.
+        </p>
+
+        <p>
+          Η αφήγηση επιστρέφει στην αφετηρία της: 300.000 χρόνια πριν, στις σαβάνες της Αφρικής, ένα ασθενικό δίποδο πρωτεύον, ο <em>Homo sapiens</em>, επιβιώνει χάρη στη γλώσσα, τη φαντασία και τη συνεργασία.
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/lascaux_painting.jpg" alt="Παλαιολιθική τοιχογραφία από το σπήλαιο Λασκώ στη Γαλλία" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 21.1:</strong> Τοιχογραφία ταύρων και αλόγων από το σπήλαιο Λασκώ στη Γαλλία (περ. 17.000 π.Χ.). Η γέννηση της ανθρώπινης συμβολικής σκέψης, της μαγείας και της μεταφυσικής αγωνίας.
+          </figcaption>
+        </figure>
+
+        <!-- Maria Quote Box 1 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=hOELIFPuha0&t=750s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 12:30</a>
+          </div>
+          <p class="box-maria-quote">
+            «Όταν κοιτάζεις εκείνο το παλαιολιθικό χέρι αποτυπωμένο με κόκκινη ώχρα στον τοίχο ενός σπηλαίου πριν από τριάντα χιλιάδες χρόνια, δεν βλέπεις έναν ξένο. Βλέπεις τον εαυτό σου! Βλέπεις την ίδια ανάγκη που έχουμε εσείς κι εγώ σήμερα να νικήσουμε τον χρόνο, να αφήσουμε ένα ίχνος, να πούμε στο σύμπαν ότι περάσαμε από αυτή τη Γη. Όλη η ιστορία του ανθρώπου δεν είναι τίποτα άλλο παρά αυτή η συνεχής, συγκλονιστική προσπάθεια να δώσει νόημα στο πέρασμά του!»
+          </p>
+        </div>
+
+        <h2 id="sec-2">2. Η Μουσική & Εικαστική Σύνθεση των Πολιτισμών</h2>
+
+        <p>
+          Στη διάρκεια του τελικού μαθήματος, η ιστορικός συνοδεύει τα μεγάλα ιστορικά κεφάλαια με τους ήχους που γέννησε κάθε πολιτισμός:
+        </p>
+
+        <ul>
+          <li><strong>Οι Ήχοι της Στέπας:</strong> Το μογγολικό λαρυγγικό τραγούδι (<em>Khöömei</em>) και το βιολί με την κεφαλή αλόγου (<em>Morin Khuur</em>), που αποδίδουν τον άνεμο και τον καλπασμό στις απέραντες ευρασιατικές πεδιάδες.</li>
+          <li><strong>Η Μυστικιστική Ινδία:</strong> Οι ινδικές ράγκες με το σιτάρ και η κοσμική απεικόνιση του Σίβα Ναταράτζα, που χορεύει μέσα στον φλεγόμενο τροχό της δημιουργίας και της φθοράς.</li>
+          <li><strong>Η Γαλήνη του Ζεν:</strong> Ο αέρινος ήχος του φλάουτου μπαμπού <em>Σακουχάτσι</em> (Shakuhachi), η λιτότητα των ιαπωνικών βραχόκηπων και η αποδοχή της παροδικότητας των πραγμάτων.</li>
+          <li><strong>Ο Ισλαμικός Μυστικισμός:</strong> Το θρηνητικό καλαμένιο φλάουτο <em>Νέι</em> και ο στροβιλισμός των Δερβίσηδων του Ρουμί —το δεξί χέρι στραμμένο στον ουρανό για να λάβει τη χάρη, και το αριστερό στη γη για να τη μοιράσει στους ανθρώπους.</li>
+          <li><strong>Η Ευρωπαϊκή Πολυφωνία:</strong> Από τους βυζαντινούς ύμνους και τα γρηγοριανά μέλη, στην αρχιτεκτονική του Μπαχ και στον ανθρωπιστικό θρίαμβο της <em>Ενάτης Συμφωνίας</em> του Μπετόβεν.</li>
+        </ul>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/da_vinci_vitruvian_man.jpg" alt="Ο Άνθρωπος του Βιτρούβιου (Λεονάρντο ντα Βίντσι, περ. 1490, Πινακοθήκη Ακαδημίας, Βενετία)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 21.2:</strong> <em>«Ο Άνθρωπος του Βιτρούβιου»</em> (Leonardo da Vinci, περ. 1490, Gallerie dell'Accademia, Βενετία). Η αναγεννησιακή ανακάλυψη του ανθρώπου ως μέτρου όλων των πραγμάτων, στο σημείο τομής της τέχνης, της επιστήμης και της γεωμετρίας.
+          </figcaption>
+        </figure>
+
+        <!-- Maria Quote Box 2 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=hOELIFPuha0&t=4700s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1ω 18:20</a>
+          </div>
+          <p class="box-maria-quote">
+            «Κοιτάξτε να δείτε το μεγαλείο της μουσικής σε όλη την ανθρώπινη ιστορία! Από το τραγούδι του νομάδα στις στέπες της Μογγολίας, στις ράγκες των Ινδών, στο φλάουτο του Ζεν στην Ιαπωνία, μέχρι το νέι των Σούφι και τις φούγκες του Μπαχ στην Ευρώπη: ο άνθρωπος, όποια γλώσσα κι αν μιλάει, όποιον θεό κι αν πιστεύει, έχει την ίδια ανάγκη να εκφράσει το ανείπωτο, τη χαρά, το πένθος και την αγάπη. Η μουσική είναι η μόνη παγκόσμια γλώσσα που αποδεικνύει ότι βαθιά μέσα μας είμαστε όλοι ένα!»
+          </p>
+        </div>
+
+        <h2 id="sec-3">3. Τα Τρία Μεγάλα Κύματα της Ανθρώπινης Ιστορίας</h2>
+
+        <p>
+          Συνοψίζοντας την πορεία 300.000 ετών, η Μαρία Ευθυμίου διακρίνει τρεις κομβικές μεταβάσεις:
+        </p>
+
+        <ol>
+          <li><strong>1ο Κύμα: Η Γεωργική Επανάσταση (10.000 π.Χ.):</strong> Η εγκατάλειψη του νομαδισμού, η εξημέρωση φυτών και ζώων, η γέννηση των πόλεων, της γραφής, των νόμων και των θεσμών.</li>
+          <li><strong>2ο Κύμα: Η Αξονική Εποχή (800–200 π.Χ.):</strong> Η ταυτόχρονη φιλοσοφική και ηθική αφύπνιση σε Κίνα (Κομφούκιος, Λάο Τσε), Ινδία (Βούδας), Μέση Ανατολή (Εβραίοι Προφήτες, Ζωροάστρης) και Ελλάδα (Προσωκρατικοί, Σωκράτης, Πλάτων).</li>
+          <li><strong>3ο Κύμα: Η Βιομηχανική & Ψηφιακή Επανάσταση (1750–Σήμερα):</strong> Η κυριαρχία των μηχανών, η κατάκτηση των ορυκτών καυσίμων, η διάσπαση του ατόμου, η εκτόξευση στο διάστημα και η ψηφιακή διασύνδεση.</li>
+        </ol>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/blue_marble_apollo17.jpg" alt="Η Γη φωτογραφημένη από το Apollo 17 (The Blue Marble, 1972)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 21.3:</strong> <em>«The Blue Marble»</em> (NASA, Apollo 17, Δεκέμβριος 1972). Η πρώτη καθαρή εικόνα ολόκληρου του πλανήτη Γη από το διάστημα —μια εύθραυστη, πανέμορφη όαση ζωής μέσα στην απεραντοσύνη του σύμπαντος.
+          </figcaption>
+        </figure>
+
+        <h2 id="sec-4">4. Τα Μεγάλα Ιστορικά Διδάγματα & η Παρακαταθήκη</h2>
+
+        <p>
+          Ολοκληρώνοντας τις 21 διαλέξεις της, η Μαρία Ευθυμίου μοιράζεται με το κοινό τέσσερις θεμελιώδεις αλήθειες που αναδύονται από τη μελέτη του παρελθόντος:
+        </p>
+
+        <h3>1. Η Ύβρις και η Παρακμή</h3>
+        <p>
+          Κανένας πολιτισμός, καμία αυτοκρατορία και κανένα κράτος δεν υπήρξε αιώνιο: οι Φαραώ της Αιγύπτου, η Μεσοποταμία, η αρχαία Αθήνα, η Ρώμη των Καισάρων, το Βυζάντιο, το Αραβικό Χαλιφάτο, οι Μογγόλοι του Τζένγκις Χαν, η αυτοκρατορική Κίνα, η Βρετανική Αυτοκρατορία όπου «ο ήλιος δεν έδυε ποτέ» —όλοι έφτασαν στο απόγειό τους και όλοι κατέρρευσαν. Η παρακμή ξεκινά σχεδόν πάντα από την <strong>ύβρη</strong>: όταν ένας πολιτισμός πιστέψει ότι είναι ανώτερος από όλους τους άλλους, ότι κατέχει το μονοπώλιο της αλήθειας και ότι τίποτα δεν μπορεί να τον απειλήσει.
+        </p>
+
+        <h3>2. Η Ιστορία ως Αντίδοτο στον Φανατισμό & στον Σωβινισμό</h3>
+        <p>
+          Η ιστορία δεν υπάρχει για να μας κολακεύει ή να μας κάνει να νιώθουμε αυτάρεσκα «εκλεκτοί λαοί». Υπάρχει για να μας απαλλάξει από τις προκαταλήψεις και την άγνοια. Όταν γνωρίσεις το μεγαλείο του κινεζικού πολιτισμού, τη λεπτότητα της ιαπωνικής τέχνης, τη σοφία των ινδικών κειμένων, το βάθος του ισλαμικού στοχασμού και τους αγώνες των λαών της Αφρικής και της Αμερικής, παύεις να είσαι εγκλωβισμένος στον μικρόκοσμό σου και γίνεσαι <strong>πολίτης του κόσμου</strong>.
+        </p>
+
+        <h3>3. Η Βαθιά Ενότητα του Ανθρώπινου Είδους</h3>
+        <p>
+          Παρά τις επιφανειακές διαφορές στο χρώμα του δέρματος, στη γλώσσα, στη θρησκεία και στα ενδύματα, είμαστε όλοι μέλη της ίδιας οικογένειας: όλοι κουβαλάμε το DNA εκείνης της μικρής ομάδας που ξεκίνησε από την Αφρική. Όλοι οι άνθρωποι σε όλες τις εποχές έκλαψαν για τα παιδιά τους, φοβήθηκαν τον θάνατο, τραγούδησαν για τον έρωτα, προσευχήθηκαν στα αστέρια και αναζήτησαν τη δικαιοσύνη.
+        </p>
+
+        <h3>4. Η Γεωγραφία ως το Απόλυτο Θεμέλιο της Ιστορίας</h3>
+        <p>
+          Η θεμελιώδης παιδαγωγική αρχή της Μαρίας Ευθυμίου είναι ότι <strong>δεν νοείται ιστορία χωρίς γεωγραφία</strong>: πριν ανοίξει κανείς οποιοδήποτε ιστορικό βιβλίο, οφείλει να ανοίξει έναν γεωγραφικό χάρτη! Οι οροσειρές, τα περάσματα, τα μεγάλα ποτάμια (Νείλος, Τίγρης, Ευφράτης, Ινδός, Κίτρινος Ποταμός, Δνείπερος, Ρήνος, Δούναβης) και οι θαλάσσιοι δρόμοι καθορίζουν πού θα γεννηθούν οι κοινωνίες, πώς θα κινηθούν οι στρατοί και πώς θα διαμορφωθεί ο χαρακτήρας κάθε λαού —από τους ναυτικούς της Μεσογείου και της Βρετανίας μέχρι τους αχανείς ηπειρωτικούς πληθυσμούς των ρωσικών και κινεζικών πεδιάδων. «Όποιος δεν γνωρίζει πού βρίσκονται τα Ουράλια Όρη, τα Ιμαλάια, ο Βόλγας ή ο Περσικός Κόλπος, είναι καταδικασμένος να περπατά στα τυφλά μέσα στον χρόνο!».
+        </p>
+
+        <!-- Maria Quote Box 3 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΤΕΛΙΚΗ ΠΑΡΑΚΑΤΑΘΗΚΗ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=hOELIFPuha0&t=7540s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 2ω 05:40</a>
+          </div>
+          <p class="box-maria-quote">
+            «Θα ήθελα να κλείσουμε αυτό το μεγάλο ταξίδι με μια σκέψη: Η ιστορία μας διδάσκει προπαντός ταπεινότητα και επιείκεια. Μας δείχνει πόσο εύθραυστος είναι ο πολιτισμός μας και πόσο εύκολα μπορεί να κυλήσει ξανά στη βαρβαρότητα αν δεν τον φροντίζουμε κάθε μέρα. Πάνω σε αυτή τη μικρή μπλε μπάλα που αιωρείται στο αχανές διάστημα, είμαστε όλοι συνταξιδιώτες. Δεν έχουμε άλλο σπίτι. Ας αγαπήσουμε τον άνθρωπο, με όλα τα λάθη και τα ελαττώματά του, κι ας προσπαθήσουμε να κάνουμε αυτόν τον Μεγάλο Κόσμο λίγο καλύτερο, λίγο πιο δίκαιο και λίγο πιο φωτεινό για τα παιδιά που θα έρθουν μετά από εμάς!»
+          </p>
+        </div>
+
+        <h2 id="sec-5">5. Προτεινόμενος Ιστορικός Κανόνας (Βιβλιογραφία & Περαιτέρω Μελέτη)</h2>
+
+        <p>
+          Για όσους επιθυμούν να συνεχίσουν την εμβάθυνση στην παγκόσμια ιστορία, η πανεπιστημιακή παράδοση και η Μαρία Ευθυμίου προτείνουν τα παρακάτω θεμελιώδη έργα:
+        </p>
+
+        <ul>
+          <li><strong>Fernand Braudel (Φερνάν Μπροντέλ):</strong> <em>Η Γραμματική των Πολιτισμών</em> (<em>Grammaire des civilisations</em>) & <em>Η Μεσόγειος και ο μεσογειακός κόσμος την εποχή του Φιλίππου Β΄</em> —το υπόδειγμα της σχολής των <em>Annales</em> για τον «μακρό ιστορικό χρόνο» (<em>longue durée</em>) και τη γεωγραφική δομή.</li>
+          <li><strong>Eric Hobsbawm (Έρικ Χομπσμπάουμ):</strong> Η μνημειώδης ιστορική τετραλογία του σύγχρονου κόσμου: <em>Η Εποχή των Επαναστάσεων (1789–1848)</em>, <em>Η Εποχή του Κεφαλαίου (1848–1875)</em>, <em>Η Εποχή των Αυτοκρατοριών (1875–1914)</em> και <em>Η Εποχή των Ακροτήτων: Ο Σύντομος Εικοστός Αιώνας (1914–1991)</em>.</li>
+          <li><strong>William H. McNeill (Γουίλιαμ ΜακΝίλ):</strong> <em>Η Άνοδος της Δύσης: Μια Ιστορία της Ανθρώπινης Κοινότητας</em> (<em>The Rise of the West</em>) & <em>Επιδημίες και Λαοί</em> (<em>Plagues and Peoples</em>) —η πρωτοπόρα ματιά στην αλληλεπίδραση των πολιτισμών και των πανδημιών.</li>
+          <li><strong>Jared Diamond (Τζάρεντ Ντάιαμοντ):</strong> <em>Όπλα, Μικρόβια και Ατσάλι</em> (<em>Guns, Germs, and Steel</em>) —η περιβαλλοντική και γεωγραφική εξήγηση των ανισοτήτων στην ανθρώπινη εξέλιξη.</li>
+          <li><strong>Richard Overy (Ρίτσαρντ Όβερι):</strong> <em>Γιατί Νίκησαν οι Σύμμαχοι</em> (<em>Why the Allies Won</em>) —η καθοριστική μελέτη για την οικονομική, τεχνολογική και στρατηγική διάσταση του Β΄ Παγκοσμίου Πολέμου.</li>
+          <li><strong>Μαρία Ευθυμίου & Μάκης Προβατάς:</strong> <em>Μόνο λίγα χιλιόμετρα: Ιστορίες για την Ιστορία</em> (Εκδόσεις Πατάκη) —η συμπυκνωμένη σοφία και οι αναστοχασμοί της ίδιας της καθηγήτριας για την ελληνική και παγκόσμια πορεία.</li>
+        </ul>
+
+        <!-- Full 21 Chapter Summary Table -->
+        <h2 id="sec-6">6. Αναλυτικός Πίνακας: Το Πανόραμα των 21 Μαθημάτων</h2>
+        <div class="table-responsive">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Α/Α</th>
+                <th>Κεφάλαιο</th>
+                <th>Κεντρικό Θέμα</th>
+                <th>Σύνδεσμος</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>01</strong></td>
+                <td>Τροφοσυλλέκτης & Κυνηγός</td>
+                <td>Παλαιολιθική Εποχή & Γεωργική Επανάσταση</td>
+                <td><a href="../index.html">Άνοιγμα Μαθήματος 01</a></td>
+              </tr>
+              <tr>
+                <td><strong>02</strong></td>
+                <td>Η πορεία του ανθρώπου & οι στέπες</td>
+                <td>Εξημέρωση αλόγου, Σκύθες & Ευρασιατική Στέπα</td>
+                <td><a href="ch02.html">Άνοιγμα Μαθήματος 02</a></td>
+              </tr>
+              <tr>
+                <td><strong>03</strong></td>
+                <td>Επιτεύγματα Γεωργικής Επανάστασης</td>
+                <td>Πόλεις, Γραφή, Μεσοποταμία & Αίγυπτος</td>
+                <td><a href="ch03.html">Άνοιγμα Μαθήματος 03</a></td>
+              </tr>
+              <tr>
+                <td><strong>04</strong></td>
+                <td>Χρυσή Ορδή & Εισαγωγή στις Θρησκείες</td>
+                <td>Τζένγκις Χαν, Ανιμισμός & Μεταφυσική</td>
+                <td><a href="ch04.html">Άνοιγμα Μαθήματος 04</a></td>
+              </tr>
+              <tr>
+                <td><strong>05</strong></td>
+                <td>Ινδουισμός – Βουδισμός – Ταοϊσμός</td>
+                <td>Κάρμα, Ντάρμα, Νιρβάνα & Γιν-Γιανγκ</td>
+                <td><a href="ch05.html">Άνοιγμα Μαθήματος 05</a></td>
+              </tr>
+              <tr>
+                <td><strong>06</strong></td>
+                <td>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</td>
+                <td>Κοινωνική αρμονία, δυϊσμός & μονοθεϊσμός</td>
+                <td><a href="ch06.html">Άνοιγμα Μαθήματος 06</a></td>
+              </tr>
+              <tr>
+                <td><strong>07</strong></td>
+                <td>Εβραϊσμός & Χριστιανισμός</td>
+                <td>Διαθήκη, Ναός Σολομώντα & Ιησούς Ναζωραίος</td>
+                <td><a href="ch07.html">Άνοιγμα Μαθήματος 07</a></td>
+              </tr>
+              <tr>
+                <td><strong>08</strong></td>
+                <td>Χριστιανισμός (Μέρος Α΄)</td>
+                <td>Απόστολος Παύλος, Διώξεις & Κωνσταντίνος</td>
+                <td><a href="ch08.html">Άνοιγμα Μαθήματος 08</a></td>
+              </tr>
+              <tr>
+                <td><strong>09</strong></td>
+                <td>Χριστιανισμός (Μέρος Β΄)</td>
+                <td>Οικουμενικές Σύνοδοι & το Σχίσμα του 1054</td>
+                <td><a href="ch09.html">Άνοιγμα Μαθήματος 09</a></td>
+              </tr>
+              <tr>
+                <td><strong>10</strong></td>
+                <td>Χριστιανισμός (Μέρος Γ΄)</td>
+                <td>Μεσαίωνας, Σταυροφορίες & Ιερά Εξέταση</td>
+                <td><a href="ch10.html">Άνοιγμα Μαθήματος 10</a></td>
+              </tr>
+              <tr>
+                <td><strong>11</strong></td>
+                <td>Χριστιανισμός (Μέρος Δ΄)</td>
+                <td>Προτεσταντική Μεταρρύθμιση & Λούθηρος</td>
+                <td><a href="ch11.html">Άνοιγμα Μαθήματος 11</a></td>
+              </tr>
+              <tr>
+                <td><strong>12</strong></td>
+                <td>Ισλάμ</td>
+                <td>Μωάμεθ, Κοράνι & η Αραβική Επέκταση</td>
+                <td><a href="ch12.html">Άνοιγμα Μαθήματος 12</a></td>
+              </tr>
+              <tr>
+                <td><strong>13</strong></td>
+                <td>Αραβικός Πολιτισμός & Ινδία</td>
+                <td>Χρυσός Αιώνας, Βαγδάτη, Ανδαλουσία, Μουγκάλ</td>
+                <td><a href="ch13.html">Άνοιγμα Μαθήματος 13</a></td>
+              </tr>
+              <tr>
+                <td><strong>14</strong></td>
+                <td>Ινδία & Κίνα</td>
+                <td>Σινικό Τείχος, Μανδαρίνοι, Δρόμος Μεταξιού</td>
+                <td><a href="ch14.html">Άνοιγμα Μαθήματος 14</a></td>
+              </tr>
+              <tr>
+                <td><strong>15</strong></td>
+                <td>Κίνα & Ιαπωνία</td>
+                <td>Σαμουράι, Σιντοϊσμός, Sakoku & Μεϊτζί</td>
+                <td><a href="ch15.html">Άνοιγμα Μαθήματος 15</a></td>
+              </tr>
+              <tr>
+                <td><strong>16</strong></td>
+                <td>Κίνα & Νοτιοανατολική Ασία</td>
+                <td>Πόλεμοι Οπίου, Ταϊπίνγκ, Μπόξερ, Άνγκορ Βατ</td>
+                <td><a href="ch16.html">Άνοιγμα Μαθήματος 16</a></td>
+              </tr>
+              <tr>
+                <td><strong>17</strong></td>
+                <td>Ρωσία</td>
+                <td>Ρως Κιέβου, Μογγολικός Ζυγός, Μέγας Πέτρος</td>
+                <td><a href="ch17.html">Άνοιγμα Μαθήματος 17</a></td>
+              </tr>
+              <tr>
+                <td><strong>18</strong></td>
+                <td>Ρωσία & ο Κόσμος</td>
+                <td>1812 Ναπολέων, 1917 Λένιν, Στάλινγκραντ, ΕΣΣΔ</td>
+                <td><a href="ch18.html">Άνοιγμα Μαθήματος 18</a></td>
+              </tr>
+              <tr>
+                <td><strong>19</strong></td>
+                <td>Ο Σύγχρονος Κόσμος</td>
+                <td>Βιομηχανική Επανάσταση, Μαρξ, Αφρική</td>
+                <td><a href="ch19.html">Άνοιγμα Μαθήματος 19</a></td>
+              </tr>
+              <tr>
+                <td><strong>20</strong></td>
+                <td>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</td>
+                <td>Α΄ & Β΄ Π.Π., Ολοκαύτωμα, Χιροσίμα, ΕΕ</td>
+                <td><a href="ch20.html">Άνοιγμα Μαθήματος 20</a></td>
+              </tr>
+              <tr>
+                <td><strong>21</strong></td>
+                <td>Ανακεφαλαίωση με Μουσικές & Εικόνες</td>
+                <td>Το Μεγάλο Ταξίδι 300.000 ετών & τα διδάγματα</td>
+                <td><a href="ch21.html">Μάθημα 21 (Τρέχον)</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">🌟</div>
+        <h3 class="synthesis-title">Τέλος Κύκλου: Ένας Μεγάλος Κόσμος</h3>
+        <p class="synthesis-text">
+          Ολοκληρώσατε την περιήγηση και στα 21 μαθήματα της σειράς «Δεκαεννέα μικρά μαθήματα για έναν Μεγάλο Κόσμο» της Μαρίας Ευθυμίου.
+          <br><br>
+          Μπορείτε να επιστρέψετε στην αρχή για να ξαναδιαβάσετε οποιοδήποτε κεφάλαιο ή να μοιραστείτε το έργο με φίλους και συνοδοιπόρους της γνώσης.
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch20.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">20. Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+        <a href="../index.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επιστροφη στην Αρχη ▶</span>
+          <span class="nav-title">01. Τροφοσυλλέκτης & Κυνηγός</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

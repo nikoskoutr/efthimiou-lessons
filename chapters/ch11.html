@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 11</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch11">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΕΝΔΕΚΑΤΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Χριστιανισμός (Μέρος Δ΄)</h1>
+        <p class="chapter-subtitle">Προτεσταντική Μεταρρύθμιση, Αντιμεταρρύθμιση, Θρησκευτικοί Πόλεμοι και η Γέννηση του Νεότερου Κόσμου.</p>
+        
+        <a href="https://www.youtube.com/watch?v=6Uub-KB_wrA" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube (Διάρκεια: 2 ώρες & 41 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο τις 95 Θεσεις στη Συνθηκη της Βεστφαλιας</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">1309–1377</div>
+            <div class="timeline-desc">Η «Βαβυλώνια Αιχμαλωσία» της Εκκλησίας στην Αβινιόν και το Μεγάλο Δυτικό Σχίσμα (έως 1417).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1415</div>
+            <div class="timeline-desc">Σύνοδος της Κωνσταντίας: Ο Γιαν Χους καίγεται στην πυρά, προαναγγέλλοντας τη Μεταρρύθμιση.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1517</div>
+            <div class="timeline-desc">Βιτεμβέργη: Ο Μαρτίνος Λούθηρος θυροκολλά τις 95 Θέσεις ενάντια στα συγχωροχάρτια.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1521</div>
+            <div class="timeline-desc">Δίαιτα της Βορματίας: «Εδώ στέκομαι, δεν μπορώ να πράξω διαφορετικά» & Μετάφραση της Καινής Διαθήκης.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1534</div>
+            <div class="timeline-desc">Αγγλία: Ο Ερρίκος Η΄ ψηφίζει το Act of Supremacy και ιδρύει την Αγγλικανική Εκκλησία.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1545–1563</div>
+            <div class="timeline-desc">Σύνοδος του Τριδέντου: Καθολική Αντιμεταρρύθμιση, Ιησουίτες και θρίαμβος του Μπαρόκ.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1618–1648</div>
+            <div class="timeline-desc">Τριακονταετής Πόλεμος & Ειρήνη της Βεστφαλίας: Γέννηση του σύγχρονου κυρίαρχου έθνους-κράτους.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Body Content -->
+      <article class="chapter-body">
+
+        <h2>1. Οι Πρόδρομοι της Καταιγίδας: Η Αβινιόν & οι Πρώτες Σπίθες</h2>
+
+        <p>Στο ενδέκατο μάθημα της σειράς, η Μαρία Ευθυμίου εξετάζει τον μεγαλύτερο σεισμό στη δυτική ιστορία μετά την πτώση της Ρώμης: <strong>την Προτεσταντική Μεταρρύθμιση</strong>. Πριν από την εμφάνιση του Λούθηρου, η Δυτική Εκκλησία είχε υποστεί δύο αιώνες βαθιάς απαξίωσης:</p>
+
+        <div class="box-history">
+          <div class="box-history-title">🏛️ Η Κριση του Παπισμου πριν απο τον Λουθηρο</div>
+          <ul>
+            <li><strong>Η Βαβυλώνια Αιχμαλωσία στην Αβινιόν (1309–1377):</strong> Υπό τη γαλλική πίεση, η παπική έδρα μεταφέρθηκε στη Νότια Γαλλία. Επτά διαδοχικοί Γάλλοι Πάπες υποτάχθηκαν στη γαλλική μοναρχία, μετατρέποντας τη Ρώμη σε σκιά και την Εκκλησία σε φορομπηχτικό μηχανισμό.</li>
+            <li><strong>Το Δυτικό Σχίσμα (1378–1417):</strong> Για σαράντα χρόνια υπήρχαν δύο (και αργότερα τρεις!) ταυτόχρονοι Πάπες σε Ρώμη, Αβινιόν και Πίζα, που αλληλοαφορίζονταν δημόσια, σκανδαλίζοντας τους πιστούς.</li>
+            <li><strong>Ο Γιαν Χους στην πυρά (1415):</strong> Στην Πράγα, ο Τσέχος ιεροκήρυκας Γιαν Χους κατήγγειλε τη σιμωνία. Στη Σύνοδο της Κωνσταντίας, παρότι είχε αυτοκρατορικό έγγραφο ασυλίας, συνελήφθη και **κάηκε ζωντανός στην πυρά**, ανάβοντας τη φωτιά των Χουσιτικών Πολέμων.</li>
+            <li><strong>Ο Έρασμος και το «Μωρίας Εγκώμιον» (1511):**</strong> Ο μεγάλος χριστιανός ανθρωπιστής Έρασμος ξεμπρόστιασε την αμάθεια των μοναχών. Όπως έλεγαν τότε: <em>«Ο Έρασμος γέννησε το αυγό και ο Λούθηρος το εκκόλαψε!»</em>.</li>
+          </ul>
+        </div>
+
+        <h2>2. Ο Αναγεννησιακός Παπισμός & το Σκάνδαλο των Συγχωροχαρτίων</h2>
+
+        <p>Στις αρχές του 16ου αιώνα, η Ρώμη έλαμπε χάρη στην τέχνη της Αναγέννησης, αλλά βούλιαζε στην ηθική σήψη. Οι Πάπες <strong>Αλέξανδρος ΣΤ΄ Βοργίας</strong>, <strong>Ιούλιος Β΄</strong> (ο «στρατηγός Πάπας») και <strong>Λέων Ι΄ των Μεδίκων</strong> χρηματοδοτούσαν τον Μιχαήλ Άγγελο και τον Ραφαήλ, ανοικοδομώντας τη φαραωνική νέα <strong>Βασιλική του Αγίου Πέτρου</strong>.</p>
+
+        <p>Για να καλυφθούν τα αμύθητα κόστη, η Ρώμη οργάνωσε μια γιγάντια εμποροπανήγυρη πίστης: τα **Συγχωροχάρτια (*Indulgentiae*)**. Η Εκκλησία ισχυριζόταν ότι κατείχε το «Θησαυροφυλάκιο των Αξιομισθιών» (*Thesaurus Meritorum*) του Χριστού και μπορούσε να πουλά πιστοποιητικά μείωσης των βασάνων στο Καθαρτήριο Πυρ (*Purgatorium*). Στη Γερμανία, ο δομινικανός μοναχός <strong>Γιόχαν Τέτσελ (Johann Tetzel)</strong> περιόδευε με το διαβόητο σύνθημα:</p>
+
+        <p style="text-align: center; font-size: 1.25rem; font-style: italic; color: var(--color-primary); margin: 1.5rem 0;">
+          «Μόλις το νόμισμα στο κουτί ηχήσει, η ψυχή από το Καθαρτήριο θα ξεπηδήσει!»
+        </p>
+
+        <h2>3. Ο Μαρτίνος Λούθηρος και οι 95 Θέσεις της Βιτεμβέργης (1517)</h2>
+
+        <p>Η σπίθα που τίναξε το μεσαιωνικό οικοδόμημα στον αέρα προήλθε από έναν άσημο αυγουστινιανό μοναχό και καθηγητή Θεολογίας στο Πανεπιστήμιο της Βιτεμβέργης: τον <strong>Μαρτίνο Λούθηρο (Martin Luther, 1483–1546)</strong>. Βασανισμένος από βαθιά υπαρξιακή αγωνία για την κρίση του Θεού, ο Λούθηρος ανακάλυψε στα λόγια του Αποστόλου Παύλου τη λυτρωτική αρχή: <em>«Ο δίκαιος εκ πίστεως ζήσεται»</em>.</p>
+
+        <!-- Plate 1: Martin Luther Portrait -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/martin_luther_portrait.jpg" alt="Πορτρέτο του Μαρτίνου Λούθηρου (Lucas Cranach ο Πρεσβύτερος, 1529)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 1: Ο Μαρτίνος Λούθηρος (Lucas Cranach ο Πρεσβύτερος, 1529, Germanisches Nationalmuseum)</strong>
+            <span class="map-badge">Germanisches Nationalmuseum, Νυρεμβεργη</span>
+            Ο αναμορφωτής εικονίζεται με το λιτό ένδυμα του θεολόγου, κρατώντας την Αγία Γραφή. Ο Λούθηρος δεν επεδίωξε αρχικά τη διάσπαση, αλλά την επιστροφή της Εκκλησίας στην απλότητα του Ευαγγελίου, απορρίπτοντας την εμπορευματοποίηση της θείας χάρης.
+          </div>
+        </div>
+
+        <p>Στις <strong>31 Οκτωβρίου 1517</strong>, ο Λούθηρος θυροκόλλησε στην εξώθυρα του ναού των Αγίων Πάντων στη Βιτεμβέργη τις ιστορικές **95 Θέσεις** του. Τα θεμέλια της Μεταρρύθμισης συνοψίστηκαν σε τέσσερις αρχές:</p>
+
+        <ul>
+          <li><strong>Sola Fide (Μόνο με την Πίστη):</strong> Η σωτηρία δεν αγοράζεται με έργα ή νομίσματα, αλλά δωρίζεται δια της πίστης.</li>
+          <li><strong>Sola Scriptura (Μόνο με τη Γραφή):</strong> Η Αγία Γραφή είναι η μόνη αυθεντία, ανώτερη από πάπες και συνόδους.</li>
+          <li><strong>Sola Gratia (Μόνο με τη Χάρη):</strong> Ο άνθρωπος σώζεται αποκλειστικά από την ανεξιχνίαστη χάρη του Θεού.</li>
+          <li><strong>Η Ιεροσύνη όλων των Πιστών (*Priestertum aller Gläubigen*):</strong> Κάθε χριστιανός είναι ιερέας ενώπιον του Θεού, χωρίς την ανάγκη διαμεσολάβησης κάστας κληρικών.</li>
+        </ul>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=6Uub-KB_wrA&t=2295s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 0ω 38:15</a>
+          </div>
+          <div class="box-maria-quote">
+            «Ο Λούθηρος δεν ξεκίνησε με σκοπό να διαλύσει την Εκκλησία! Ήταν ένας βαθιά ευσεβής, σχεδόν βασανισμένος μοναχός, που τρομοκρατούνταν στην ιδέα της κόλασης. Και όταν είδε τον Τέτσελ να πουλάει τα συγχωροχάρτια σαν μαρουλόφυλλα στη λαϊκή αγορά, εξανέστη! Είπε: "Μα είναι δυνατόν να αγοράζεται η χάρη του Θεού με δύο φλουριά;". Αυτή η κραυγή του έγινε η εκρηκτική ύλη που τίναξε στον αέρα το μεσαιωνικό οικοδόμημα!»
+          </div>
+        </div>
+
+        <h2>4. Η Τυπογραφία, η Βορματία και η Μετάφραση της Βίβλου</h2>
+
+        <p>Το υπερόπλο του Λούθηρου ήταν η <strong>Τυπογραφία του Γουτεμβέργιου</strong>. Τα φυλλάδια και οι ξυλογραφίες του τυπώνονταν κατά χιλιάδες μέσα σε μία νύχτα. Στη <strong>Δίαιτα της Βορματίας (1521)</strong>, ενώπιον του αυτοκράτορα Καρόλου Ε΄, αρνήθηκε να ανακαλέσει:</p>
+
+        <blockquote>
+          «Εάν δεν πεισθώ από τη μαρτυρία των Γραφών ή από καθαρή λογική... δεν μπορώ και δεν θέλω να ανακαλέσω τίποτα, διότι το να πράττει κανείς ενάντια στη συνείδησή του δεν είναι ούτε ασφαλές ούτε ορθό. Εδώ στέκομαι, δεν μπορώ να πράξω διαφορετικά. Ο Θεός ας με βοηθήσει. Αμήν.»
+        </blockquote>
+
+        <p>Κρυμμένος στον πύργο του Βάρτμπουργκ υπό την προστασία του εκλέκτορα Φρειδερίκου, ο Λούθηρος <strong>μετέφρασε την Καινή Διαθήκη στα γερμανικά</strong> μέσα σε έντεκα εβδομάδες! Η μετάφραση αυτή δημιούργησε την ενιαία γερμανική γλώσσα (*Hochdeutsch*) και έθεσε τα θεμέλια του καθολικού αλφαβητισμού στη Βόρεια Ευρώπη. Στο Βάρτμπουργκ, βασανισμένος από υπαρξιακό φόβο, πίστεψε ότι είδε τον Διάβολο να τον χλευάζει και του πέταξε το βαρύ πήλινο **μελανοδοχείο του στο κεφάλι**!</p>
+
+        <p>Το 1525, προς απόλυτο σκανδαλισμό της Ρώμης, ο πρώην μοναχός Λούθηρος παντρεύτηκε την <strong>Καταρίνα φον Μπόρα</strong>, μια μοναχή που είχε διαφύγει από το μοναστήρι κρυμμένη μέσα σε <em>βαρέλια με παστές ρέγγες</em>, δηλώνοντας: <em>«Παντρεύτηκα για να σκάσει ο Πάπας, να χαρεί ο πατέρας μου, να γελάσουν οι άγγελοι και να κλάψουν οι διάβολοι!»</em>.</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=6Uub-KB_wrA&t=5565s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:32:45</a>
+          </div>
+          <div class="box-maria-quote">
+            «Η τυπογραφία ήταν το Facebook και το Twitter του 16ου αιώνα! Χωρίς τον Γουτεμβέργιο, ο Λούθηρος θα είχε καεί στην πυρά όπως ο Γιαν Χους εκατό χρόνια πριν. Αλλά με το πιεστήριο, ό,τι έγραφε ο Λούθηρος το πρωί, το απόγευμα τυπωνόταν σε χιλιάδες αντίτυπα και σε δύο εβδομάδες το διάβαζε ολόκληρη η Ευρώπη! Η παπική εξουσία έχασε οριστικά το μονοπώλιο της πληροφορίας!»
+          </div>
+        </div>
+
+        <h2>5. Ο Καλβινισμός, ο Αγγλικανισμός και το Πνεύμα του Καπιταλισμού</h2>
+
+        <p>Η Μεταρρύθμιση διακλαδώθηκε σε πολλαπλά ρεύματα:</p>
+        <ul>
+          <li><strong>Ο Καλβινισμός (Ζαν Καλβίνος, Γενεύη):</strong> Ο Καλβίνος εισήγαγε το δόγμα του <em>Απόλυτου Προορισμού (*Praedestinatio*)</em>. Ο Θεός έχει προαιωνίως επιλέξει ποιοι θα σωθούν. Η επίγεια επαγγελματική επιτυχία και η σκληρή εργασία θεωρήθηκαν δείγμα της θείας ευλογίας. Όπως απέδειξε ο <strong>Μαξ Βέμπερ</strong> (*Η Προτεσταντική Ηθική και το Πνεύμα του Καπιταλισμού*), η καλβινιστική αποταμίευση και επανεπένδυση γέννησε τον σύγχρονο καπιταλισμό στην Ολλανδία και την Αγγλία.</li>
+          <li><strong>Ο Αγγλικανισμός (Ερρίκος Η΄, 1534):</strong> Ο βασιλιάς της Αγγλίας αποσχίστηκε από τη Ρώμη με το <em>Act of Supremacy</em>, ανακηρύσσοντας τον εαυτό του αρχηγό της Εκκλησίας της Αγγλίας, δημεύοντας τα μοναστήρια και αποκεφαλίζοντας τον Σερ Τόμας Μορ.</li>
+        </ul>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=6Uub-KB_wrA&t=4530s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:15:30</a>
+          </div>
+          <div class="box-maria-quote">
+            «Γιατί η Βόρεια Ευρώπη —η Ολλανδία, η Αγγλία, η Γερμανία— πλούτισε τόσο ραγδαία σε σχέση με τον Καθολικό Νότο; Επειδή ο Προτεσταντισμός αγιοποίησε την εργασία! Για τον Καθολικό ή τον Ορθόδοξο, το ιδανικό ήταν ο μοναχός που αποσύρεται από τον κόσμο και προσεύχεται. Για τον Καλβινιστή, η δουλειά σου είναι η προσευχή σου! Το να δουλεύεις σκληρά, να μην σπαταλάς σε πολυτέλειες και να επανεπενδύεις το κέρδος σου, είναι η απόδειξη ότι είσαι εκλεκτός του Θεού! Από αυτή τη νοοτροπία γεννήθηκε ο σύγχρονος καπιταλισμός!»
+          </div>
+        </div>
+
+        <h2>6. Η Καθολική Αντιμεταρρύθμιση: Τριδέντο, Ιησουίτες & Μπαρόκ</h2>
+
+        <p>Η Ρωμαιοκαθολική Εκκλησία ανασυντάχθηκε στη <strong>Σύνοδο του Τριδέντου (1545–1563)</strong>, η οποία συνεδρίαζε επί δεκαοκτώ χρόνια για να ανακόψει την προτεσταντική επέλαση.</p>
+
+        <!-- Plate 2: Council of Trent -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/council_of_trent.jpg" alt="Η Σύνοδος του Τριδέντου (Museo Diocesano Tridentino)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 2: Η Σύνοδος του Τριδέντου (1545–1563, Museo Diocesano Tridentino)</strong>
+            <span class="map-badge">Museo Diocesano Tridentino, Ιταλια</span>
+            Η σύνοδος αναδιοργάνωσε την Καθολική Εκκλησία, επαναβεβαίωσε όλα τα παραδοσιακά δόγματα και τα επτά μυστήρια, κατάργησε την πώληση των συγχωροχαρτίων και θέσπισε τον «Κατάλογο Απαγορευμένων Βιβλίων» (*Index Librorum Prohibitorum*).
+          </div>
+        </div>
+
+        <p>Το 1540, ο <strong>Ιγνάτιος Λογιόλα</strong> ίδρυσε το <strong>Τάγμα των Ιησουϊτών (*Societas Iesu*)</strong>. Με στρατιωτική πειθαρχία και όρκο απόλυτης υποταγής στον Πάπα («σαν νεκρό σώμα» — *perinde ac cadaver*), οι Ιησουίτες έγιναν οι κορυφαίοι διανοούμενοι και ιεραπόστολοι του Καθολικισμού (Ματέο Ρίτσι στην Κίνα, Φραγκίσκος Ξαβιέ στην Ινδία). Παράλληλα, η Εκκλησία χρησιμοποίησε το εκθαμβωτικό μεγαλείο του **Μπαρόκ** (Μπερνίνι, Καραβάτζιο) για να μαγέψει τις αισθήσεις των πιστών.</p>
+
+        <h2>7. Οι Θρησκευτικοί Πόλεμοι και η Συνθήκη της Βεστφαλίας (1648)</h2>
+
+        <p>Η Ευρώπη βυθίστηκε σε έναν αιώνα ανείπωτης βίας. Στη Γαλλία, οι εμφύλιες συγκρούσεις ανάμεσα σε Καθολικούς και Ουγενότους κορυφώθηκαν με τη <strong>Νύχτα του Αγίου Βαρθολομαίου (24 Αυγούστου 1572)</strong> στο Παρίσι.</p>
+
+        <!-- Plate 3: St. Bartholomew's Day Massacre -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/st_bartholomew_massacre.jpg" alt="Η Σφαγή της Νύχτας του Αγίου Βαρθολομαίου (François Dubois)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 3: Η Σφαγή της Νύχτας του Αγίου Βαρθολομαίου (François Dubois, Μουσείο Καλών Τεχνών Λωζάνης)</strong>
+            <span class="map-badge">Μουσειο Καλων Τεχνων Λωζανης</span>
+            Ο πίνακας του Ουγενότου ζωγράφου François Dubois αποτυπώνει την άγρια σφαγή των Προτεσταντών στο Παρίσι με υποκίνηση της Αικατερίνης των Μεδίκων, ένα από τα πιο μελανά κεφάλαια των ευρωπαϊκών θρησκευτικών συγκρούσεων.
+          </div>
+        </div>
+
+        <p>Το 1588, ο βασιλιάς της Ισπανίας Φίλιππος Β΄ έστειλε την «Αήττητη Αρμάδα» για να κατακτήσει την προτεσταντική Αγγλία της Ελισάβετ Α΄, αλλά ο ισπανικός στόλος τσακίστηκε από σφοδρή καταιγίδα — τον περίφημο <strong>«Προτεσταντικό Άνεμο» (*«Flavit Jehovah et dissipati sunt»*)</strong> που χάρισε στην Αγγλία την κυριαρχία των θαλασσών!</p>
+
+        <p>Η κορύφωση του ολέθρου ήρθε με τον <strong>Τριακονταετή Πόλεμο (1618–1648)</strong>. Μισθοφορικοί στρατοί ρήμαξαν την κεντρική Ευρώπη, αφανίζοντας πάνω από το ένα τρίτο του πληθυσμού των γερμανικών χωρών από τη σφαγή, την πείνα και τις επιδημίες.</p>
+
+        <p>Η εξάντληση οδήγησε στη **Συνθήκη της Βεστφαλίας (1648)**, η οποία καθιέρωσε την αρχή <em>«Cuius regio, eius religio»</em> (όποιου είναι το κράτος, εκείνου είναι και η θρησκεία). Η Βεστφαλία έθεσε τα θεμέλια του **σύγχρονου διεθνούς συστήματος κυρίαρχων κρατών**: η θρησκεία έπαψε να αποτελεί αιτία διεθνούς επέμβασης, δίνοντας τη θέση της στην κοσμική έννοια της εθνικής κυριαρχίας και του «κρατικού συμφέροντος» (*raison d'état*).</p>
+
+        <h2>8. Ετυμολογικό Εργαστήρι: Οι Λέξεις της Μεταρρύθμισης</h2>
+
+        <div class="box-etymology">
+          <div class="box-etymology-title">🗣️ Ετυμολογικο Εργαστηρι: Ορολογια των Θρησκευτικων Συγκρουσεων</div>
+          <div class="box-etymology-content">
+            Οι όροι που σημάδεψαν την αυγή της νεότερης εποχής:
+            <ul>
+              <li><strong>Προτεστάντης (Protestant):</strong> Από το λατινικό <em>protestari</em> (δηλώνω δημόσια, διαμαρτύρομαι). Προήλθε από την επίσημη Διαμαρτυρία (*Protestatio*) των λουθηρανών πριγκίπων στη Δίαιτα της Σπάιερ το 1529.</li>
+              <li><strong>Αντιμεταρρύθμιση (Counter-Reformation):</strong> Από τον γερμανικό όρο <em>Gegenreformation</em>, που περιγράφει τη συνολική στρατηγική της Καθολικής Εκκλησίας για την αναχαίτιση του προτεσταντισμού.</li>
+              <li><strong>Ουγενότος (Huguenot):</strong> Πιθανότατα από τη γερμανική ελβετική λέξη <em>Eidgenosse</em> (συνομόσπονδος, δεσμευμένος με κοινό όρκο).</li>
+              <li><strong>Μπαρόκ (Baroque):</strong> Από το πορτογαλικό <em>barroco</em> (ασύμμετρο μαργαριτάρι). Αρχικά σήμαινε το παράδοξο και υπερβολικό, προτού καθιερωθεί ως η τέχνη του θριάμβου της πίστης.</li>
+              <li><strong>Σιμωνία:</strong> Από τον Σίμωνα τον Μάγο (Πράξεις Αποστόλων). Η εξαγορά εκκλησιαστικών αξιωμάτων με χρήματα.</li>
+            </ul>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">🕊️</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Από τον Ιερό Φανατισμό στο Κυρίαρχο Κράτος</h3>
+        <p class="synthesis-text">
+          «Η Μεταρρύθμιση και οι αιματηροί πόλεμοι που ακολούθησαν άλλαξαν ριζικά την πορεία της ανθρωπότητας. Από τα συντρίμμια των θρησκευτικών φανατισμών ξεπήδησε η ανάγκη για ανεξιθρησκεία, η αμφισβήτηση της απόλυτης αυθεντίας, ο εθνικός αλφαβητισμός και το σύγχρονο κυρίαρχο κράτος.
+          <br><br>
+          Στο επόμενο κεφάλαιο, εγκαταλείπουμε την κατακερματισμένη Ευρώπη και ταξιδεύουμε στην Αραβική Χερσόνησο του 7ου αιώνα, για να γνωρίσουμε την ανάδυση της νεότερης παγκόσμιας μονοθεϊστικής θρησκείας: του Ισλάμ.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch10.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">10. Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+        <a href="ch12.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">12. Ισλάμ</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 7</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch07">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΕΒΔΟΜΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Εβραϊσμός & Χριστιανισμός</h1>
+        <p class="chapter-subtitle">Από το Προφητικό Κήρυγμα της Δικαιοσύνης και τη Βαβυλώνια Αιχμαλωσία στον Ιστορικό Ιησού και την Οικουμενική Εξάπλωση του Αποστόλου Παύλου.</p>
+        
+        <a href="https://www.youtube.com/watch?v=Mj3Vy39pVN0" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube (Διάρκεια: 2 ώρες & 40 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο την Προφητικη Κριτικη στην Αποστολικη Εκρηξη</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">~750–550 π.Χ.</div>
+            <div class="timeline-desc">Η Εποχή των Προφητών: Αμώς, Ησαΐας, Ιερεμίας. Η ηθική απαίτηση για κοινωνική δικαιοσύνη υποκαθιστά τις θυσίες.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">586 π.Χ.</div>
+            <div class="timeline-desc">Άλωση της Ιερουσαλήμ από τον Ναβουχοδονόσορα: Καταστροφή του Πρώτου Ναού και Βαβυλώνια Αιχμαλωσία.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">~250 π.Χ.</div>
+            <div class="timeline-desc">Η Μετάφραση των Εβδομήκοντα (Ο΄) στην Αλεξάνδρεια: Η Εβραϊκή Βίβλος εισέρχεται στην παγκόσμια ελληνική γλώσσα.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">~4 π.Χ. – 30/33 μ.Χ.</div>
+            <div class="timeline-desc">Ο Ιστορικός Ιησούς: Το κήρυγμα της Βασιλείας του Θεού στη Γαλιλαία, η Επί του Όρους Ομιλία και η Σταύρωση.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">~48/49 μ.Χ.</div>
+            <div class="timeline-desc">Η Αποστολική Σύνοδος της Ιερουσαλήμ: Ο Παύλος ανοίγει τον Χριστιανισμό στα Έθνη απαλλάσσοντας τους πιστούς από τον εβραϊκό νόμο.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">70 μ.Χ.</div>
+            <div class="timeline-desc">Καταστροφή του Δεύτερου Ναού από τον Τίτο: Οριστικός χωρισμός Χριστιανισμού και Ραββινικού Ιουδαϊσμού.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Body Content -->
+      <article class="chapter-body">
+        
+        <h2>1. Εισαγωγή: Η Πνευματική Μήτρα της Δυτικής Συνείδησης</h2>
+        
+        <p>Στο έβδομο μάθημα, η Μαρία Ευθυμίου αναλύει τη συγκλονιστική ιστορική γέφυρα ανάμεσα στον <strong>αρχαίο Εβραϊσμό</strong> και τη <strong>γέννηση του Χριστιανισμού</strong>. Πρόκειται για την πιο επιδραστική πνευματική μεταμόρφωση στη μεσογειακή λεκάνη: το πώς μια μικρή φυλετική κοινότητα της Χαναάν κατέληξε να γεννήσει μια οικουμενική θρησκεία που ανέτρεψε τα ηθικά και πολιτικά θεμέλια της Ρωμαϊκής Αυτοκρατορίας.</p>
+
+        <h2>2. Ο Προφητικός Ιουδαϊσμός: Δικαιοσύνη Υπεράνω Θυσιών</h2>
+
+        <p>Η μοναδικότητα του αρχαίου Ισραήλ δεν κρύβεται στους ναούς του, αλλά στη φωνή των <strong>Προφητών του (8ος–6ος αι. π.Χ.)</strong>. Σε ολόκληρο τον αρχαίο κόσμο —από τη Μεσοποταμία και την Αίγυπτο μέχρι την αρχαϊκή Ελλάδα— η σχέση με τους θεούς ήταν καθαρά συναλλακτική: <em>«do ut des»</em> (δίνω για να μου δώσεις). Έσφαζες ένα βόδι, έκαιγες το λίπος στο θυσιαστήριο, και ο θεός σού χάριζε νίκη στη μάχη ή βροχή στα χωράφια.</p>
+
+        <p>Ξαφνικά, μέσα από τις άνυδρες πεδιάδες της Ιουδαίας, ορθώνονται άνδρες όπως ο <strong>Αμώς, ο Ωσηέ, ο Ησαΐας και ο Ιερεμίας</strong>, οι οποίοι διακηρύσσουν κάτι ανήκουστο για την αρχαιότητα: <strong>Ο Θεός δεν θέλει καμένα κρέατα!</strong></p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=Mj3Vy39pVN0&t=1000s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 16:40</a>
+          </div>
+          <div class="box-maria-quote">
+            «Οι Εβραίοι προφήτες ήταν οι πιο ενοχλητικοί, οι πιο επαναστατικοί άνθρωποι στην αρχαία ιστορία! Πήγαιναν καταπρόσωπο στον βασιλιά, μέσα στα μαρμάρινα παλάτια, και του φώναζαν στα μούτρα: "Καις μοσχάρια στο θυσιαστήριο ενώ ο λαός πεινάει και οι δικαστές σου δωροδοκούνται; Ο Θεός σιχαίνεται τις θυσίες σου! Δικαιοσύνη θέλει για το ορφανό και τη χήρα, προστασία για τον ξένο και τον αδύναμο!". Αυτή η στροφή από τη μαγεία της θυσίας στην κοινωνική ηθική είναι η μεγαλύτερη προσφορά του μονοθεϊσμού στον πολιτισμό!»
+          </div>
+        </div>
+
+        <h2>3. Η Βαβυλώνια Αιχμαλωσία (586 π.Χ.) & τα Χειρόγραφα της Νεκράς Θάλασσας</h2>
+
+        <p>Το 586 π.Χ., ο βασιλιάς της Βαβυλώνας Ναβουχοδονόσορ κατέλαβε την Ιερουσαλήμ, έκαψε τον Πρώτο Ναό του Σολομώντα και εξόρισε την ιουδαϊκή ελίτ στη Μεσοποταμία. Ήταν μια εθνική καταστροφή που όμως γέννησε τον <strong>Βιβλικό Ιουδαϊσμό</strong>:</p>
+        <ul>
+          <li>Η πίστη αποδεσμεύτηκε από έναν γεωγραφικό τόπο: ο Θεός είναι πανταχού παρών.</li>
+          <li>Ιδρύθηκε η <strong>Συναγωγή</strong> ως χώρος ανάγνωσης και ερμηνείας των κειμένων.</li>
+          <li>Συντάχθηκε και κωδικοποιήθηκε η <strong>Εβραϊκή Βίβλος (Τανάκ)</strong>.</li>
+        </ul>
+
+        <p>Την ίδια αγωνία για την αγνότητα του κειμένου διατήρησε η ασκητική αδελφότητα των <strong>Εσσαίων</strong> στο Κουμράν. Το 1947, ένας νεαρός Βεδουίνος βοσκός αναζητώντας μια χαμένη κατσίκα πέταξε μια πέτρα σε μια απόκρημνη σπηλιά πάνω από τη Νεκρά Θάλασσα και άκουσε πήλινα πιθάρια να σπάνε. Μέσα τους βρέθηκαν τα ιστορικά <strong>Χειρόγραφα της Νεκράς Θάλασσας</strong>, άθικτα επί 2.000 χρόνια χάρη στο ξηρό κλίμα της ερήμου!</p>
+
+        <!-- Plate 1: Dead Sea Scrolls -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/dead_sea_scrolls.jpg" alt="Το Μεγάλο Χειρόγραφο του Ησαΐα από το Κουμράν" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 1: Το Μεγάλο Χειρόγραφο του Ησαΐα (Κεφάλαιο 53, Χειρόγραφα Νεκράς Θάλασσας)</strong>
+            <span class="map-badge">Ναος του Βιβλιου, Ιερουσαλημ</span>
+            Ανακαλύφθηκε στις σπηλιές του Κουμράν (1QIsa). Χρονολογείται γύρω στο 125 π.Χ. και αποτελεί το αρχαιότερο πλήρες βιβλικό χειρόγραφο στον κόσμο, διατηρώντας το αρχαίο εβραϊκό κείμενο σχεδόν πανομοιότυπο με τις μεταγενέστερες μεσαιωνικές εκδόσεις.
+          </div>
+        </div>
+
+        <h2>4. Ελληνιστικός Ιουδαϊσμός, ο Πομπήιος & η Ρωμαϊκή Κατάκτηση</h2>
+
+        <p>Το 63 π.Χ., ο Ρωμαίος στρατηγός <strong>Πομπήιος</strong> κατέλαβε την Ιερουσαλήμ. Περίεργος να δει ποιον θεό λάτρευαν οι Ιουδαίοι, μπήκε στα άδυτα των <strong>Αγίων των Αγίων (*Kodesh Hakodashim*)</strong>. Προς έκπληξή του, αντίκρισε <em>ένα εντελώς άδειο δωμάτιο</em>, χωρίς κανένα είδωλο ή άγαλμα — κάτι αδιανόητο για την πολυθεϊστική ρωμαϊκή σκέψη.</p>
+
+        <p>Τον 1ο αιώνα π.Χ., η υποταγή της Ιουδαίας στη Ρώμη δημιούργησε ένα εκρηκτικό περιβάλλον. Οι <strong>Σαδδουκαίοι</strong> συνεργάζονταν με τη ρωμαϊκή εξουσία, οι <strong>Φαρισαίοι</strong> προσκολλώνταν στις λεπτομέρειες του Νόμου, οι <strong>Εσσαίοι</strong> αποσύρονταν στην έρημο αναμένοντας την Ημέρα της Κρίσεως, και οι <strong>Ζηλωτές</strong> οργάνωναν ένοπλο αντάρτικο. Όλοι περίμεναν τον <strong>Μεσσία</strong>.</p>
+
+        <h2>5. Ο Ιστορικός Ιησούς: Το Ριζοσπαστικό Μήνυμα της Αγάπης</h2>
+
+        <p>Μέσα σε αυτό το καμίνι εμφανίστηκε ο <strong>Ιησούς από τη Ναζαρέτ</strong>. Το κήρυγμά του δεν ήταν ένα κάλεσμα σε ένοπλο πόλεμο, αλλά μια <strong>ριζοσπαστική ανατροπή όλων των κοινωνικών ιεραρχιών</strong>:</p>
+
+        <!-- Plate 2: Good Shepherd Catacomb -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/good_shepherd_catacomb.jpg" alt="Ο Καλός Ποιμήν στην Κατακόμβη της Πρισκίλλας στη Ρώμη" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 2: Ο Καλός Ποιμήν (Κατακόμβη της Πρισκίλλας, Ρώμη, 3ος αι. μ.Χ.)</strong>
+            <span class="map-badge">Πρωτοχριστιανικη Τεχνη</span>
+            Η παλαιότερη και πιο αγαπητή πρωτοχριστιανική απεικόνιση του Χριστού. Εικονίζεται ως νεαρός, άμουσος ποιμένας που κουβαλά στους ώμους του το χαμένο πρόβατο, συμβολίζοντας την άπειρη στοργή, την προστασία και τη συγχώρεση για τους ταπεινούς και κατατρεγμένους.
+          </div>
+        </div>
+
+        <p>Ο Ιησούς συνέφαγε με τους περιθωριοποιημένους, θεράπευσε το Σάββατο διακηρύσσοντας ότι ο άνθρωπος είναι ανώτερος από τον νόμο, και στην <strong>Επί του Όρους Ομιλία</strong> μακάρισε όχι τους ισχυρούς και τους νικητές, αλλά τους πραείς, τους ελεήμονες και τους διωκόμενους.</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=Mj3Vy39pVN0&t=4365s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1ω 12:45</a>
+          </div>
+          <div class="box-maria-quote">
+            «Σκεφτείτε τι σόκ ήταν αυτό το κήρυγμα για έναν Ρωμαίο! Οι Ρωμαίοι λάτρευαν τη δύναμη, τη στρατιωτική επιβολή, την πειθαρχία και την κυριαρχία. Για έναν Ρωμαίο, το να είσαι πράος ή αδύναμος ήταν ελάττωμα! Και ξαφνικά εμφανίζεται ένας ξυλουργός από ένα ασήμαντο χωριό της Γαλιλαίας και λέει: "Αγαπάτε τους εχθρούς σας! Αν σε χαστουκίσουν στο δεξί μάγουλο, γύρισε και το άλλο!". Αυτό δεν ήταν απλώς θρησκεία — ήταν μια κατά μέτωπο σύγκρουση με ολόκληρη τη λογική της αρχαίας αυτοκρατορίας!»
+          </div>
+        </div>
+
+        <h2>6. Ο Παύλος από την Ταρσό & ο Άγνωστος Θεός των Αθηνών</h2>
+
+        <p>Χωρίς τον <strong>Απόστολο Παύλο</strong>, ο Χριστιανισμός πιθανότατα θα είχε παραμείνει μια μικρή ιουδαϊκή αίρεση περιορισμένη στη Συροπαλαιστίνη. Ο Παύλος συνδύαζε τρεις ιδιότητες που τον καθιστούσαν μοναδικό:</p>
+        <ul>
+          <li>Ήταν <strong>Εβραίος Φαρισαίος</strong> με βαθιά γνώση των Γραφών.</li>
+          <li>Μιλούσε άπταιστα την <strong>ελληνική γλώσσα</strong> και σκεφτόταν με τους όρους της ελληνιστικής ρητορικής.</li>
+          <li>Κατείχε τη <strong>ρωμαϊκή υπηκοότητα</strong>, πράγμα που του εξασφάλιζε νομική προστασία και ελευθερία κινήσεων.</li>
+        </ul>
+
+        <p>Στην <strong>Αποστολική Σύνοδο της Ιερουσαλήμ (48/49 μ.Χ.)</strong>, ο Παύλος πέτυχε την ιστορική τομή: οι μη Εβραίοι (Εθνικοί) γίνονταν δεκτοί στην Εκκλησία χωρίς να υποχρεούνται να τηρούν την περιτομή και τους διατροφικούς νόμους του Μωυσή. Στην Αθήνα, μιλώντας στον <strong>Άρειο Πάγο</strong>, αξιοποίησε τον βωμό του <em>«Αγνώστου Θεού»</em> για να ενώσει τον μονοθεϊσμό με την ελληνική φιλοσοφία!</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=Mj3Vy39pVN0&t=6500s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1ω 48:20</a>
+          </div>
+          <div class="box-maria-quote">
+            «Ο Παύλος ήταν μια απόλυτη μεγαλοφυΐα επικοινωνίας και οργάνωσης! Αξιοποίησε στο έπακρο τα πλεονεκτήματα της Ρωμαϊκής Αυτοκρατορίας: τους στρωμένους ρωμαϊκούς δρόμους (πάνω από 80.000 χλμ. δικτύου!), τα εμπορικά πλοία της Μεσογείου απαλλαγμένα από πειρατές χάρη στον Πομπήιο και, πάνω απ' όλα, την κοινή ελληνική γλώσσα! Με αυτά τα εργαλεία ταξίδεψε πάνω από 10.000 χιλιόμετρα από την Αντιόχεια και την Έφεσο στους Φιλίππους, στη Θεσσαλονίκη, στην Αθήνα, στην Κόρινθο και στη Ρώμη!»
+          </div>
+        </div>
+
+        <h2>7. Ρωμαϊκός Πραγματισμός: Γιατί Διώχθηκαν οι Χριστιανοί; (Προδοσία, όχι Αίρεση)</h2>
+
+        <p>Μια από τις μεγαλύτερες ιστορικές παρανοήσεις είναι ότι οι Ρωμαίοι δίωκαν τους χριστιανούς από θεολογικό φανατισμό. Στην πραγματικότητα, το ρωμαϊκό πάνθεον ήταν απόλυτα ανοιχτό και πραγματιστικό: οι Ρωμαίοι υιοθετούσαν με ενθουσιασμό ξένες λατρείες (την Ίσιδα από την Αίγυπτο, τον Μίθρα από την Περσία, τον Σέραπι). Η θρησκεία για το ρωμαϊκό κράτος δεν αφορούσε την εσωτερική πίστη της καρδιάς, αλλά το <strong>πολιτικό καθήκον</strong> και την τήρηση της <em>Pax Deorum</em> (της ειρήνης με τους θεούς που προστάτευαν την πόλη).</p>
+
+        <p>Μία φορά τον χρόνο, κάθε πολίτης ή υπήκοος όφειλε να προσέλθει στον βωμό του Αυτοκράτορα, να κάψει μια πρέζα θυμίαμα στα κάρβουνα και να λάβει το επίσημο πιστοποιητικό θυσίας (<em>libellus</em>) — μια πράξη αντίστοιχη με έναν σύγχρονο όρκο νομιμοφροσύνης στο Σύνταγμα ή την πληρωμή φόρων. Όταν οι χριστιανοί αρνούνταν να θυσιάσουν, οι Ρωμαίοι δικαστές δεν τους καταδίκαζαν για αίρεση (<em>haeresis</em>), αλλά για <strong>εσχάτη προδοσία (<em>crimen majestatis</em>)</strong> και ανυπακοή στους νόμους του κράτους!</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=Mj3Vy39pVN0&t=7515s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 2ω 05:15</a>
+          </div>
+          <div class="box-maria-quote">
+            «Οι Ρωμαίοι ήταν απίστευτα πραγματιστές και ανεκτικοί! Έλεγαν σε όλους τους λαούς: "Φέρτε όποιον θεό θέλετε στη Ρώμη! Την Ίσιδα; Τον Σέραπι; Τον Μίθρα; Κανένα πρόβλημα! Αλλά, ως πολίτης ή υπήκοος, θα έρθεις μια φορά τον χρόνο στον βωμό του Αυτοκράτορα, θα ρίξεις μια πρέζα θυμίαμα στα κάρβουνα και θα πάρεις το χαρτί σου (libellus) ότι είσαι νομοταγής πολίτης!". Σαν να πληρώνεις την εφορία σου ή να χαιρετάς τη σημαία! Και έρχονται οι Χριστιανοί και λένε: "Όχι! Εμείς δεν ρίχνουμε ούτε κόκκο θυμιάματος σε θνητό άνθρωπο!". Για τους Ρωμαίους δικαστές, αυτό δεν ήταν θεολογική διαφωνία. Ήταν ανυπακοή, ανταρσία και εσχάτη προδοσία!»
+          </div>
+        </div>
+
+        <h2>8. Η Καταστροφή της Ιερουσαλήμ (70 μ.Χ.), η Μασάντα & η Διασπορά</h2>
+
+        <p>Το 70 μ.Χ., μετά από μια αιματηρή τετραετή επανάσταση των Ιουδαίων, οι ρωμαϊκές λεγεώνες υπό τον <strong>Τίτο</strong> άλωσαν την Ιερουσαλήμ και **ισοπέδωσαν τον Δεύτερο Ναό**. Το 73 μ.Χ., οι τελευταίοι 960 Ζηλωτές στο απόκρημνο οχυρό της <strong>Μασάντα</strong> αυτοκτόνησαν μαζικά για να μην παραδοθούν στη ρωμαϊκή δουλεία. Μετά και την εξέγερση του Μπαρ Κοχμπά (132–135 μ.Χ.), ο αυτοκράτορας Αδριανός μετονόμασε την Ιερουσαλήμ σε <em>Aelia Capitolina</em> και την επαρχία σε <em>Syria Palaestina</em>, εγκαινιάζοντας τη μεγάλη <strong>Διασπορά</strong>.</p>
+
+        <!-- Plate 3: Arch of Titus Menorah -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/arch_of_titus_menorah.jpg" alt="Το Ανάγλυφο της Μενόρα στην Αψίδα του Τίτου στη Ρώμη" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 3: Η Λεηλασία του Ναού της Ιερουσαλήμ (Αψίδα του Τίτου, Ρωμαϊκή Αγορά, 81 μ.Χ.)</strong>
+            <span class="map-badge">Ρωμαικη Αγορα, Ρωμη</span>
+            Μαρμάρινο ανάγλυφο που απεικονίζει τη θριαμβευτική πομπή των Ρωμαίων λεγεωνάριων με τα λάφυρα του Ναού της Ιερουσαλήμ: τη χρυσή Επτάφωτο Λυχνία (Μενόρα), την Τράπεζα των Άρτων της Προθέσεως και τις σάλπιγγες. Σηματοδοτεί το τέλος της ιουδαϊκής κρατικής υπόστασης και την αρχή της μεγάλης Διασποράς.
+          </div>
+        </div>
+
+        <p>Η πτώση της Ιερουσαλήμ αποτέλεσε το οριστικό ιστορικό διαζύγιο: Ο Ιουδαϊσμός αναδιοργανώθηκε γύρω από τους Ραββίνους και τη μελέτη της Τορά, ενώ ο Χριστιανισμός προχώρησε ανεξάρτητος στην κατάκτηση της ελληνορωμαϊκής οικουμένης.</p>
+
+        <h2>9. Ετυμολογικό Εργαστήρι: Οι Λέξεις της Χριστιανικής Εξάπλωσης</h2>
+
+        <div class="box-etymology">
+          <div class="box-etymology-title">🗣️ Ετυμολογικο Εργαστηρι: Γλωσσικες Ριζες της Πρωτοχριστιανικης Πιστης</div>
+          <div class="box-etymology-content">
+            Η ελληνική γλώσσα υπήρξε το οικουμενικό όχημα που μετέφερε το χριστιανικό μήνυμα σε όλο τον κόσμο:
+            <ul>
+              <li><strong>Ευαγγέλιο:</strong> Από το <em>εὖ</em> (καλός) + <em>ἀγγελία</em> (είδηση). Στη ρωμαϊκή πολιτική γλώσσα ήταν η επίσημη αναγγελία της γέννησης ή της στρατιωτικής νίκης του Καίσαρα. Οι χριστιανοί το επανανοηματοδότησαν ως το χαρμόσυνο μήνυμα της σωτηρίας.</li>
+              <li><strong>Χριστός:</strong> Ελληνική απόδοση της εβραϊκής λέξης <em>Mashiach</em> (Μεσσίας), από το ρήμα <em>χρίω</em> (αλείφω με ιερό μύρο). Σήμαινε τον «κεχρισμένο βασιλιά και ιερέα».</li>
+              <li><strong>ΙΧΘΥΣ:</strong> Το μυστικό ακρωνύμιο αναγνώρισης των διωκόμενων χριστιανών στις κατακόμβες: <strong>Ι</strong>ησούς <strong>Χ</strong>ριστός <strong>Θ</strong>εού <strong>Υ</strong>ιός <strong>Σ</strong>ωτήρ.</li>
+              <li><strong>Απόστολος:</strong> Από το ρήμα <em>ἀποστέλλω</em> (στέλνω ως επίσημο αντιπρόσωπο). Οι απόστολοι ήταν οι εξουσιοδοτημένοι πρεσβευτές της διδασκαλίας.</li>
+              <li><strong>Εκκλησία:</strong> Από το <em>ἐκκαλέω</em> (προσκαλώ, καλώ έξω). Στην αρχαία δημοκρατική Αθήνα ήταν η συνέλευση των πολιτών (Εκκλησία του Δήμου). Στον Χριστιανισμό έγινε η κοινότητα των πιστών που καλούνται να ζήσουν μαζί.</li>
+            </ul>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">🕊️</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Η Νίκη των Αδυνάτων</h3>
+        <p class="synthesis-text">
+          «Από τις φλογερές διαμαρτυρίες του Αμώς και του Ησαΐα μέχρι τους ψαλμούς των πρώτων χριστιανών στις κατακόμβες της Ρώμης, ο μονοθεϊσμός έφερε μια κοσμοϊστορική αλλαγή παραδείγματος. Για πρώτη φορά στην ιστορία, ο Θεός δεν τάχθηκε με το μέρος των ισχυρών βασιλιάδων, των αυτοκρατόρων και των στρατηγών, αλλά με το μέρος των ταπεινών, των κατατρεγμένων και των αδικημένων.
+          <br><br>
+          Στο επόμενο μάθημα, θα δούμε πώς αυτή η περιθωριακή πίστη των διωκόμενων μαρτύρων κέρδισε τελικά τον Αυτοκράτορα Κωνσταντίνο και μεταμορφώθηκε στην επίσημη θρησκεία της Ρωμαϊκής Αυτοκρατορίας.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch06.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">06. Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+        <a href="ch08.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">08. Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

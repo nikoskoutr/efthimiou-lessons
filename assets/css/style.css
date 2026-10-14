@@ -1,0 +1,1587 @@
+/* ==========================================================================
+   ΜΙΚΡΑ ΜΑΘΗΜΑΤΑ ΓΙΑ ΕΝΑΝ ΜΕΓΑΛΟ ΚΟΣΜΟ - ΨΗΦΙΑΚΗ ΕΚΔΟΣΗ ΒΙΒΛΙΟΥ
+   Typographic, Layout & Modern Mobile-Responsive Reading Experience
+   Prof. Maria Efthymiou History Lecture Series
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ==========================================================================
+   1. Design System & Theme Variables
+   ========================================================================== */
+:root {
+  /* Parchment / Classical Editorial Theme (Default) */
+  --bg-color: #FAF7F2;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FFFFFF;
+  --bg-sidebar: #F4EFE6;
+  --bg-topbar: rgba(250, 247, 242, 0.92);
+  --bg-code: #F2ECE1;
+
+  --text-main: #211D1A;
+  --text-muted: #574F47;
+  --text-faint: #857B6F;
+  --border-color: #E2DBD0;
+  --border-subtle: #ECE5DB;
+
+  /* Mediterranean Palette Accents */
+  --accent-terracotta: #A14223;
+  --accent-terracotta-hover: #863418;
+  --accent-terracotta-light: #FBF0EB;
+  --accent-terracotta-border: #E8BFB0;
+
+  --accent-olive: #3B5B41;
+  --accent-olive-light: #EBF3ED;
+  --accent-olive-border: #BFD8C3;
+
+  --accent-gold: #B8860B;
+  --accent-gold-light: #FDF8EC;
+  --accent-gold-border: #E8D39E;
+
+  --accent-slate: #2B4C6F;
+  --accent-slate-light: #EEF4FA;
+  --accent-slate-border: #BDD4EC;
+
+  --shadow-sm: 0 1px 3px rgba(33, 29, 26, 0.05);
+  --shadow-md: 0 4px 14px rgba(33, 29, 26, 0.06);
+  --shadow-lg: 0 10px 30px rgba(33, 29, 26, 0.09);
+  --shadow-drawer: 8px 0 32px rgba(33, 29, 26, 0.18);
+
+  --font-serif: 'EB Garamond', 'GFS Didot', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-display: 'Cinzel', 'GFS Didot', 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --sidebar-width: 320px;
+  --content-max-width: 820px;
+  --topbar-height: 56px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-scale: 1;
+  color-scheme: light;
+}
+
+/* 2. Sepia Theme (Warm E-Reader) */
+[data-theme="sepia"] {
+  color-scheme: light;
+  --bg-color: #F3EBD7;
+  --bg-surface: #FDF8EE;
+  --bg-surface-elevated: #FFFBF2;
+  --bg-sidebar: #E9DFCA;
+  --bg-topbar: rgba(243, 235, 215, 0.94);
+  --bg-code: #E6DCBF;
+
+  --text-main: #33291B;
+  --text-muted: #5F503A;
+  --text-faint: #88775F;
+  --border-color: #D6C8A6;
+  --border-subtle: #DFD3B5;
+
+  --accent-terracotta: #8C371B;
+  --accent-terracotta-hover: #722B13;
+  --accent-terracotta-light: #EFE3D8;
+  --accent-terracotta-border: #D8B7A5;
+
+  --accent-olive: #324E38;
+  --accent-olive-light: #DEE8DF;
+  --accent-olive-border: #B2C7B6;
+
+  --accent-gold: #9E7408;
+  --accent-gold-light: #F7EFCF;
+  --accent-gold-border: #DDC88D;
+
+  --accent-slate: #233D5B;
+  --accent-slate-light: #DEE7F0;
+  --accent-slate-border: #AFC1D6;
+
+  --shadow-sm: 0 1px 3px rgba(51, 41, 27, 0.06);
+  --shadow-md: 0 4px 14px rgba(51, 41, 27, 0.08);
+  --shadow-lg: 0 10px 30px rgba(51, 41, 27, 0.12);
+  --shadow-drawer: 8px 0 32px rgba(51, 41, 27, 0.22);
+}
+
+/* 3. Dark Theme (Nocturne / OLED Slate) */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-color: #131518;
+  --bg-surface: #1B1E23;
+  --bg-surface-elevated: #22262D;
+  --bg-sidebar: #101215;
+  --bg-topbar: rgba(19, 21, 24, 0.94);
+  --bg-code: #252A32;
+
+  --text-main: #E7E3DC;
+  --text-muted: #A39D93;
+  --text-faint: #6E685F;
+  --border-color: #2D333B;
+  --border-subtle: #23282F;
+
+  --accent-terracotta: #E26E46;
+  --accent-terracotta-hover: #F0835D;
+  --accent-terracotta-light: #2B1D17;
+  --accent-terracotta-border: #4D2D20;
+
+  --accent-olive: #5EA06E;
+  --accent-olive-light: #16251A;
+  --accent-olive-border: #23432B;
+
+  --accent-gold: #DDB047;
+  --accent-gold-light: #2A2414;
+  --accent-gold-border: #4D3F1E;
+
+  --accent-slate: #65A5E8;
+  --accent-slate-light: #162436;
+  --accent-slate-border: #203A5B;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --shadow-drawer: 8px 0 36px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   2. Reset & Global Base Typography
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: calc(19px * var(--font-scale, 1));
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-serif);
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--accent-terracotta);
+  color: #FFFFFF;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--accent-terracotta);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-terracotta);
+}
+
+/* ==========================================================================
+   3. Reading Progress Bar
+   ========================================================================== */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-terracotta) 0%, var(--accent-gold) 100%);
+  z-index: 2500;
+  transition: width 0.12s ease-out;
+  box-shadow: 0 0 8px rgba(184, 134, 11, 0.4);
+}
+
+/* Drawer Backdrop for Mobile & Overlay Navigation */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 15, 12, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+  z-index: 1800;
+}
+
+body.drawer-open .drawer-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   4. Sidebar & Navigation Drawer
+   ========================================================================== */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  z-index: 1900;
+  overflow-y: auto;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), margin-left 0.3s ease;
+}
+
+/* Desktop Collapse Mode (only applied on desktop viewports) */
+@media (min-width: 1024px) {
+  body.sidebar-collapsed .sidebar {
+    margin-left: calc(-1 * var(--sidebar-width));
+  }
+}
+
+.sidebar-header {
+  padding: 1.6rem 1.4rem 1.1rem;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.sidebar-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sidebar-brand {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-terracotta);
+  line-height: 1.3;
+}
+
+.sidebar-close-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.sidebar-close-btn:hover {
+  color: var(--accent-terracotta);
+  border-color: var(--accent-terracotta);
+}
+
+.sidebar-subbrand {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 0.2rem;
+}
+
+/* Author Card in Sidebar */
+.author-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.1rem;
+  padding: 0.75rem 0.85rem;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.author-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.author-meta {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  min-width: 0;
+}
+
+.author-name {
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.author-role {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Chapter Search / Filter Box */
+.sidebar-search-box {
+  padding: 0.85rem 1.1rem 0.4rem;
+  position: relative;
+}
+
+.sidebar-search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-main);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: var(--transition);
+}
+
+.sidebar-search-input:focus {
+  border-color: var(--accent-terracotta);
+  box-shadow: 0 0 0 2px var(--accent-terracotta-light);
+}
+
+.sidebar-search-icon {
+  position: absolute;
+  left: 1.6rem;
+  top: 50%;
+  transform: translateY(-20%);
+  width: 14px;
+  height: 14px;
+  color: var(--text-faint);
+  pointer-events: none;
+}
+
+.sidebar-section-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--text-faint);
+  padding: 1.1rem 1.4rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-count-badge {
+  font-size: 0.68rem;
+  background: var(--border-color);
+  padding: 1px 6px;
+  border-radius: 10px;
+  color: var(--text-muted);
+}
+
+/* TOC Navigation List */
+.toc-list {
+  list-style: none;
+  padding: 0 0.75rem 2rem;
+  flex: 1;
+}
+
+.toc-item {
+  margin-bottom: 0.25rem;
+}
+
+.toc-item.hidden {
+  display: none;
+}
+
+.toc-no-results {
+  display: none;
+  padding: 1.5rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  margin: 0.5rem 0.25rem;
+  border: 1px dashed var(--border-color);
+}
+
+.toc-no-results.visible {
+  display: block;
+}
+
+.toc-link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  border-left: 3px solid transparent;
+  transition: var(--transition);
+}
+
+.toc-link:hover {
+  background-color: var(--bg-surface);
+  color: var(--accent-terracotta);
+  border-left-color: var(--accent-terracotta-border);
+}
+
+.toc-item.active .toc-link {
+  background-color: var(--bg-surface);
+  color: var(--accent-terracotta);
+  font-weight: 600;
+  border-left-color: var(--accent-terracotta);
+  box-shadow: var(--shadow-sm);
+}
+
+.toc-num {
+  font-feature-settings: "tnum";
+  font-weight: 700;
+  color: var(--accent-gold);
+  min-width: 1.6rem;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   5. Main Content Wrapper & Top Utility Bar
+   ========================================================================== */
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-topbar);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.65rem 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  gap: 1rem;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+/* Sidebar Hamburger / Drawer Toggle Button */
+.sidebar-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.sidebar-toggle-btn:hover {
+  border-color: var(--accent-terracotta);
+  color: var(--accent-terracotta);
+  box-shadow: var(--shadow-md);
+}
+
+.sidebar-toggle-btn svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+.top-bar-title {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Top Utility Controls */
+.controls-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.control-btn, .font-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.38rem 0.65rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  min-width: 32px;
+  text-align: center;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.control-btn:hover, .font-btn:hover {
+  border-color: var(--accent-terracotta);
+  color: var(--accent-terracotta);
+  box-shadow: var(--shadow-md);
+}
+
+.theme-pill-group {
+  display: flex;
+  background: var(--bg-sidebar);
+  padding: 3px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  gap: 2px;
+}
+
+.theme-btn {
+  border: none;
+  background: transparent;
+  padding: 0.28rem 0.6rem;
+  font-size: 0.74rem;
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  line-height: 1.2;
+}
+
+.theme-btn:hover {
+  color: var(--text-main);
+}
+
+.theme-btn.active {
+  background: var(--bg-surface);
+  color: var(--accent-terracotta);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   6. Article & Book Reader Layout
+   ========================================================================= */
+.content-container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 3.5rem 2rem 6rem;
+  width: 100%;
+}
+
+.chapter-header {
+  margin-bottom: 3.2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 2.6rem;
+  position: relative;
+}
+
+.chapter-number-tag {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 0.85rem;
+  display: inline-block;
+  background: var(--accent-gold-light);
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid var(--accent-gold-border);
+}
+
+.chapter-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  font-weight: 700;
+  line-height: 1.22;
+  color: var(--text-main);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.01em;
+  word-break: break-word;
+}
+
+.chapter-subtitle {
+  font-size: 1.22rem;
+  font-style: italic;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 1.8rem;
+  line-height: 1.55;
+}
+
+/* Reading Meta & Badges */
+.chapter-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.reading-estimate-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0.42rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.video-reference-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0.45rem 1.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+}
+
+.video-reference-badge:hover {
+  border-color: #CC0000;
+  color: #CC0000;
+  box-shadow: 0 3px 12px rgba(204, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.yt-icon {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   7. Interactive Timeline Ribbon
+   ========================================================================== */
+.timeline-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.6rem;
+  margin: 2.8rem 0;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-terracotta);
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+}
+
+.timeline-stream {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.25rem 1rem;
+  position: relative;
+}
+
+.timeline-node {
+  border-left: 2px solid var(--accent-gold);
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+}
+
+.timeline-date {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--accent-terracotta);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.timeline-desc {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   8. Prose Typography & Article Styling
+   ========================================================================== */
+.prose, .chapter-body {
+  font-size: 1.08rem;
+  color: var(--text-main);
+}
+
+.prose p, .chapter-body p {
+  margin-bottom: 1.65rem;
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.85;
+}
+
+.prose h2, .chapter-body h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 3.5rem 0 1.2rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 2px solid var(--accent-terracotta-border);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  scroll-margin-top: 80px;
+}
+
+.prose h3, .chapter-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--accent-terracotta);
+  margin: 2.2rem 0 0.85rem;
+  line-height: 1.4;
+  scroll-margin-top: 80px;
+}
+
+.prose ul, .prose ol, .chapter-body ul, .chapter-body ol {
+  margin: 1.2rem 0 1.65rem 1.8rem;
+  line-height: 1.75;
+}
+
+.prose li, .chapter-body li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.2rem;
+}
+
+/* Drop Cap with Greek diacritics safety */
+.lead-paragraph::first-letter {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  float: left;
+  line-height: 0.85;
+  margin-right: 0.85rem;
+  margin-top: 0.15rem;
+  color: var(--accent-terracotta);
+  font-weight: 700;
+  padding: 0.05rem;
+}
+
+/* ==========================================================================
+   9. Special Editorial Boxes & Callouts
+   ========================================================================== */
+
+/* 1. Η Ματιά της Μαρίας (Maria's Personal Reflections & Lectures) */
+.box-maria {
+  background: var(--accent-terracotta-light);
+  border-left: 4.5px solid var(--accent-terracotta);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.5rem 1.75rem;
+  margin: 2.6rem 0;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.box-maria::after {
+  content: '«';
+  position: absolute;
+  top: -10px;
+  right: 18px;
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  color: var(--accent-terracotta);
+  opacity: 0.08;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.box-maria-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.box-maria-title, .box-maria-badge {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent-terracotta);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timestamp-badge {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--accent-terracotta);
+  background: var(--bg-surface);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--accent-terracotta-border);
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+}
+
+.timestamp-badge:hover {
+  background: var(--accent-terracotta);
+  color: #FFFFFF;
+  border-color: var(--accent-terracotta);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.box-maria-quote {
+  font-style: italic;
+  font-size: 1.06rem;
+  line-height: 1.8;
+  color: var(--text-main);
+  position: relative;
+  z-index: 1;
+}
+
+/* 2. Ιστορικό Παράθυρο (Deep Historical Context) */
+.box-history {
+  background: var(--accent-olive-light);
+  border-left: 4.5px solid var(--accent-olive);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.5rem 1.75rem;
+  margin: 2.6rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.box-history-title {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent-olive);
+  margin-bottom: 0.85rem;
+}
+
+.box-history-content {
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+
+/* 3. Ετυμολογικό Εργαστήρι (Word Roots) */
+.box-etymology {
+  background: var(--accent-gold-light);
+  border: 1.5px dashed var(--accent-gold-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 2.2rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.box-etymology-title {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent-gold);
+  margin-bottom: 0.45rem;
+}
+
+.box-etymology-content {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* 4. Γνωρίζατε ότι; (Did You Know) */
+.did-you-know {
+  background: var(--accent-slate-light);
+  border-left: 4.5px solid var(--accent-slate);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.5rem 1.75rem;
+  margin: 2.6rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.did-you-know-title {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-slate);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.did-you-know p {
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: var(--text-main);
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   10. Figures, Plates & Illustrations
+   ========================================================================== */
+.figure-container, .chapter-figure {
+  margin: 3.2rem 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.figure-container:hover, .chapter-figure:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.figure-img-wrap {
+  width: 100%;
+  max-height: 540px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .figure-img-wrap {
+  background: #0D0E10;
+}
+
+.figure-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 540px;
+  object-fit: contain;
+  transition: transform 0.45s ease;
+}
+
+.figure-container:hover .figure-img,
+.chapter-figure:hover .figure-img {
+  transform: scale(1.02);
+}
+
+.figure-caption {
+  padding: 1.1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  background: var(--bg-surface);
+}
+
+.figure-caption strong {
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.map-badge {
+  display: inline-block;
+  background: var(--accent-terracotta);
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   11. Comparative Tables & Data Presentation
+   ========================================================================== */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 2.6rem 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.summary-table thead {
+  background: var(--bg-sidebar);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.summary-table th {
+  padding: 0.95rem 1.1rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-terracotta);
+  white-space: nowrap;
+}
+
+.summary-table td {
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  vertical-align: top;
+}
+
+.summary-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.summary-table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+[data-theme="dark"] .summary-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.summary-table tbody tr:hover {
+  background: var(--accent-terracotta-light);
+}
+
+.summary-table strong {
+  color: var(--accent-terracotta);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   12. Epilogue & Synthesis Section
+   ========================================================================== */
+.synthesis-section {
+  background: linear-gradient(180deg, var(--bg-surface), var(--bg-sidebar));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.8rem 2.2rem;
+  margin-top: 4.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.synthesis-icon {
+  font-size: 2.2rem;
+  color: var(--accent-gold);
+  margin-bottom: 1.1rem;
+  line-height: 1;
+}
+
+.synthesis-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.3rem;
+  letter-spacing: 0.05em;
+}
+
+.synthesis-text {
+  font-size: 1.08rem;
+  font-style: italic;
+  line-height: 1.85;
+  color: var(--text-main);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   13. Chapter Navigation Controls (Next / Prev)
+   ========================================================================== */
+.chapter-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-top: 3.8rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.chapter-navigation > div:empty {
+  display: none;
+}
+
+.nav-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.3rem 1.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  text-decoration: none;
+  color: var(--text-main);
+  transition: var(--transition);
+  flex: 1;
+  min-width: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-card:hover {
+  border-color: var(--accent-terracotta);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-card-prev {
+  text-align: left;
+}
+
+.nav-card-next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.nav-label {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-terracotta);
+  margin-bottom: 0.45rem;
+}
+
+.nav-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-main);
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   14. Floating Action Controls (FAB Quick Navigation)
+   ========================================================================== */
+.floating-actions {
+  position: fixed;
+  right: calc(1.5rem + env(safe-area-inset-right, 0px));
+  bottom: calc(1.8rem + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 1500;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.floating-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.floating-btn:hover {
+  background: var(--accent-terracotta);
+  color: #FFFFFF;
+  border-color: var(--accent-terracotta);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-lg);
+}
+
+.floating-btn svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.floating-progress-badge {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-terracotta);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2px 7px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   15. Responsive Adaptations (Mobile & Tablet)
+   ========================================================================== */
+
+/* Tablet & Mobile Screens (under 1024px) */
+@media (max-width: 1023px) {
+  body {
+    flex-direction: column;
+  }
+
+  /* Sidebar transforms into off-canvas drawer */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(340px, 86vw);
+    height: 100vh;
+    height: 100dvh;
+    transform: translateX(-100%);
+    box-shadow: none;
+    z-index: 2000;
+    border-right: 1px solid var(--border-color);
+    margin-left: 0 !important;
+  }
+
+  body.drawer-open .sidebar {
+    transform: translateX(0);
+    box-shadow: var(--shadow-drawer);
+  }
+
+  body.drawer-open {
+    overflow: hidden;
+  }
+
+  .sidebar-close-btn {
+    display: inline-flex;
+  }
+
+  .sidebar-search-input {
+    font-size: 16px; /* Prevents iOS Safari unwanted auto-zoom */
+  }
+
+  .content-container {
+    padding: 2.2rem 1.4rem 5rem;
+  }
+
+  .top-bar {
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* Smartphones & Small Screens (under 768px) */
+@media (max-width: 767px) {
+  html {
+    font-size: calc(17.5px * var(--font-scale, 1));
+  }
+
+  .top-bar {
+    padding: 0.5rem 0.85rem;
+  }
+
+  .top-bar-title {
+    display: none; /* Hide long title to keep top bar clean on small phones */
+  }
+
+  .sidebar-toggle-btn .toggle-label {
+    display: none; /* Show icon only on small screens */
+  }
+
+  .sidebar-toggle-btn {
+    padding: 0.4rem 0.55rem;
+  }
+
+  .theme-btn {
+    padding: 0.32rem 0.55rem;
+    font-size: 0.82rem;
+  }
+
+  /* Keep theme icons visible, hide text labels on mobile */
+  .theme-label,
+  .theme-btn span:not(:first-child) {
+    display: none;
+  }
+
+  .content-container {
+    padding: 1.8rem 1rem 4.5rem;
+  }
+
+  .chapter-header {
+    margin-bottom: 2.2rem;
+    padding-bottom: 1.8rem;
+  }
+
+  .chapter-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+
+  .chapter-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .video-reference-badge {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  /* Timeline stacked layout */
+  .timeline-card {
+    padding: 1.35rem 1.1rem;
+    margin: 2rem 0;
+  }
+
+  .timeline-stream {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .timeline-node {
+    padding-left: 1.1rem;
+  }
+
+  /* Quote boxes on mobile */
+  .box-maria, .box-history, .did-you-know, .box-etymology {
+    padding: 1.2rem 1.1rem;
+    margin: 2rem 0;
+  }
+
+  .box-maria-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .timestamp-badge {
+    width: 100%;
+    justify-content: center;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .box-maria-quote {
+    font-size: 0.98rem;
+  }
+
+  /* Drop cap safety */
+  .lead-paragraph::first-letter {
+    font-size: 3.4rem;
+    margin-right: 0.6rem;
+  }
+
+  /* Figures */
+  .figure-container, .chapter-figure {
+    margin: 2.2rem 0;
+    border-radius: var(--radius-md);
+  }
+
+  .figure-img-wrap {
+    max-height: 380px;
+  }
+
+  .figure-img {
+    max-height: 380px;
+  }
+
+  .figure-caption {
+    padding: 0.85rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  /* Summary table cell padding */
+  .summary-table th, .summary-table td {
+    padding: 0.75rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  /* Synthesis section */
+  .synthesis-section {
+    padding: 2rem 1.25rem;
+    margin-top: 3.5rem;
+  }
+
+  .synthesis-title {
+    font-size: 1.2rem;
+  }
+
+  .synthesis-text {
+    font-size: 0.98rem;
+  }
+
+  /* Bottom Chapter Navigation stacked */
+  .chapter-navigation {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2.8rem;
+    padding-top: 1.8rem;
+  }
+
+  .nav-card {
+    padding: 1.1rem 1.25rem;
+  }
+
+  .nav-card-next {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  /* Floating action controls on mobile */
+  .floating-actions {
+    right: calc(1rem + env(safe-area-inset-right, 0px));
+    bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .floating-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Extra Small Phones (under 380px) */
+@media (max-width: 379px) {
+  html {
+    font-size: calc(16.5px * var(--font-scale, 1));
+  }
+
+  .controls-group {
+    gap: 0.35rem;
+  }
+
+  .theme-label,
+  .theme-btn span:not(:first-child) {
+    display: none;
+  }
+
+  .content-container {
+    padding: 1.4rem 0.75rem 4rem;
+  }
+}

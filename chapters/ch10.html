@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 10</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch10">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΔΕΚΑΤΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Χριστιανισμός (Μέρος Γ΄)</h1>
+        <p class="chapter-subtitle">Οι Σταυροφορίες, η Άλωση της Κωνσταντινούπολης το 1204, η Ιερά Εξέταση και η Γέννηση των Πανεπιστημίων.</p>
+        
+        <a href="https://www.youtube.com/watch?v=FfwEPzwKOE8" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube (Διάρκεια: 2 ώρες & 41 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Η Εποχη των Σταυροφοριων & των Πανεπιστημιων</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">1095 μ.Χ.</div>
+            <div class="timeline-desc">Σύνοδος του Κλερμόν: Ο Πάπας Ουρβανός Β΄ κηρύσσει την Α΄ Σταυροφορία με την ιαχή «Deus vult!».</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1099 μ.Χ.</div>
+            <div class="timeline-desc">Άλωση της Ιερουσαλήμ από τους Σταυροφόρους: Ίδρυση των Σταυροφορικών Κρατών στη Μέση Ανατολή.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1187 μ.Χ.</div>
+            <div class="timeline-desc">Μάχη του Χαττίν: Ο Σαλαντίν συντρίβει τους Σταυροφόρους και ανακτά την Ιερουσαλήμ με μεγαλοψυχία.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1204 μ.Χ.</div>
+            <div class="timeline-desc">Η Δ΄ Σταυροφορία: Εκτροπή και βάναυση άλωση της Κωνσταντινούπολης — το θανάσιμο πλήγμα στο Βυζάντιο.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1209–1229 μ.Χ.</div>
+            <div class="timeline-desc">Η Σταυροφορία κατά των Αλβιγηνών: Εξόντωση των Καθαρών στη Νότια Γαλλία και ίδρυση της Παπικής Ιεράς Εξέτασης.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">~1250–1274 μ.Χ.</div>
+            <div class="timeline-desc">Θωμάς ο Ακινάτης: Συγγραφή της *Summa Theologiae*, άνθηση του Σχολαστικισμού στα πρώτα ευρωπαϊκά Πανεπιστήμια.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Body Content -->
+      <article class="chapter-body">
+        
+        <h2>1. Εισαγωγή: Το Απόγειο και οι Σκιές της Δυτικής Χριστιανοσύνης</h2>
+        
+        <p>Στο δέκατο μάθημα της σειράς, η Μαρία Ευθυμίου αναλύει τη συναρπαστική, εκρηκτική και αντιφατική εποχή του ώριμου Μεσαίωνα (11ος–13ος αιώνας). Η Δυτική Ευρώπη, έχοντας πλέον ξεπεράσει το σοκ των πρώτων βαρβαρικών αιώνων και γνωρίζοντας αλματώδη δημογραφική και αγροτική ανάκαμψη, <strong>εκρήγνυται προς τα έξω</strong>: κατακλύζει την Ανατολή με σιδερόφρακτους ιππότες, ισοπεδώνει τη χριστιανική Κωνσταντινούπολη, καταδιώκει τις εσωτερικές αιρέσεις με την Ιερά Εξέταση, αλλά ταυτόχρονα δημιουργεί τα πρώτα Πανεπιστήμια και συνθέτει τη βαθυστόχαστη σχολαστική φιλοσοφία.</p>
+
+        <h2>2. Οι Σταυροφορίες (1096–1291): Δημογραφική Έκρηξη & «Deus Vult!»</h2>
+
+        <p>Πριν από το ιστορικό κάλεσμα για τις Σταυροφορίες, η Δυτική Ευρώπη μεταμορφώθηκε από μια σειρά τεχνολογικών καινοτομιών στη γεωργία: το βαρύ τροχοφόρο άροτρο (*carruca*), η τριετής αμειψισπορά και το σκληρό περιλαίμιο αλόγων εκτίναξαν την αγροτική παραγωγή. Η επακόλουθη δημογραφική έκρηξη γέννησε μια τεράστια μάζα ανήσυχων νεαρών ευγενών, οι οποίοι, αποκλεισμένοι από την κληρονομιά λόγω της πρωτοτοκίας, στρέφονταν στη ληστεία και στις ένοπλες τοπικές συγκρούσεις.</p>
+
+        <p>Στις 27 Νοεμβρίου 1095, στη Σύνοδο του Κλερμόν στη Γαλλία, ο <strong>Πάπας Ουρβανός Β΄</strong> εκφώνησε τον πιο εμπρηστικό λόγο του Μεσαίωνα. Κάλεσε τους χριστιανούς ιππότες να αφήσουν τις εμφύλιες σφαγές και να εκστρατεύσουν στην Ανατολή για να ελευθερώσουν τον Πανάγιο Τάφο, υποσχόμενος άφεση όλων των αμαρτιών τους. Το πλήθος ξέσπασε στην κραυγή: <strong>«Deus vult!» (Ο Θεός το θέλει!)</strong>.</p>
+
+        <div class="box-history">
+          <div class="box-history-title">🔍 Ο Κοινωνικος Μηχανισμος της Εξαγωγης Βιας</div>
+          <p>Η Μαρία Ευθυμίου εξηγεί τον βαθύ κοινωνιολογικό μηχανισμό των Σταυροφοριών:</p>
+          <p>Η φεουδαρχική Ευρώπη αιμορραγούσε από τους αδίστακτους ιππότες της. Ο Πάπας βρήκε την ιδανική βαλβίδα αποσυμπίεσης: <strong>εξήγαγε τη βία της Ευρώπης στην Ανατολή</strong>! Είπε στους πολεμιστές: <em>«Αντί να αλληλοσφάζεστε στη Γαλλία και στη Γερμανία και να πηγαίνετε στην κόλαση, πηγαίνετε στην Ανατολή να πολεμήσετε τους απίστους και θα μπείτε απευθείας στον Παράδεισο!»</em>.</p>
+        </div>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=FfwEPzwKOE8&t=1690s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 28:10</a>
+          </div>
+          <div class="box-maria-quote">
+            «Οι Σταυροφορίες ήταν ένα απίστευτο εκρηκτικό κοκτέιλ θρησκευτικού φανατισμού, απληστίας για γη και κοινωνικής εκτόνωσης! Φανταστείτε αυτούς τους σκληροτράχηλους Ευρωπαίους ιππότες, που φορούσαν βαριές σιδερένιες πανοπλίες κάτω από τον καυτό ήλιο της ερήμου, απόλυτα βέβαιοι ότι σφάζοντας "απίστους" εξασφαλίζουν το διαβατήριο για τον ουρανό! Οι Βυζαντινοί και οι Μουσουλμάνοι τούς κοιτούσαν έντρομοι, σαν να είχε εισβάλει ένας ξένος, άγριος πλανήτης!»
+          </div>
+        </div>
+
+        <p>Στις <strong>15 Ιουλίου 1099</strong>, η Α΄ Σταυροφορία κατέλαβε την Ιερουσαλήμ. Η πριγκίπισσα <strong>Άννα Κομνηνή</strong> στην <em>Αλεξιάδα</em> κατέγραψε το σοκ των Βυζαντινών όταν αντίκρισαν τους σιδερόφρακτους ιππότες: <em>«μια ολόκληρη Δύση να ξεριζώνεται και να χύνεται πάνω στην Ανατολή, υπερόπτες, ακατάσχετοι, φοβεροί, με μάτια που πετούσαν σπίθες!»</em>. Ακολούθησε ανείπωτο λουτρό αίματος στην Ιερουσαλήμ, όπου οι σταυροφόροι έσφαξαν σχεδόν ολόκληρο τον μουσουλμανικό και εβραϊκό πληθυσμό. Ο ηγέτης τους, <strong>Γοδεφρείδος του Μπουιγιόν</strong>, αρνήθηκε να στεφθεί βασιλιάς στην πόλη του Χριστού και έλαβε τον τίτλο <em>Advocatus Sancti Sepulchri</em> (Υπερασπιστής του Παναγίου Τάφου).</p>
+
+        <p>Το παραλήρημα κορυφώθηκε με την τραγική <strong>Σταυροφορία των Παιδιών (1212)</strong>: χιλιάδες παιδιά από τη Γαλλία και τη Γερμανία κατέβηκαν στη Μασσαλία πιστεύοντας ότι η παιδική αθωότητα θα άνοιγε τη θάλασσα. Τελικά, αδίστακτοι έμποροι τα επιβίβασαν σε καράβια και τα πούλησαν όλα ως δούλους στα σκλαβοπάζαρα της Αιγύπτου!</p>
+
+        <h2>3. Τα Στρατιωτικά Τάγματα & το Φρούριο Krak des Chevaliers</h2>
+
+        <p>Για την υπεράσπιση των σταυροφορικών κρατιδίων ιδρύθηκαν τα <strong>μοναχο-ιπποτικά τάγματα</strong>: οι <strong>Ναΐτες (Knights Templar)</strong>, οι <strong>Ιωαννίτες (Hospitallers)</strong> και οι <strong>Τεύτονες</strong>. Συνδύαζαν τη μοναστική πειθαρχία με την πολεμική δεινότητα, ενώ οι Ναΐτες ανέπτυξαν και το πρώτο πανευρωπαϊκό τραπεζικό δίκτυο πιστώσεων.</p>
+
+        <!-- Plate 1: Krak des Chevaliers -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/krak_des_chevaliers.jpg" alt="Το Φρούριο Krak des Chevaliers στη Συρία" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 1: Το Κάστρο των Ιπποτών (Krak des Chevaliers, Χομς, Συρία)</strong>
+            <span class="map-badge">Μνημειο UNESCO</span>
+            Το κορυφαίο σταυροφορικό φρούριο στον κόσμο. Έδρα του Τάγματος των Ιωαννιτών Ιπποτών από το 1144 έως το 1271, με διπλά ομόκεντρα τείχη, δεξαμενές και υπόγειες αποθήκες τροφίμων που του επέτρεπαν να αντέχει πολυετείς πολιορκίες. Ο Τ.Ε. Λόρενς (της Αραβίας) το χαρακτήρισε «το πιο θαυμαστό κάστρο στον κόσμο».
+          </div>
+        </div>
+
+        <p>Το 1187, ο χαρισματικός Κούρδος σουλτάνος <strong>Σαλαντίν (Saladin)</strong> συνέτριψε τους σταυροφόρους στα Κέρατα του Χαττίν και ανακατέλαβε την Ιερουσαλήμ, επιδεικνύοντας σπάνια μεγαλοψυχία: σε αντίθεση με τη σφαγή του 1099, επέτρεψε στους κατοίκους να εξαγοράσουν την ελευθερία τους χωρίς να χυθεί αίμα.</p>
+
+        <h2>4. Η Τραγική Δ΄ Σταυροφορία και η Άλωση της Κωνσταντινούπολης (1204)</h2>
+
+        <p>Η πιο ολέθρια στιγμή της μεσαιωνικής ιστορίας συντελέστηκε το 1204. Η <strong>Δ΄ Σταυροφορία</strong>, αντί να επιτεθεί στην Αίγυπτο, κατευθύνθηκε προς την Κωνσταντινούπολη εξαιτίας των οικονομικών απαιτήσεων της Βενετίας και των δολοπλοκιών του τυφλού υπέργηρου Δόγη <strong>Ενρίκο Δάνδολου</strong> και του Βυζαντινού πρίγκιπα Αλέξιου Δ΄ Αγγέλου.</p>
+
+        <!-- Plate 2: Crusaders sack Constantinople 1204 -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/crusaders_constantinople_1204.jpg" alt="Η Άλωση της Κωνσταντινούπολης από τους Σταυροφόρους το 1204 (BnF)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 2: Η Κατάκτηση της Κωνσταντινούπολης από τους Σταυροφόρους (Χειρόγραφο 15ου αι., BnF)</strong>
+            <span class="map-badge">Εθνικη Βιβλιοθηκη Γαλλιας</span>
+            Μεσαιωνική μικρογραφία που αποτυπώνει την είσοδο των Φράγκων ιπποτών στα τείχη της Κωνσταντινούπολης τον Απρίλιο του 1204. Ακολούθησε τριήμερη ανηλεής λεηλασία, πυρπόληση βιβλιοθηκών και αρπαγή ιερών κειμηλίων που μεταφέρθηκαν στη Δυτική Ευρώπη.
+          </div>
+        </div>
+
+        <p>Στις <strong>13 Απριλίου 1204</strong>, οι σταυροφόροι άλωσαν την πλουσιότερη πόλη της χριστιανοσύνης. Ο αυτόπτης μάρτυρας ιστορικός <strong>Νικήτας Χωνιάτης</strong> περιγράφει σκηνές ανείπωτης βαρβαρότητας: οι σταυροφόροι έκαψαν βιβλιοθήκες, σύλησαν τάφους αυτοκρατόρων, **έλιωσαν σε καμίνια ανεκτίμητα αρχαιοελληνικά χάλκινα αγάλματα** (όπως την εννιαμετρη <em>Αθηνά Πρόμαχο του Φειδία</em> και τον κολοσσιαίο <em>Ηρακλή του Λυσίππου</em>) για να κόψουν χάλκινα νομίσματα, έκλεψαν τα τέσσερα χάλκινα άλογα του Ιπποδρόμου και έβαλαν μια Γαλλίδα πόρνη να χορεύει στον πατριαρχικό θρόνο της Αγίας Σοφίας τραγουδώντας άσεμνα άσματα!</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=FfwEPzwKOE8&t=3920s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1ω 05:20</a>
+          </div>
+          <div class="box-maria-quote">
+            «Το 1204 ήταν το πραγματικό, μοιραίο τέλος του Βυζαντίου! Όχι το 1453. Το 1453 οι Οθωμανοί βρήκαν μια ερειπωμένη σκιά. Το 1204 οι Σταυροφόροι έσπασαν οριστικά τη σπονδυλική στήλη της Αυτοκρατορίας! Και το πιο τραγικό είναι ότι αυτό το έκαναν χριστιανοί σε χριστιανούς! Όταν οι Βυζαντινοί είδαν τους σταυροφόρους να βεβηλώνουν την Αγία Σοφία, η ψυχολογική άβυσσος μεταξύ Ανατολής και Δύσης επισφραγίστηκε για πάντα. Από εκεί γεννήθηκε η γνωστή φράση: "Καλύτερα τουρκικό φακιόλι παρά λατινική τιάρα!"»
+          </div>
+        </div>
+
+        <h2>5. Αιρέσεις & η Ιερά Εξέταση: Η Σταυροφορία κατά των Καθαρών</h2>
+
+        <p>Στο εσωτερικό της Δυτικής Ευρώπης, η κατακραυγή για τη διαφθορά της Εκκλησίας γέννησε τις μεγάλες μεσαιωνικές αιρέσεις. Στη Νότια Γαλλία εμφανίστηκαν οι <strong>Καθαροί (Αλβιγηνοί)</strong>, οι οποίοι πίστευαν σε έναν απόλυτο δυϊσμό: ο υλικός κόσμος είναι δημιούργημα του Σατανά, ενώ ο πνευματικός του Καλού Θεού. Απέρριπταν τον γάμο, την περιουσία, τον πόλεμο και την παπική ιεραρχία.</p>
+
+        <p>Ο **Πάπας Ιννοκέντιος Γ΄** εξαπέλυσε εναντίον τους τη **Σταυροφορία των Αλβιγηνών (1209–1229)**. Στην άλωση της Μπεζιέ (1209), όταν οι στρατιώτες ρώτησαν πώς θα ξεχωρίσουν τους πιστούς από τους αιρετικούς, ο παπικός λεγάτος Αρνό Αμαλρίκ έδωσε τη διαβόητη εντολή:  
+        <em>«Caedite eos! Novit enim Dominus qui sunt eius» (Σκοτώστε τους όλους! Ο Θεός θα ξεχωρίσει τους δικούς Του!)</em>.</p>
+
+        <p>Το 1231, ο Πάπας Γρηγόριος Θ΄ ίδρυσε την **Παπική Ιερά Εξέταση (*Inquisitio*)**, αναθέτοντας την ανάκριση και καταστολή των αιρετικών στο Τάγμα των **Δομινικανών** μοναχών (*Domini canes* = τα τσοπανόσκυλα του Κυρίου).</p>
+
+        <h2>6. Ο Σχολαστικισμός και τα Πανεπιστήμια: Θωμάς ο Ακινάτης</h2>
+
+        <p>Την ίδια ακριβώς περίοδο, η Δυτική Ευρώπη βίωνε μια ασύλληπτη πνευματική αναγέννηση με την ίδρυση των πρώτων **Πανεπιστημίων (Μπολόνια 1088, Παρίσι/Σορβόννη 1150, Οξφόρδη 1167)**. Η μετάφραση των έργων του **Αριστοτέλη** από τα αραβικά στα λατινικά μέσω Ισπανίας προκάλεσε σεισμό στα θεμέλια της δυτικής σκέψης.</p>
+
+        <!-- Plate 3: Triumph of Saint Thomas Aquinas -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/thomas_aquinas_triumph.jpg" alt="Ο Θρίαμβος του Αγίου Θωμά του Ακινάτη (Benozzo Gozzoli, Λούβρο)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 3: Ο Θρίαμβος του Αγίου Θωμά του Ακινάτη (Benozzo Gozzoli, 1471, Μουσείο του Λούβρου)</strong>
+            <span class="map-badge">Μουσειο του Λουβρου</span>
+            Ο κορυφαίος θεολόγος του Σχολαστικισμού εικονίζεται καθισμένος ανάμεσα στον Πλάτωνα (αριστερά) και στον Αριστοτέλη (δεξιά). Στα πόδια του κείται ηττημένος ο Άραβας φιλόσοφος Αβερρόης (Ibn Rushd). Ο Ακινάτης κατέδειξε ότι η πίστη και η ανθρώπινη λογική είναι δύο αρμονικές οδοί προς την ίδια θεία αλήθεια.
+          </div>
+        </div>
+
+        <p>Ο κορυφαίος στοχαστής του Μεσαίωνα, ο <strong>Θωμάς ο Ακινάτης (1225–1274)</strong>, με το μνημειώδες έργο του <em>Summa Theologiae</em>, συμφιλίωσε την πίστη με τον ορθολογισμό: <em>«Gratia non tollit naturam, sed perficit» (Η θεία χάρη δεν καταργεί τη φύση και τη λογική, αλλά την τελειοποιεί!)</em>. Διατύπωσε τις **Πέντε Οδούς (*Quinque Viae*)**, αποδεικνύοντας τη θεία ύπαρξη μέσω της φιλοσοφικής παρατήρησης της φύσης.</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=FfwEPzwKOE8&t=6880s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1ω 54:40</a>
+          </div>
+          <div class="box-maria-quote">
+            «Κοιτάξτε τι συγκλονιστικό πράγμα είναι ο Μεσαίωνας! Την ίδια ώρα που οι ιεροεξεταστές ανάβουν τις πυρές στα χωριά, στα Πανεπιστήμια του Παρισιού και της Μπολόνιας οι καθηγητές και οι φοιτητές ξεκοκαλίζουν τον Αριστοτέλη! Και ο Θωμάς ο Ακινάτης, με εκπληκτική τόλμη, παίρνει έναν αρχαίο Έλληνα παγανιστή φιλόσοφο και λέει: "Η λογική είναι δώρο του Θεού, δεν είναι αμαρτία!". Αυτή η στροφή προς την έρευνα, την ανάλυση και την επιχειρηματολογία έβαλε τα θεμέλια για όλη τη μετέπειτα επιστημονική σκέψη της Δύσης!»
+          </div>
+        </div>
+
+        <h2>7. Ετυμολογικό Εργαστήρι: Οι Λέξεις του Ώριμου Μεσαίωνα</h2>
+
+        <div class="box-etymology">
+          <div class="box-etymology-title">🗣️ Ετυμολογικο Εργαστηρι: Ορολογια του Ιπποτισμου και της Σκεψης</div>
+          <div class="box-etymology-content">
+            Οι λέξεις που όρισαν τη μεσαιωνική κοινωνία:
+            <ul>
+              <li><strong>Σταυροφορία (Crusade):</strong> Από το λατινικό <em>crux</em> (σταυρός). Οι μαχητές ονομάζονταν <em>crucesignati</em> («σημαδεμένοι με σταυρό»), επειδή έραβαν κόκκινο υφασμάτινο σταυρό στον ώμο τους.</li>
+              <li><strong>Ιερά Εξέταση (Inquisition):</strong> Από το λατινικό <em>inquirere</em> (ερευνώ βαθιά, ανακρίνω δικαστικά).</li>
+              <li><strong>Πανεπιστήμιο (Universitas):</strong> Στα μεσαιωνικά νομικά κείμενα σήμαινε τη συντεχνία, το νομικό πρόσωπο των καθηγητών και των φοιτητών (<em>universitas magistrorum et scholarium</em>).</li>
+              <li><strong>Σχολαστικισμός:</strong> Από το ελληνικό <em>σχολή / σχολαστικός</em>. Η μέθοδος αυστηρής λογικής συζήτησης και εξέτασης αντιτιθέμενων απόψεων (<em>quaestio disputata</em>).</li>
+              <li><strong>Καθαροί (Cathars):</strong> Από το ελληνικό επίθετο <em>καθαρός</em>. Εκείνοι που ισχυρίζονταν ότι διατηρούν την απόλυτη αγνότητα της πίστης μακριά από τη μόλυνση της ύλης.</li>
+              <li><strong>Albigenses (Αλβιγηνοί):</strong> Από την πόλη Αλμπί (Albi) της Νότιας Γαλλίας, κύριο κέντρο των Καθαρών.</li>
+            </ul>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">⚔️</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Η Σύγκρουση Σπαθιού και Πνεύματος</h3>
+        <p class="synthesis-text">
+          «Ο 12ος και 13ος αιώνας έδειξαν το διπλό πρόσωπο της μεσαιωνικής χριστιανοσύνης: τη βιαιότητα του φανατισμού που ισοπέδωσε πόλεις στην Ανατολή και στη Δύση, και ταυτόχρονα τη γέννηση των πνευματικών θεσμών —των Πανεπιστημίων— που εκπαίδευσαν την ευρωπαϊκή νόηση στην πειθαρχία της λογικής.
+          <br><br>
+          Στο επόμενο μάθημα, θα δούμε πώς αυτή η πανίσχυρη παπική μηχανή κλονίστηκε συθέμελα από έναν μοναχό στη Γερμανία: τον Μαρτίνο Λούθηρο, που με τις 95 Θέσεις του άναψε τη φλόγα της Προτεσταντικής Μεταρρύθμισης.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch09.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">09. Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+        <a href="ch11.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">11. Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

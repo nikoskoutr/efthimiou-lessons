@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 15</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch15">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΔΕΚΑΤΟ ΠΕΜΠΤΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Κίνα & Ιαπωνία</h1>
+        <p class="chapter-subtitle">Σιντοϊσμός, ο Κώδικας των Σαμουράι, η Απομόνωση του Sakoku και το Άλμα της Επανάστασης Μεϊτζί.</p>
+        
+        <a href="https://www.youtube.com/watch?v=mGAcE840yP4" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube / BLOD (Διάρκεια: 2 ώρες & 44 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο τον Καμικαζι των Μογγολων στην Τσουσισμα</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">1274 & 1281</div>
+            <div class="timeline-desc">Οι τυφώνες Καμικάζι («Θείος Άνεμος») συντρίβουν τους στόλους εισβολής των Μογγόλων.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1603</div>
+            <div class="timeline-desc">Ο Τοκουγκάουα Ιεγιάσου ιδρύει το Σογκουνάτο στο Έντο (Τόκιο) – Έναρξη της Pax Tokugawa.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1639</div>
+            <div class="timeline-desc">Επιβολή του διατάγματος Sakoku: Πλήρης απομόνωση της Ιαπωνίας – Μόνο η Ντετζίμα ανοιχτή στους Ολλανδούς.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1853</div>
+            <div class="timeline-desc">Τα «Μαύρα Πλοία» (Kurofune) του πλοιάρχου Πέρι φτάνουν στον κόλπο του Έντο, ανοίγοντας βίαια την Ιαπωνία.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1868</div>
+            <div class="timeline-desc">Παλινόρθωση των Μεϊτζί (Meiji): Κατάργηση των σαμουράι και ραγδαίος εκσυγχρονισμός σε 30 χρόνια.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1905</div>
+            <div class="timeline-desc">Ναυμαχία της Τσουσίμα: Η Ιαπωνία συντρίβει τη Ρωσία – Πρώτη νίκη ασιατικού έθνους επί ευρωπαϊκής αυτοκρατορίας.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Body Content -->
+      <article class="chapter-body">
+
+        <h2>1. Το Απομονωμένο Αρχιπέλαγος & η Ιαπωνική Κοσμοθεώρηση</h2>
+
+        <p>Στο δέκατο πέμπτο μάθημα, η Μαρία Ευθυμίου αναλύει την εκπληκτική ιστορική τροχιά της <strong>Ιαπωνίας (Nihon = η Χώρα του Ανατέλλοντος Ηλίου)</strong>. Ενώ η γειτονική αυτοκρατορική Κίνα ήταν μια απέραντη ηπειρωτική μάζα, η Ιαπωνία υπήρξε ανέκαθεν ένα απομονωμένο νησιωτικό αρχιπέλαγος στον βόρειο Ειρηνικό.</p>
+
+        <p>Η γεωγραφική αυτή θέση δημιούργησε μια φυσική άμυνα: ακόμη και οι ανίκητες μογγολικές αρμάδες του Κουμπλάι Χαν καταστράφηκαν δύο φορές (το 1274 και το 1281) από σφοδρούς τυφώνες, τους οποίους οι ευγνώμονες Ιάπωνες ονόμασαν <strong>Καμικάζι (Kamikaze = Θείος Άνεμος)</strong>. Ταυτόχρονα, η συνεχής απειλή από σεισμούς, τσουνάμι και ηφαίστεια καλλιέργησε έναν βαθύτατο στωικισμό, μια επίγνωση της παροδικότητας της ύπαρξης (<em>Mono no aware</em>) και μια ατσάλινη κοινωνική πειθαρχία.</p>
+
+        <!-- Plate 1: Itsukushima Torii Gate -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/itsukushima_torii.jpg" alt="Η επιπλέουσα πύλη Τορίι στο ιερό της Ιτσουκουσίμα, Ιαπωνία" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 1: Η Επιπλέουσα Πύλη Τορίι (Ιτσουκουσίμα, Μνημείο Παγκόσμιας Κληρονομιάς UNESCO)</strong>
+            <span class="map-badge">Μιγιατζιμα / Ιαπωνια</span>
+            Η διάσημη κατακόκκινη ξύλινη πύλη <em>Torii</em> στο ιερό Σίντο της Ιτσουκουσίμα. Στον Σιντοϊσμό, η πύλη σηματοδοτεί το πέρασμα από τον βέβηλο καθημερινό κόσμο στον ιερό χώρο των <em>Kami</em> (των φυσικών και προγονικών πνευμάτων).
+          </div>
+        </div>
+
+        <h2>2. Σιντοϊσμός & Βουδισμός Ζεν: Η Διπλή Πνευματική Ταυτότητα</h2>
+
+        <p>Η ιαπωνική πνευματικότητα διακρίνεται για τη μοναδική συνύπαρξη δύο παραδόσεων:</p>
+
+        <ul>
+          <li><strong>Σιντοϊσμός (Shinto = «Ο Δρόμος των Θεών»):</strong> Η αρχέγονη λατρεία της φύσης. Δεν έχει ιερά βιβλία ή εντολές. Κάθε βουνό (όπως το όρος Φούτζι), καταρράκτης, δέντρο και ποτάμι κατοικείται από πνεύματα (<em>Kami</em>). Η αυτοκρατορική οικογένεια θεωρείται ότι κατάγεται απευθείας από τη θεά του Ήλιου Αματεράσου, αποτελώντας την αρχαιότερη αδιάκοπη δυναστεία στον πλανήτη!</li>
+          <li><strong>Βουδισμός Ζεν (Zen):</strong> Εισήχθη από την Κίνα και εστίασε στον αυστηρό διαλογισμό (<em>Zazen</em>) και την απόλυτη διαύγεια του νου. Έγινε η πνευματική βάση της πολεμικής κάστας των Σαμουράι, γεννώντας αριστουργήματα όπως η τελετή του τσαγιού (<em>Cha-no-yu</em>), οι βραχόκηποι ζεν και τα ποιήματα χαϊκού.</li>
+        </ul>
+
+        <h2>3. Η Φεουδαρχική Ιαπωνία: Αυτοκράτορας, Σογκούν & Σαμουράι</h2>
+
+        <p>Από τον 12ο αιώνα, η Ιαπωνία ανέπτυξε ένα εξαιρετικά σύνθετο φεουδαρχικό καθεστώς:</p>
+
+        <ul>
+          <li><strong>Ο Αυτοκράτορας (Tenno):</strong> Ζούσε στο Κιότο ως ιερή, θρησκευτική μορφή, αλλά χωρίς ουσιαστική στρατιωτική εξουσία.</li>
+          <li><strong>Ο Σογκούν (Shogun):</strong> Ο ανώτατος στρατιωτικός ηγεμόνας και ουσιαστικός κυβερνήτης του κράτους (στρατιωτική διοίκηση <em>Bakufu</em>).</li>
+          <li><strong>Οι Νταϊμιό (Daimyo):</strong> Οι ισχυροί τοπικοί φεουδάρχες που εξουσίαζαν τεράστιες επαρχίες και κάστρα.</li>
+          <li><strong>Οι Σαμουράι (Samurai):</strong> Η επίλεκτη κάστα των πολεμιστών, οπλισμένων με το θρυλικό σπαθί <strong>Κατάνα</strong> (η «ψυχή του σαμουράι») και πιστών στον αυστηρό ηθικό κώδικα <strong>Μπουσίντο (Bushido = Ο Δρόμος του Πολεμιστή)</strong>. Αν ένας σαμουράι έχανε την τιμή του, όφειλε να εκτελέσει την τελετουργική αυτοκτονία <strong>Σεππούκου (Seppuku / Χαρακίρι)</strong>.</li>
+        </ul>
+
+        <!-- Plate 2: Tokugawa Ieyasu Portrait -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/tokugawa_ieyasu.jpg" alt="Προσωπογραφία του Τοκουγκάουα Ιεγιάσου (17ος αι., Μουσείο Τέχνης Τοκουγκάουα)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 2: Ο Τοκουγκάουα Ιεγιάσου, ιδρυτής του Σογκουνάτου του Έντο (17ος αι.)</strong>
+            <span class="map-badge">Μουσειο Τεχνης Τοκουγκαουα / Ναγκογια</span>
+            Ο χαρισματικός πολέμαρχος που ολοκλήρωσε την ένωση της Ιαπωνίας και εγκαθίδρυσε το 1603 τη δυναστεία των Σογκούν Τοκουγκάουα. Επέβαλε 250 χρόνια απόλυτης εσωτερικής ειρήνης (*Pax Tokugawa*) και τη δρακόντεια πολιτική της «Κλειστής Χώρας» (*Sakoku*).
+          </div>
+        </div>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=mGAcE840yP4&t=3510s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 0ω 58:30</a>
+          </div>
+          <div class="box-maria-quote">
+            «Η Ιαπωνία είναι η μόνη χώρα στον κόσμο εκτός Ευρώπης που δημιούργησε ένα τόσο αυθεντικό, τέλειο φεουδαρχικό σύστημα! Σκεφτείτε το: Σογκούν αντί για βασιλιά, Νταϊμιό αντί για δούκες, και Σαμουράι αντί για ιππότες! Και αυτός ο κώδικας απόλυτης αφοσίωσης μέχρι θανάτου, το Μπουσίντο, ήταν τόσο ριζωμένος, που όταν η Ιαπωνία μπήκε στον βιομηχανικό κόσμο, οι σαμουράι έγιναν οι μάνατζερ των εργοστασίων, μεταφέροντας την ίδια ακριβώς πειθαρχία και πίστη στις ιαπωνικές επιχειρήσεις!»
+          </div>
+        </div>
+
+        <h2>4. Η Εποχή του Sakoku («Κλειστή Χώρα», 1639–1853)</h2>
+
+        <p>Φοβούμενοι ότι οι Ευρωπαίοι ιεραπόστολοι και οι χριστιανικές μεταστροφές ήταν δούρειος ίππος αποικιοκρατίας, οι Τοκουγκάουα απαγόρευσαν τον Χριστιανισμό και επέβαλαν το 1639 το διάταγμα <strong>Sakoku («Κλειστή Χώρα»)</strong>: απαγορεύτηκε η έξοδος των Ιαπώνων και η είσοδος ξένων επί ποινή θανάτου. Όλα τα υπερωκεάνια πλοία καταστράφηκαν.</p>
+
+        <p>Μοναδική εξαίρεση αποτέλεσαν ελάχιστοι Ολλανδοί έμποροι, περιορισμένοι στο μικροσκοπικό τεχνητό νησάκι <strong>Ντετζίμα</strong> στο Ναγκασάκι. Μέσω αυτού του μοναδικού «παραθύρου», μια χούφτα Ιάπωνες λόγιοι μελετούσαν τη δυτική ιατρική και τεχνολογία (οι περίφημες <em>Ολλανδικές Σπουδές / Rangaku</em>).</p>
+
+        <!-- Plate 3: Perry Black Ships -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/perry_black_ships_1854.jpg" alt="Ιαπωνική ξυλογραφία που απεικονίζει τα Μαύρα Πλοία του Πέρι στον κόλπο του Έντο (1854)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 3: Τα «Μαύρα Πλοία» (Kurofune) του Πλοιάρχου Πέρι (Ιαπωνική απεικόνιση, 1854)</strong>
+            <span class="map-badge">Εθνικη Βιβλιοθηκη της Διαιτας / Τοκιο</span>
+            Η άφιξη της αμερικανικής ατμοκίνητης μοίρας το 1853 συγκλόνισε την Ιαπωνία. Τα σιδερένια κανόνια και ο μαύρος καπνός των φουγάρων κατέδειξαν ότι η εποχή της απομόνωσης είχε τελειώσει οριστικά.
+          </div>
+        </div>
+
+        <h2>5. Τα Μαύρα Πλοία (1853) & η Επανάσταση των Μεϊτζί (1868)</h2>
+
+        <p>Στις 8 Ιουλίου 1853, τέσσερα αμερικανικά ατμόπλοια υπό τον πλοίαρχο <strong>Μάθιου Πέρι</strong> κατέπλευσαν στον κόλπο του Έντο (τα «Μαύρα Πλοία» / <em>Kurofune</em>), απειλώντας με βομβαρδισμό αν η Ιαπωνία δεν άνοιγε τα λιμάνια της. Το σοκαρισμένο σογκουνάτο υπέκυψε.</p>
+
+        <p>Η εθνική ταπείνωση οδήγησε το 1868 στην <strong>Παλινόρθωση των Μεϊτζί (Meiji Restoration)</strong>. Ο νεαρός αυτοκράτορας Μεϊτζί ανέλαβε την εξουσία, κατήργησε τη φεουδαρχία και τους σαμουράι, και εγκαινίασε το μεγαλύτερο εκσυγχρονιστικό άλμα της ιστορίας υπό το σύνθημα <em>«Ιαπωνικό Πνεύμα, Δυτική Τεχνολογία» (Wakon Yosai)</em>.</p>
+
+        <div class="box-history">
+          <div class="box-history-title">⚡ Το Ιαπωνικό Θαύμα των Τριών Δεκαετιών</div>
+          <p>Μέσα σε μόλις 30 χρόνια, η Ιαπωνία πέρασε από τα σπαθιά των σαμουράι στα θωρηκτά και τα χαλυβουργεία! Υιοθέτησε το βρετανικό ναυτικό μοντέλο, τον πρωσικό στρατό και το γερμανικό σύνταγμα, στέλνοντας χιλιάδες φοιτητές στη Δύση. Δημιουργήθηκαν τα γιγαντιαία βιομηχανικά κονσόρτσιουμ (<strong>Zaibatsu</strong>, όπως η Mitsubishi και η Mitsui).</p>
+        </div>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=mGAcE840yP4&t=6130s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:42:10</a>
+          </div>
+          <div class="box-maria-quote">
+            «Όταν το 1853 μπήκαν στον κόλπο του Τόκιο τα τέσσερα μαύρα πολεμικά πλοία του Αμερικανού πλοιάρχου Πέρι, οι Ιάπωνες έπαθαν σοκ! Είδαν τα κανόνια, είδαν τον ατμό, και είπαν: "Αν καθίσουμε με τα σπαθιά των σαμουράι, σε δέκα χρόνια θα μας έχουν κάνει ό,τι έκαναν οι Άγγλοι στην Κίνα με το όπιο!". Και τι έκαναν; Μέσα σε μία νύχτα κατάπιαν την περηφάνια τους! Είπαν: "Θα μάθουμε από τους βαρβάρους για να νικήσουμε τους βαρβάρους!". Έστειλαν τους νέους τους στην Αγγλία να μάθουν ναυτικό, στη Γερμανία να μάθουν στρατό, στη Γαλλία να μάθουν νόμους. Και μέσα σε τριάντα χρόνια είχαν φτιάξει βιομηχανία, σιδηροδρόμους και σύγχρονο στόλο! Αυτό είναι το απόλυτο μάθημα ρεαλισμού και αυτοσυντήρησης!»
+          </div>
+        </div>
+
+        <h2>6. Η Έκρηξη της Ισχύος: Σινο-Ιαπωνικός (1894–95) & Ρωσο-Ιαπωνικός Πόλεμος (1904–05)</h2>
+
+        <p>Η νεοαποκτηθείσα ισχύς εκδηλώθηκε με δύο σαρωτικούς πολέμους:</p>
+
+        <ul>
+          <li><strong>Σινο-Ιαπωνικός Πόλεμος (1894–1895):</strong> Η Ιαπωνία συνέτριψε την Κίνα των Τσινγκ και κατέλαβε την Ταϊβάν.</li>
+          <li><strong>Ρωσο-Ιαπωνικός Πόλεμος (1904–1905):</strong> Στη θρυλική <strong>Ναυμαχία της Τσουσίμα</strong> (Μάιος 1905), ο ναύαρχος Τόγκο κατέστρεψε ολοσχερώς τον ρωσικό στόλο της Βαλτικής. Ήταν <strong>η πρώτη φορά στη σύγχρονη ιστορία που ένα ασιατικό κράτος συνέτριψε μια μεγάλη ευρωπαϊκή αυτοκρατορία</strong>, προκαλώντας παγκόσμιο σεισμό και αφυπνίζοντας τα αντιαποικιακά κινήματα σε όλη την Ασία και την Αφρική!</li>
+        </ul>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=mGAcE840yP4&t=8130s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 2:15:30</a>
+          </div>
+          <div class="box-maria-quote">
+            «Το 1905 έγινε κάτι που έκανε ολόκληρο τον πλανήτη να παραμιλάει! Μια μικρή ασιατική χώρα, που πριν σαράντα χρόνια ζούσε στον μεσαίωνα με τα κατάνα, συνέτριψε τον στόλο της πανίσχυρης Ρωσικής Αυτοκρατορίας του Τσάρου! Οι Ευρωπαίοι έμειναν με το στόμα ανοιχτό. Και όλοι οι καταπιεσμένοι λαοί της Ασίας —στην Ινδία, στην Αίγυπτο, στην Κίνα— είπαν: "Σταθείτε, ο λευκός άνθρωπος δεν είναι ανίκητος! Αν οργανωθούμε, μπορούμε να τον νικήσουμε με τα δικά του όπλα!". Ήταν η αρχή του τέλους για την ευρωπαϊκή αποικιοκρατία!»
+          </div>
+        </div>
+
+        <h2>7. Ετυμολογικό Εργαστήρι</h2>
+
+        <div class="box-etymology">
+          <div class="box-etymology-title">🗣️ Ετυμολογικο Εργαστηρι: Οι Λεξεις της Ιαπωνικης Ιστοριας</div>
+          <div class="box-etymology-content">
+            <ul>
+              <li><strong>Σαμουράι (Samurai):</strong> Από το ρήμα <em>saburau</em> (υπηρετώ, παραστέκομαι στον κύριο).</li>
+              <li><strong>Σογκούν (Shogun):</strong> Αρχιστράτηγος (από το <em>Sei-i Taishogun</em> = Μεγάλος Στρατηγός που Καθυποτάσσει τους Βαρβάρους).</li>
+              <li><strong>Καμικάζι (Kamikaze):</strong> <em>Kami</em> (θείο πνεύμα) + <em>kaze</em> (άνεμος) = «Θείος Άνεμος».</li>
+              <li><strong>Μπουσίντο (Bushido):</strong> Ο δρόμος του πολεμιστή (<em>Bushi</em> = πολεμιστής + <em>Do</em> = δρόμος).</li>
+              <li><strong>Σεππούκου / Χαρακίρι:</strong> Τελετουργική αυτοκτονία (από το <em>hara</em> = κοιλιά + <em>kiri</em> = κόψιμο).</li>
+            </ul>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">⛩️</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Η Δύναμη της Προσαρμογής</h3>
+        <p class="synthesis-text">
+          «Ενώ η τεράστια Κίνα των Τσινγκ παρέλυσε από την υπεροπτική της αυτάρκεια και ταπεινώθηκε στους Πολέμους του Οπίου, η μικρή νησιωτική Ιαπωνία επέδειξε μια συγκλονιστική ευελιξία. Αντιλήφθηκε άμεσα τον δυτικό κίνδυνο, αφομοίωσε την τεχνολογία των αντιπάλων της χωρίς να χάσει την ψυχή της, και μέσα σε τρεις δεκαετίες αναδείχθηκε σε παγκόσμια δύναμη.
+          <br><br>
+          Στο επόμενο κεφάλαιο (Κεφάλαιο 16), θα παρακολουθήσουμε την αντίπερα όχθη: τον "Αιώνα της Ταπείνωσης" της Κίνας και τον πλούτο της Νοτιοανατολικής Ασίας —από το Βιετνάμ έως το κολοσσιαίο Άνγκορ Βατ της Καμπότζης.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch14.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">14. Ινδία & Κίνα</span>
+        </a>
+        <a href="ch16.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">16. Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 12</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch12">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΔΩΔΕΚΑΤΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Ισλάμ</h1>
+        <p class="chapter-subtitle">Η Γέννηση μιας Νέας Πίστης, οι Κατακτήσεις των Χαλιφών και το Μεγάλο Σχίσμα της Καρμπάλα.</p>
+        
+        <a href="https://www.youtube.com/watch?v=6akPsuViBhk" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube (Διάρκεια: 2 ώρες & 35 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο την Προϊσλαμικη Αραβια στη Μαχη της Καρμπαλα</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">~570 μ.Χ.</div>
+            <div class="timeline-desc">Γέννηση του Μωάμεθ στη Μέκκα μέσα στην πατριά των Χασιμιτών.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">610 μ.Χ.</div>
+            <div class="timeline-desc">Η πρώτη θεία αποκάλυψη στο Σπήλαιο Χίρα: «Ικρά!» (Απάγγειλε!).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">622 μ.Χ.</div>
+            <div class="timeline-desc">Η Εγίρα (Hijra) προς τη Μεδίνα – Ίδρυση της Ummah και Έτος 1 του ισλαμικού ημερολογίου.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">630 μ.Χ.</div>
+            <div class="timeline-desc">Θριαμβευτική είσοδος του Προφήτη στη Μέκκα και καθαρισμός της Κάαμπα από τα 360 είδωλα.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">632–661 μ.Χ.</div>
+            <div class="timeline-desc">Οι Τέσσερις Ορθόδοξοι Χαλίφηδες (Rashidun) & αστραπιαία κατάκτηση Συρίας, Περσίας και Αιγύπτου.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">680 μ.Χ.</div>
+            <div class="timeline-desc">Μάχη της Καρμπάλα: Μαρτύριο του Χουσεΐν και οριστικό Σχίσμα Σουνιτών και Σιιτών.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Body Content -->
+      <article class="chapter-body">
+
+        <h2>1. Η Προϊσλαμική Αραβία: Η «Εποχή της Άγνοιας» (Jahiliyyah) & οι Κρεμαστές Ωδές</h2>
+
+        <p>Στις αρχές του 7ου αιώνα μ.Χ., ανάμεσα στις δύο εξαντλημένες αυτοκρατορίες της εποχής —τη Βυζαντινή και τη Σασανιδική Περσική— εκτεινόταν η αχανής, άνυδρη <strong>Αραβική Χερσόνησος</strong>. Οι κάτοικοί της, νομάδες Βεδουίνοι (<em>A`rab</em>), ζούσαν οργανωμένοι σε αυτάρκεις φυλές, συνδεδεμένοι με αδυσώπητους κώδικες αίματος και φυλετικής αλληλεγγύης (<em>Asabiyyah</em>).</p>
+
+        <p>Η εποχή αυτή ονομάζεται από τη μουσουλμανική παράδοση <strong>Jahiliyyah (Εποχή της Άγνοιας)</strong>, λόγω της έλλειψης γραπτού θεϊκού νόμου. Ωστόσο, οι Βεδουίνοι είχαν αναπτύξει έναν αυστηρότατο κώδικα τιμής (<em>Muruwwah</em>), με κορωνίδα την ιερή, απαραβίαστη φιλοξενία, και μια εκπληκτική προφορική ποίηση: τις περίφημες <strong>Κρεμαστές Ωδές (<em>Al-Mu'allaqat</em>)</strong>, που κεντιόνταν με χρυσά γράμματα σε μαύρο μετάξι και κρέμονταν στους τοίχους της Κάαμπα.</p>
+
+        <p><strong>Η Σκοτεινή Πλευρά & η Κοινωνική Τομή του Ισλάμ:</strong> Μέσα στην ακραία ένδεια της ερήμου και τον τρόμο της φυλετικής ατίμωσης, πολλοί πατεράδες εφάρμοζαν το φρικτό έθιμο της <strong>ταφής των θηλυκών βρεφών (<em>Wa'd al-banat</em>)</strong>, θάβοντας ζωντανά τα νεογέννητα κοριτσάκια στην άμμο! Το Ισλάμ κατήργησε ρητά και απόλυτα αυτή τη βαρβαρότητα (Σούρα 81:8–9: <em>«Και όταν το θαμμένο ζωντανό κορίτσι ερωτηθεί για ποια αμαρτία θανατώθηκε...»</em>). Παράλληλα, το Κοράνι παραχώρησε στις γυναίκες ρητό δικαίωμα ιδιοκτησίας, κληρονομιάς, διαζυγίου και ανεξάρτητης διαχείρισης περιουσίας — δικαιώματα που οι Ευρωπαίες γυναίκες απέκτησαν μόλις στα τέλη του 19ου αιώνα!</p>
+
+        <p>Στη Χετζάζη, η πόλη της <strong>Μέκκας</strong> αποτελούσε τον εμπορικό και λατρευτικό άξονα. Στο κέντρο της δέσποζε η <strong>Κάαμπα</strong>, ένας πανάρχαιος κυβικός ναός που φιλοξενούσε τον Μαύρο Λίθο και 360 είδωλα πολυθεϊστικών λατρειών, ελεγχόμενος από την πλούσια εμπορική αριστοκρατία των <strong>Κουραϊσιτών</strong>.</p>
+
+        <!-- Plate 1: Mecca Kaaba Tile -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/mecca_kaaba_tile.jpg" alt="Εφυαλωμένο κεραμικό πλακίδιο της Μέκκας και της Κάαμπα (17ος αι., Μουσείο του Λούβρου)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 1: Το Τέμενος της Μέκκας και η Κάαμπα (Οθωμανικό πλακίδιο Iznik, 17ος αι., Μουσείο του Λούβρου)</strong>
+            <span class="map-badge">Μουσειο του Λουβρου / Παρισι</span>
+            Λεπτομερής απεικόνιση του Μεγάλου Τεμένους (Masjid al-Haram) με τον Μαύρο Λίθο στην Κάαμπα στο κέντρο. Η Κάαμπα αποτελεί τον ιερότερο τόπο του ισλαμικού κόσμου και την κατεύθυνση (*Qibla*) της καθημερινής προσευχής εκατοντάδων εκατομμυρίων πιστών.
+          </div>
+        </div>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=6akPsuViBhk&t=1110s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 0ω 18:30</a>
+          </div>
+          <div class="box-maria-quote">
+            «Ο Βεδουίνος της ερήμου είναι ένας απίθανος τύπος! Μέσα σε εκείνη την κόλαση της ζέστης και της έλλειψης νερού, αν εμφανιστεί ένας ξένος στη σκηνή σου, είσαι υποχρεωμένος από τον άγραφο νόμο να του δώσεις να φάει και να πιει, κι ας πεινάσει το παιδί σου! Γιατί αύριο θα είσαι εσύ ο διψασμένος στην έρημο! Και αν αυτός ο ξένος είναι ο φονιάς του αδελφού σου; Επί τρεις ημέρες δεν επιτρέπεται να του αγγίξεις ούτε τρίχα! Αυτός είναι ο κώδικας της ερήμου: σκληρός, ανελέητος, αλλά με μια ιερή αίσθηση τιμής και φιλοξενίας!»
+          </div>
+        </div>
+
+        <h2>2. Ο Προφήτης Μωάμεθ και η Αποκάλυψη του Κορανίου</h2>
+
+        <p>Γύρω στο 570 μ.Χ., μέσα στη φτωχότερη πατριά των Χασιμιτών, γεννήθηκε ο <strong>Μωάμεθ (Muhammad ibn Abdallah)</strong>. Ορφανός από μικρός, διακρίθηκε ως έντιμος έμπορος (*Al-Amin*) και παντρεύτηκε την ευκατάστατη έμπορο Χαντίτζα. Το <strong>610 μ.Χ.</strong>, αποσυρόμενος για στοχασμό στη σπηλιά Χίρα, άκουσε τη φωνή του Αρχαγγέλου Γαβριήλ (Jibril) να τον προστάζει: <em>«Ικρά!» (Απάγγειλε!)</em>.</p>
+
+        <p>Οι αποκαλύψεις αυτές συνεχίστηκαν επί 23 χρόνια και συνέθεσαν το <strong>Κοράνι (*Al-Qur'an* = η Απαγγελία)</strong>. Αποτελείται από 114 Σούρες (κεφάλαια) και θεωρείται από τους μουσουλμάνους ο απαράλλαχτος, κατά λέξη άκτιστος <strong>Λόγος του Θεού (*Kalam Allah*)</strong>, αναλλοίωτος μόνο στην αραβική γλώσσα.</p>
+
+        <!-- Plate 2: Kufic Quran Page -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/kufic_quran_page.jpg" alt="Φύλλο Κορανίου σε Κουφική Γραφή επί περγαμηνής (9ος αι. μ.Χ.)" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 2: Σελίδα Κορανίου σε Κουφική Γραφή (9ος αι. μ.Χ., περγαμηνή)</strong>
+            <span class="map-badge">Συλλογη Ισλαμικης Τεχνης</span>
+            Η μνημειώδης κουφική καλλιγραφία αναπτύχθηκε στην πόλη Κούφα του Ιράκ. Η γεωμετρική καθαρότητα των αραβικών γραμμάτων αντανακλά την απόλυτη ιερότητα του κειμένου, καθώς το Ισλάμ απαγόρευσε την απεικόνιση του θείου και ανέδειξε την καλλιγραφία στην υπέρτατη μορφή τέχνης.
+          </div>
+        </div>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=6akPsuViBhk&t=2660s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 0ω 44:20</a>
+          </div>
+          <div class="box-maria-quote">
+            «Προσέξτε τη δύναμη της απλότητας! Το Ισλάμ εμφανίζεται σε έναν κόσμο κουρασμένο από τις περίπλοκες θεολογικές διαμάχες των Βυζαντινών για φύσεις και υποστάσεις, και φέρνει ένα μήνυμα τόσο κρυστάλλινο που κόβει σαν ξυράφι: Ένας Θεός! Χωρίς γιο, χωρίς μητέρα, χωρίς εικόνες! Και ο άνθρωπος είναι απόλυτα υποταγμένος σε Αυτόν. Αυτή η απλότητα, συνδυασμένη με την καταπληκτική μουσικότητα της αραβικής γλώσσας, σάρωσε τις καρδιές των ανθρώπων!»
+          </div>
+        </div>
+
+        <h2>3. Η Εγίρα (622 μ.Χ.) και η Ίδρυση της Ummah</h2>
+
+        <p>Η καταδίκη της ειδωλολατρίας και της κοινωνικής αδικίας εξόργισε τους άρχοντες της Μέκκας. Το <strong>622 μ.Χ.</strong>, ο Μωάμεθ και οι πιστοί του κατέφυγαν στην όαση Γιαθρίμπ, η οποία μετονομάστηκε σε <strong>Μεδίνα (*Madinat an-Nabi* = η Πόλη του Προφήτη)</strong>. Η μετανάστευση αυτή, η <strong>Εγίρα (Hijra)</strong>, αποτελεί το <strong>Έτος 1 του Μουσουλμανικού Ημερολογίου</strong>.</p>
+
+        <p>Στη Μεδίνα, ο Μωάμεθ συνέταξε το περίφημο <em>Σύνταγμα της Μεδίνας</em>, ιδρύοντας την **Ummah**: την υπερεθνική κοινότητα των πιστών. Για πρώτη φορά στην ιστορία της Αραβίας, η πίστη υποκατέστησε το αίμα της φυλής. Όλοι οι πιστοί έγιναν αδέλφια ενώπιον του Αλλάχ. Το 630 μ.Χ., ο Προφήτης επέστρεψε θριαμβευτής στη Μέκκα χωρίς αιματοχυσία, συγχώρησε τους διώκτες του και καθάρισε την Κάαμπα από όλα τα είδωλα.</p>
+
+        <h2>4. Οι Πέντε Στύλοι του Ισλάμ (*Arkan al-Islam*)</h2>
+
+        <div class="box-history">
+          <div class="box-history-title">
+            <span>🕌</span> Οι Πέντε Στύλοι της Πίστης
+          </div>
+          <div class="box-history-content">
+            <ol>
+              <li><strong>Σαχάντα (Shahada):</strong> Η ομολογία: <em>«Δεν υπάρχει άλλος θεός εκτός από τον Αλλάχ, και ο Μωάμεθ είναι ο Προφήτης Του»</em>.</li>
+              <li><strong>Σαλάτ (Salat):</strong> Πενθήμερη προσευχή με τελετουργικό καθαρμό (*Wudu*) και υπόκλιση προς τη Μέκκα (*Qibla*).</li>
+              <li><strong>Ζακάτ (Zakat):</strong> Υποχρεωτική ελεημοσύνη (2,5%) για την ανακούφιση των φτωχών και των ορφανών.</li>
+              <li><strong>Σαούμ (Sawm):</strong> Αυστηρή νηστεία από την ανατολή έως τη δύση καθ' όλη τη διάρκεια του Ραμαζανιού.</li>
+              <li><strong>Χατζ (Hajj):</strong> Προσκύνημα στη Μέκκα τουλάχιστον μία φορά στη ζωή κάθε πιστού που δύναται.</li>
+            </ol>
+          </div>
+        </div>
+
+        <h2>5. Οι Τέσσερις Χαλίφηδες & η Μεγάλη Αραβική Έκρηξη</h2>
+
+        <p>Μετά τον θάνατο του Προφήτη το 632 μ.Χ., οι τέσσερις στενοί του συνοδοιπόροι ονομάστηκαν <strong>Δικαίως Καθοδηγούμενοι Χαλίφηδες (Rashidun)</strong>: ο Αμπού Μπακρ, ο Ουμάρ, ο Ουθμάν και ο Αλή. Μέσα σε λίγες δεκαετίες, πέτυχαν μία από τις πιο ραγδαίες στρατιωτικές κατακτήσεις στην παγκόσμια ιστορία:</p>
+
+        <ul>
+          <li><strong>Μάχη του Γιαρμούκ (636 μ.Χ.):</strong> Ο στρατηγός Χαλίντ ιμπν αλ-Ουαλίντ («Το Σπαθί του Αλλάχ») συνέτριψε τον υπεράριθμο βυζαντινό στρατό του αυτοκράτορα Ηρακλείου. Οι Βυζαντινοί στρατηγοί είχαν δέσει ολόκληρες σειρές λεγεωνάριων με <em>σιδερένιες αλυσίδες στα πόδια</em> για να αποτρέψουν την υποχώρηση! Όταν ξέσπασε μια ξαφνική, τυφλωτική αμμοθύελλα της ερήμου (<em>Χαμσίνι</em>) κατευθείαν στα μάτια των Βυζαντινών, το ταχύτατο αραβικό ιππικό τούς περικύκλωσε και τους έσπρωξε στα φαράγγια του ποταμού. Η Συρία και η Παλαιστίνη χάθηκαν οριστικά.</li>
+          <li><strong>Η Παράδοση της Ιερουσαλήμ (638 μ.Χ.):</strong> Ο Χαλίφης Ουμάρ ταξίδεψε από τη Μεδίνα μοιραζόμενος μία μόνο καμήλα με τον υπηρέτη του (εναλλάξ: ο ένας καβάλα και ο άλλος πεζός κρατώντας το χαλινάρι). Όταν έφτασαν στις πύλες της Ιερουσαλήμ, ήταν η σειρά του υπηρέτη να καβαλάει και ο ίδιος ο Χαλίφης περπατούσε με τα πόδια μέσα στις λάσπες, φορώντας έναν χοντρό, μπαλωμένο χιτώνα! Ο Πατριάρχης Ιεροσολύμων Σωφρόνιος, βλέποντας τον κοσμοκράτορα να φτάνει με τέτοια συγκλονιστική ταπεινότητα, ξέσπασε σε δάκρυα. Ο Ουμάρ αρνήθηκε να προσευχηθεί μέσα στον Ναό της Αναστάσεως για να μην τον μετατρέψουν αργότερα οι μουσουλμάνοι σε τζαμί, και υπέγραψε τη <em>Συνθήκη του Ουμάρ</em> (Sulh al-Quds), προστατεύοντας πλήρως τους χριστιανικούς ναούς και τις ζωές των κατοίκων.</li>
+          <li><strong>Μάχη της Αλ-Καντισίγια (636 μ.Χ.) & Νεχαβέντ (642 μ.Χ.):</strong> Πλήρης κατάρρευση και διάλυση της χιλιετούς Σασανιδικής Περσικής Αυτοκρατορίας.</li>
+          <li><strong>Κατάκτηση της Αιγύπτου (642 μ.Χ.):</strong> Από τον Αμρ ιμπν αλ-Ας, αποκόπτοντας τον πλουσιότερο σιτοβολώνα του Βυζαντίου και ιδρύοντας τη Φουστάτ (σημερινό Κάιρο).</li>
+        </ul>
+
+        <!-- Plate 3: Dome of the Rock -->
+        <div class="figure-container">
+          <div class="figure-img-wrap">
+            <img src="../assets/images/dome_of_the_rock.jpg" alt="Ο Θόλος του Βράχου (Qubbat as-Sakhra) στην Ιερουσαλήμ" class="figure-img">
+          </div>
+          <div class="figure-caption">
+            <strong>Εικόνα 3: Ο Θόλος του Βράχου (691–692 μ.Χ., Ιερουσαλήμ)</strong>
+            <span class="map-badge">Ιερουσαλημ / Haram al-Sharif</span>
+            Χτισμένος από τον Ομεϋάδη Χαλίφη Αμπντ αλ-Μαλίκ πάνω στο Όρος του Ναού, αποτελεί ένα από τα παλαιότερα σωζόμενα αριστουργήματα της ισλαμικής αρχιτεκτονικής. Ο επιχρυσωμένος οκταγωνικός τρούλος περικλείει τον Ιερό Βράχο, από όπου κατά την παράδοση ο Μωάμεθ πραγματοποίησε το Νυχτερινό Ταξίδι (<em>Mi'raj</em>) στους ουρανούς.
+          </div>
+        </div>
+
+        <p>Οι πληθυσμοί των κατακτημένων επαρχιών δεν εξαναγκάστηκαν σε εξισλαμισμό. Ως <strong>«Λαοί της Βίβλου» (<em>Ahl al-Kitab</em>)</strong>, οι Χριστιανοί και οι Εβραίοι απέκτησαν το καθεστώς των προστατευόμενων πολιτών (<strong>Dhimmi</strong>), διατηρώντας τα λατρευτικά τους δικαιώματα έναντι της καταβολής ενός ειδικού φόρου (<strong>Jizya</strong>), ο οποίος ήταν συχνά ελαφρύτερος από τη βυζαντινή φορομπηξία.</p>
+
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <div class="box-maria-title">
+              <span>💬 Η Ματια της Μαριας</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=6akPsuViBhk&t=4510s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:15:10</a>
+          </div>
+          <div class="box-maria-quote">
+            «Μα πώς είναι δυνατόν; Αναρωτιούνται όλοι! Πώς μια χούφτα καμηλιέρηδες από την έρημο κατάφεραν μέσα σε είκοσι χρόνια να διαλύσουν την πανίσχυρη Περσική Αυτοκρατορία και να πάρουν από το Βυζάντιο τη Συρία, την Παλαιστίνη και την Αίγυπτο; Η απάντηση είναι απλή: το Βυζάντιο και η Περσία είχαν μόλις πολεμήσει μεταξύ τους επί τριάντα ολόκληρα χρόνια μέχρις εσχάτων! Είχαν εξαντληθεί, είχαν χρεοκοπήσει, και οι πληθυσμοί τους στη Συρία και την Αίγυπτο —που ήταν Μονοφυσίτες και τους κυνηγούσε η Κωνσταντινούπολη ως αιρετικούς— είπαν: "Καλύτερα το τουρμπάνι του Άραβα παρά η καταπίεση του Βυζαντινού αυτοκράτορα!"»
+          </div>
+        </div>
+
+        <h2>6. Το Μεγάλο Σχίσμα: Σουνίτες, Σιίτες & η Σφαγή της Καρμπάλα</h2>
+
+        <p>Η δολοφονία του Χαλίφη Ουθμάν (656 μ.Χ.) άνοιξε την πόρτα του πρώτου εμφυλίου πολέμου (<em>Fitna</em>). Ο τέταρτος Χαλίφης, <strong>Αλή</strong>, αμφισβητήθηκε από τον κυβερνήτη της Συρίας <strong>Μουαβία</strong> (Σύγκρουση στο Σιφφίν). Όταν ο Αλή δέχθηκε διαιτησία, οι φανατικοί οπαδοί του αποσχίστηκαν δημιουργώντας τη σέχτα των <strong>Χαριτζιτών (<em>Khawarij</em>)</strong>, ένας εκ των οποίων τον δολοφόνησε το 661 μ.Χ. Ο Μουαβία ίδρυσε το <strong>Χαλιφάτο των Ομεϋαδών</strong> στη Δαμασκό.</p>
+
+        <p>Η οριστική και αγεφύρωτη ρήξη σφραγίστηκε με αίμα το <strong>680 μ.Χ. στη Μάχη της Καρμπάλα</strong> στο Ιράκ. Ο δευτερότοκος γιος του Αλή, <strong>Χουσεΐν (Husayn ibn Ali)</strong>, αρνήθηκε να υποταχθεί στον Ομεϋάδη χαλίφη Γιαζίντ και σφαγιάστηκε μαζί με 72 πιστούς συντρόφους του. Από το μαρτύριο αυτό γεννήθηκε το μεγάλο σχίσμα:</p>
+
+        <ul>
+          <li><strong>Σουνίτες (<em>Ahl al-Sunnah</em>):</strong> Η συντριπτική πλειονότητα (περ. 85-90%). Πιστεύουν ότι ο ηγέτης (Χαλίφης) εκλέγεται από την κοινότητα βάσει ικανότητας και αυστηρής τήρησης της Παράδοσης (<em>Sunnah</em>).</li>
+          <li><strong>Σιίτες (<em>Shi'at Ali</em> = η Παράταξη του Αλή):</strong> Πιστεύουν ότι η νόμιμη ηγεσία (το <em>Ιμαμάτο</em>) ανήκει αποκλειστικά στους κατ' αίμα απογόνους του Προφήτη μέσω της Φατιμά και του Αλή. Η θυσία του Χουσεΐν αποτελεί τον πυρήνα της σιιτικής θεολογίας του πένθους και της αντίστασης (εορτή της Ασούρα).</li>
+        </ul>
+
+        <h2>7. Ετυμολογικό Εργαστήρι: Οι Λέξεις του Ισλάμ</h2>
+
+        <div class="box-etymology">
+          <div class="box-etymology-title">🗣️ Ετυμολογικο Εργαστηρι: Οι Αραβικες Ριζες της Πιστης</div>
+          <div class="box-etymology-content">
+            Οι λέξεις που διαμόρφωσαν τον ισλαμικό κόσμο:
+            <ul>
+              <li><strong>Ισλάμ (Islam):</strong> Από τη συμφωνική ρίζα <em>s-l-m</em>, που σημαίνει υποταγή στο θείο θέλημα αλλά και ειρήνη (<em>salam</em>).</li>
+              <li><strong>Μουσουλμάνος (Muslim):</strong> Ενεργητική μετοχή: «αυτός που παραδίδεται / υποτάσσεται στον Θεό».</li>
+              <li><strong>Κοράνι (Qur'an):</strong> Απαγγελία, ρυθμική ανάγνωση φωναχτά (από το ρήμα <em>qara'a</em>).</li>
+              <li><strong>Χαλίφης (Khalifa):</strong> Διάδοχος, τοποτηρητής του Προφήτη.</li>
+              <li><strong>Τζιχάντ (Jihad):</strong> Προσπάθεια, αγώνας. Διακρίνεται σε Μεγάλο Τζιχάντ (εσωτερική πνευματική πάλη) και Μικρό Τζιχάντ (ένοπλη άμυνα).</li>
+              <li><strong>Μιναρές (Minaret):</strong> Από το <em>manarah</em> (φάρος, τόπος φωτός).</li>
+            </ul>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">🌙</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Μια Έρημος που Έγινε Αυτοκρατορία</h3>
+        <p class="synthesis-text">
+          «Μέσα σε λιγότερο από έναν αιώνα, ένα κατακερματισμένο μωσαϊκό νομαδικών φυλών της αραβικής ερήμου μετετράπη σε μια παγκόσμια αυτοκρατορία που εκτεινόταν από τα Πυρηναία μέχρι τα σύνορα της Ινδίας και της Κίνας. Το Ισλάμ δεν ήταν απλώς μια θρησκεία· ήταν ένας ολόκληρος πολιτισμός που ένωσε λαούς, εμπορικούς δρόμους και επιστημονικές παραδόσεις.
+          <br><br>
+          Στο επόμενο μάθημα, θα δούμε τη χρυσή εποχή αυτού του πολιτισμού: τον Οίκο της Σοφίας στη Βαγδάτη, τις μεταφράσεις της αρχαίας ελληνικής επιστήμης, την Κόρδοβα της Ανδαλουσίας και τη συνάντηση του Ισλάμ με τη μυστηριακή Ινδία.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch11.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">11. Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+        <a href="ch13.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">13. Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

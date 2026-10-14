@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Μικρά Μαθήματα για έναν Μεγάλο Κόσμο | Μαρία Ευθυμίου - Κεφάλαιο 17</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('maria-book-theme');
+        if (t && t !== 'parchment') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('maria-book-font-size');
+        if (s) {
+          var p = parseInt(s, 10);
+          var steps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
+          var idx = (p >= 15 && p <= 25) ? Math.max(0, Math.min(5, p - 17)) : (p >= 0 && p < 6 ? p : 2);
+          document.documentElement.style.setProperty('--font-scale', steps[idx]);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="progress-bar"></div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-top">
+        <div class="sidebar-brand">Μικρα Μαθηματα</div>
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Κλείσιμο μενού" title="Κλείσιμο">✕</button>
+      </div>
+      <div class="sidebar-subbrand">για έναν Μεγάλο Κόσμο</div>
+      
+      <div class="author-card">
+        <img src="../assets/images/maria_efthymiou.jpg" alt="Μαρία Ευθυμίου" class="author-avatar">
+        <div class="author-meta">
+          <div class="author-name">Μαρία Ευθυμίου</div>
+          <div class="author-role">Καθηγήτρια Ιστορίας ΕΚΠΑ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search-box">
+      <svg class="sidebar-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="sidebar-search-input" placeholder="Αναζήτηση κεφαλαίου..." aria-label="Αναζήτηση στα 21 μαθήματα">
+    </div>
+
+    <div class="sidebar-section-title">ΠΙΝΑΚΑΣ ΠΕΡΙΕΧΟΜΕΝΩΝ (21 ΜΑΘΗΜΑΤΑ)</div>
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="../index.html" class="toc-link">
+          <span class="toc-num">01.</span>
+          <span>Τροφοσυλλέκτης & Κυνηγός: Η πορεία προς τη Γεωργική Επανάσταση</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch02.html" class="toc-link">
+          <span class="toc-num">02.</span>
+          <span>Η πορεία του ανθρώπου & οι λαοί των στεπών</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch03.html" class="toc-link">
+          <span class="toc-num">03.</span>
+          <span>Τα επιτεύγματα της Γεωργικής Επανάστασης</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch04.html" class="toc-link">
+          <span class="toc-num">04.</span>
+          <span>Η «Χρυσή Ορδή» του Τζένγκις Χαν & Εισαγωγή στις Θρησκείες</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch05.html" class="toc-link">
+          <span class="toc-num">05.</span>
+          <span>Ινδουισμός – Βουδισμός – Ταοϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch06.html" class="toc-link">
+          <span class="toc-num">06.</span>
+          <span>Κομφουκιανισμός – Ζωροαστρισμός – Εβραϊσμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch07.html" class="toc-link">
+          <span class="toc-num">07.</span>
+          <span>Εβραϊσμός & Χριστιανισμός</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch08.html" class="toc-link">
+          <span class="toc-num">08.</span>
+          <span>Χριστιανισμός (Μέρος Α΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch09.html" class="toc-link">
+          <span class="toc-num">09.</span>
+          <span>Χριστιανισμός (Μέρος Β΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch10.html" class="toc-link">
+          <span class="toc-num">10.</span>
+          <span>Χριστιανισμός (Μέρος Γ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch11.html" class="toc-link">
+          <span class="toc-num">11.</span>
+          <span>Χριστιανισμός (Μέρος Δ΄)</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch12.html" class="toc-link">
+          <span class="toc-num">12.</span>
+          <span>Ισλάμ</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch13.html" class="toc-link">
+          <span class="toc-num">13.</span>
+          <span>Αραβικός Πολιτισμός & Ινδία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch14.html" class="toc-link">
+          <span class="toc-num">14.</span>
+          <span>Ινδία & Κίνα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch15.html" class="toc-link">
+          <span class="toc-num">15.</span>
+          <span>Κίνα & Ιαπωνία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch16.html" class="toc-link">
+          <span class="toc-num">16.</span>
+          <span>Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+      </li>
+      <li class="toc-item active">
+        <a href="ch17.html" class="toc-link">
+          <span class="toc-num">17.</span>
+          <span>Ρωσία</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch18.html" class="toc-link">
+          <span class="toc-num">18.</span>
+          <span>Ρωσία & ο Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch19.html" class="toc-link">
+          <span class="toc-num">19.</span>
+          <span>Ο Σύγχρονος Κόσμος</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch20.html" class="toc-link">
+          <span class="toc-num">20.</span>
+          <span>Παγκόσμια Ιστορία: Ο Κόσμος σήμερα</span>
+        </a>
+      </li>
+      <li class="toc-item">
+        <a href="ch21.html" class="toc-link">
+          <span class="toc-num">21.</span>
+          <span>Ανακεφαλαίωση με Μουσικές & Εικόνες</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Top Utility Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων">
+          <svg class="toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span class="toggle-label">Περιεχόμενα</span>
+        </button>
+        <span class="top-bar-title">Μαρία Ευθυμίου | Παγκόσμια Ιστορία</span>
+      </div>
+      
+      <div class="controls-group">
+        <div class="font-controls">
+          <button id="btn-font-dec" class="control-btn" title="Μικρότερη γραμματοσειρά" aria-label="Μικρότερη γραμματοσειρά">A-</button>
+          <button id="btn-font-inc" class="control-btn" title="Μεγαλύτερη γραμματοσειρά" aria-label="Μεγαλύτερη γραμματοσειρά">A+</button>
+        </div>
+        
+        <div class="theme-pill-group">
+          <button class="theme-btn active" data-theme="parchment" title="Θέμα Πάπυρος" aria-label="Θέμα Πάπυρος">
+            <span class="theme-icon">📜</span><span class="theme-label"> Πάπυρος</span>
+          </button>
+          <button class="theme-btn" data-theme="sepia" title="Θέμα Σέπια" aria-label="Θέμα Σέπια">
+            <span class="theme-icon">☕</span><span class="theme-label"> Σέπια</span>
+          </button>
+          <button class="theme-btn" data-theme="dark" title="Σκοτεινό θέμα" aria-label="Σκοτεινό θέμα">
+            <span class="theme-icon">🌙</span><span class="theme-label"> Νύχτα</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Reading Container -->
+    <main class="content-container" id="ch17">
+      
+      <!-- Chapter Header -->
+      <header class="chapter-header">
+        <span class="chapter-number-tag">ΚΕΦΑΛΑΙΟ ΔΕΚΑΤΟ ΕΒΔΟΜΟ • ΟΛΟΚΛΗΡΩΜΕΝΗ ΕΚΔΟΣΗ</span>
+        <h1 class="chapter-title">Ρωσία</h1>
+        <p class="chapter-subtitle">Ρως του Κιέβου, ο Μογγολικός Ζυγός, ο Ιβάν ο Τρομερός και η Ευρωπαϊκή Επανάσταση του Μεγάλου Πέτρου.</p>
+        
+        <a href="https://www.youtube.com/watch?v=dRsrX9Zns7Y" target="_blank" rel="noopener" class="video-reference-badge">
+          <svg class="yt-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>Πρωτότυπη Διάλεξη στο YouTube / BLOD (Διάρκεια: 2 ώρες & 37 λεπτά)</span>
+        </a>
+      </header>
+
+      <!-- Chronology Ribbon -->
+      <section class="timeline-card">
+        <div class="timeline-title">
+          <span>⏳ Χρονολογικο Αναπτυγμα: Απο τη Βαπτιση στον Δνειπερο στην Αγια Πετρουπολη</span>
+        </div>
+        <div class="timeline-stream">
+          <div class="timeline-node">
+            <div class="timeline-date">988</div>
+            <div class="timeline-desc">Ο πρίγκιπας Βλαδίμηρος Α΄ βαπτίζει τους Ρως του Κιέβου στην Ορθοδοξία – Εισαγωγή του Κυριλλικού αλφαβήτου.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1237–1240</div>
+            <div class="timeline-desc">Ο Μπατού Χαν και η Χρυσή Ορδή ισοπεδώνουν το Κίεβο – Έναρξη του «Μογγολικού Ζυγού» (240 χρόνια).</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1480</div>
+            <div class="timeline-desc">Ο Ιβάν Γ΄ αποτινάσσει τον ζυγό των Τατάρων στον ποταμό Ούγκρα – Η Μόσχα ανακηρύσσεται «Τρίτη Ρώμη».</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1547</div>
+            <div class="timeline-desc">Ο Ιβάν Δ΄ ο Τρομερός στέφεται ο πρώτος Τσάρος – Ίδρυση της Οπρίτσνινα και κατάκτηση του Καζάν.</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1703</div>
+            <div class="timeline-desc">Ο Μέγας Πέτρος ιδρύει την Αγία Πετρούπολη στα έλη της Βαλτικής: το «Παράθυρο της Ρωσίας στην Ευρώπη».</div>
+          </div>
+          <div class="timeline-node">
+            <div class="timeline-date">1774 & 1783</div>
+            <div class="timeline-desc">Η Μεγάλη Αικατερίνη συντρίβει τους Οθωμανούς (Κιουτσούκ-Καϊναρτζή) και προσαρτά την Κριμαία.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Article -->
+      <article class="chapter-body">
+
+        <h2 id="sec-1">1. Η Αχανής Γεωγραφία & ο Ψυχισμός της Ρωσίας</h2>
+        
+        <p>
+          Στο 17ο μάθημα της σειράς, η <strong>Μαρία Ευθυμίου</strong> ανοίγει το κεφάλαιο της <strong>Ρωσίας</strong> —μιας χώρας που απλώνεται σε έντεκα ζώνες ώρας και δύο ηπείρους, αιωρούμενη αδιάκοπα ανάμεσα στην Ευρώπη και την Ασία.
+        </p>
+
+        <p>
+          Η ρωσική μοίρα καθορίστηκε αμετάκλητα από το ανάγλυφό της: μια ατελείωτη, επίπεδη πεδιάδα χωρίς οροσειρές ή φυσικά εμπόδια. Επί χιλιετίες, η Ρωσία δεχόταν επιδρομές από παντού: από την ανατολική στέπα επέδραμαν οι έφιπποι νομάδες (Ούννοι, Πετσενέγοι, Μογγόλοι), και από τα δυτικά οι ευρωπαϊκοί στρατοί (Πολωνοί, Σουηδοί, Γάλλοι, Γερμανοί).
+        </p>
+
+        <!-- Maria Quote Box 1 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=dRsrX9Zns7Y&t=705s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 11:45</a>
+          </div>
+          <p class="box-maria-quote">
+            «Η Ρωσία είναι ένα γεωγραφικό θαύμα και ένα γεωπολιτικό δράμα ταυτόχρονα! Δεν έχει φυσικά σύνορα. Είναι μια ατελείωτη στέπα που την περπατάς και δεν βρίσκεις πουθενά ένα βουνό να κρυφτείς! Γι' αυτό οι Ρώσοι είχαν πάντα αυτό το υπαρξιακό άγχος: "Αν δεν προελάσουμε εμείς, θα μας πατήσουν οι άλλοι!". Και γι' αυτό λάτρεψαν τους σκληρούς ηγέτες. Ένας δημοκρατικός, διαλλακτικός ηγέτης στη Ρωσία εκλαμβάνεται διαχρονικά ως αδύναμος και επικίνδυνος για την επιβίωση του έθνους!»
+          </p>
+        </div>
+
+        <h2 id="sec-2">2. Οι Ρως του Κιέβου & η Επιλογή της Ορθοδοξίας (988 μ.Χ.)</h2>
+
+        <p>
+          Η ιστορία ξεκινά τον 9ο αιώνα κατά μήκος των μεγάλων ποταμών (Δνείπερος, Βόλγας), στην εμπορική διαδρομή <strong>«Από τους Βαράγγους στους Έλληνες»</strong>. Οι Σκανδιναβοί Βίκινγκς (Βάραγγοι ή <em>Ρως</em>) υπό τον Ρούρικ συγχωνεύτηκαν με τους ντόπιους Σλάβους και ίδρυσαν την πρώτη μητρόπολη: το <strong>Κίεβο</strong>.
+        </p>
+
+        <p>
+          Το 988 μ.Χ., ο πρίγκιπας <strong>Βλαδίμηρος Α΄ (Άγιος Βλαδίμηρος)</strong> αναζήτησε μια νέα μονοθεϊστική πίστη για να ενώσει τα εδάφη του. Απέρριψε το Ισλάμ επειδή απαγόρευε το αλκοόλ (<em>«Η πόση είναι η χαρά των Ρως, δεν μπορούμε να υπάρξουμε χωρίς αυτήν!»</em>), απέρριψε τον Ιουδαϊσμό και τον Ρωμαιοκαθολικισμό, αλλά οι απεσταλμένοι του στην Κωνσταντινούπολη θαμπώθηκαν από τη λαμπρότητα της Αγίας Σοφίας: <em>«Δεν ξέραμε αν βρισκόμασταν στον ουρανό ή στη γη!»</em>.
+        </p>
+
+        <p>
+          Η μαζική βάπτιση των Ρως στον ποταμό Δνείπερο σφράγισε τον πολιτισμικό προσανατολισμό της Ρωσίας: υιοθέτησε το <strong>Κυριλλικό αλφάβητο</strong>, τη βυζαντινή αγιογραφία και αρχιτεκτονική, καθώς και το αυτοκρατορικό μοντέλο.
+        </p>
+
+        <h2 id="sec-3">3. Ο Μογγολικός Ζυγός (1237–1480): Το Μεγάλο Ιστορικό Τραύμα</h2>
+
+        <p>
+          Το 1237, η <strong>Χρυσή Ορδή</strong> του Μπατού Χαν ισοπέδωσε τα ρωσικά πριγκιπάτα και κατέκαψε το Κίεβο. Επί 240 ολόκληρα χρόνια, η Ρωσία έζησε υπό τον **«Μογγολικό Ζυγό» (Tatar Yoke)**.
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/golden_horde_camp.jpg" alt="Καταυλισμός της Χρυσής Ορδής στις ρωσικές στέπες" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 17.1:</strong> Καταυλισμός της Χρυσής Ορδής στις ρωσικές στέπες. Επί 240 χρόνια, οι Ρώσοι πρίγκιπες ταξίδευαν στο Σαράι για να προσκυνήσουν τον Χάνο και να λάβουν το διάταγμα επικύρωσης της εξουσίας τους (<em>Yarlik</em>).
+          </figcaption>
+        </figure>
+
+        <p>
+          Αυτή η απομόνωση είχε κολοσσιαίες ιστορικές συνέπειες: την ώρα που η Δυτική Ευρώπη βίωνε την Αναγέννηση, τον ουμανισμό, την ίδρυση πανεπιστημίων και την άνθηση των πόλεων, η Ρωσία έμεινε παγωμένη στον χρόνο, υιοθετώντας ταυτόχρονα το ασιατικό μοντέλο απόλυτης δεσποτείας των Μογγόλων.
+        </p>
+
+        <div class="did-you-know">
+          <div class="did-you-know-title">💡 ΓΝΩΡΙΖΑΤΕ ΟΤΙ;</div>
+          <p>
+            Η <strong>Μόσχα</strong> αναδείχθηκε σε υπερδύναμη επειδή οι πρίγκιπές της συνεργάστηκαν ως οι πιο πιστοί και αδίστακτοι φοροσυλλέκτες των Μογγόλων! Ο πρίγκιπας Ιβάν Α΄ έλαβε το παρατσούκλι <em>Καλιτά</em> («το Πουγκί»), καθώς κρατούσε πάντα ένα πουγκί γεμάτο νομίσματα με το οποίο εξαγόραζε εδάφη και εύνοια από τους Χάνους.
+          </p>
+        </div>
+
+        <h2 id="sec-4">4. Η «Τρίτη Ρώμη» & ο Ιβάν ο Τρομερός</h2>
+
+        <p>
+          Μετά την Άλωση της Κωνσταντινούπολης (1453), ο Ιβάν Γ΄ παντρεύτηκε τη <strong>Ζωή (Σοφία) Παλαιολογίνα</strong> και υιοθέτησε τον δικέφαλο αετό. Η Μόσχα ανακηρύχθηκε επίσημα <strong>«Τρίτη Ρώμη»</strong> —ο μοναδικός εναπομείνας προμαχώνας της αληθινής ορθόδοξης πίστης.
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/st_basils_cathedral_moscow.jpg" alt="Ο Καθεδρικός Ναός του Αγίου Βασιλείου στην Κόκκινη Πλατεία της Μόσχας" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 17.2:</strong> Ο Καθεδρικός Ναός της Αγίας Σκέπης (Αγίου Βασιλείου) στην Κόκκινη Πλατεία της Μόσχας. Χτίστηκε από τον Ιβάν τον Τρομερό (1555–1561) σε ανάμνηση της κατάκτησης του ταταρικού Χανάτου του Καζάν.
+          </figcaption>
+        </figure>
+
+        <!-- Maria Quote Box 2 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=dRsrX9Zns7Y&t=3270s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 54:30</a>
+          </div>
+          <p class="box-maria-quote">
+            «Ο Ιβάν ο Τρομερός είναι μια τραγική, δαιμονική και μεγαλοφυής φυσιογνωμία. Ήταν ευφυέστατος, εξαιρετικά μορφωμένος, θεολόγος, αλλά και παρανοϊκός δολοφόνος. Και όμως, για τον απλό ρωσικό λαό, ο Ιβάν δεν ήταν "κακός"· το Grozny στα ρωσικά δεν σημαίνει τερατώδης, σημαίνει επιβλητικός, αυτός που εμπνέει δέος! Διότι χτύπησε τους πλούσιους Βογιάρους και έκανε τη Ρωσία πανίσχυρη αυτοκρατορία!»
+          </p>
+        </div>
+
+        <h2 id="sec-5">5. Οι Κοζάκοι, η Κατάκτηση της Σιβηρίας & η «Εποχή των Αναταραχών» (Σμούτα)</h2>
+
+        <p>
+          Στα τέλη του 16ου αιώνα, η ρωσική εξάπλωση πήρε μια απρόσμενη κατεύθυνση προς την Ασία, χάρη σε μια μοναδική στρατιωτική κάστα: τους <strong>Κοζάκους</strong> (από το τουρκικό <em>Kazak</em> = «ελεύθερος άνδρας / περιπλανώμενος»). Ήταν φυγάδες δουλοπάροικοι, τυχοδιώκτες και ατρόμητοι πολεμιστές των νοτίων στεπών (κατά μήκος των ποταμών Δον και Δνείπερου) υπό την ηγεσία εκλεγμένων αρχηγών (<em>Αταμάνων</em>).
+        </p>
+
+        <p>
+          Το 1582, ο Κοζάκος αταμάνος <strong>Γερμάκ Τιμοφέγεβιτς (Yermak)</strong>, χρηματοδοτούμενος από τους μεγαλεμπόρους Στρογκάνοφ, διέσχισε τα Ουράλια Όρη και συνέτριψε το ταταρικό Χανάτο του Σιβίρ. Μέσα σε μόλις εξήντα χρόνια, οι Ρώσοι Κοζάκοι διέσχισαν ολόκληρη τη Σιβηρία —χιλιάδες χιλιόμετρα παγωμένης τάιγκας— φτάνοντας μέχρι τις ακτές του Ειρηνικού Ωκεανού (Οχότσκ, 1639)! Το βασικό κίνητρο ήταν ο <strong>«Μαλακός Χρυσός»</strong>: τα πολύτιμα γουναρικά (σαμούρι, ερμίνα) που γέμιζαν τα τσαρικά ταμεία με χρυσό και ασήμι.
+        </p>
+
+        <p>
+          Με τον θάνατο του τελευταίου γιου του Ιβάν του Τρομερού (1598), η δυναστεία των Ρουρικιδών έσβησε και η Ρωσία βυθίστηκε στη σκοτεινή <strong>«Εποχή των Αναταραχών» (Σμούτα / <em>Smuta</em>, 1598–1613)</strong>. Δεκαπέντε χρόνια ακραίου λιμού, εμφυλίων σπαραγμών και διαδοχικών απατεώνων («Ψευδο-Δημήτριοι») κατέληξαν στην κατάληψη της Μόσχας και του Κρεμλίνου από τον πολωνικό στρατό (1610).
+        </p>
+
+        <p>
+          Η σωτηρία ήρθε από την περιφέρεια: ο κρεοπώλης <strong>Κουζμά Μίνιν</strong> και ο πρίγκιπας <strong>Ντμίτρι Ποζάρσκι</strong> συγκρότησαν λαϊκό στρατό εθελοντών στο Νίζνι Νόβγκοροντ και απελευθέρωσαν τη Μόσχα το 1612. Τον Φεβρουάριο του <strong>1613</strong>, η Συνέλευση των Τάξεων (<em>Zemsky Sobor</em>) εξέλεξε παμψηφεί νέο Τσάρο τον 16χρονο <strong>Μιχαήλ Ρομανόφ</strong>, εγκαινιάζοντας τη <strong>Δυναστεία των Ρομανόφ</strong> που θα κυβερνούσε μέχρι το 1917.
+        </p>
+
+        <h2 id="sec-6">6. Ο Μέγας Πέτρος: Το Βίαιο Άνοιγμα προς τη Δύση</h2>
+
+        <p>
+          Ο <strong>Πέτρος Α΄ ο Μέγας (1672–1725)</strong>, ένας γίγαντας ύψους 2,03 μέτρων, αποφάσισε να αλλάξει βίαια τη ροή της ρωσικής ιστορίας. Το 1697 ταξίδεψε ινκόγκνιτο στην Ευρώπη («Μεγάλη Πρεσβεία») εργαζόμενος ως απλός ξυλουργός στα ναυπηγεία του Άμστερνταμ και του Λονδίνου για να κλέψει τα μυστικά της δυτικής τεχνολογίας.
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/peter_the_great.jpg" alt="Προσωπογραφία του Μεγάλου Πέτρου (έργο του Paul Delaroche, 1838)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 17.3:</strong> Προσωπογραφία του Τσάρου Πέτρου Α΄ του Μεγάλου (1838, Paul Delaroche, Μουσείο Kunsthalle Αμβούργου). Ο ηγέτης που ανάγκασε τη Ρωσία να στραφεί στη Δύση κόβοντας γενειάδες, ιδρύοντας ναυτικό και χτίζοντας την Αγία Πετρούπολη.
+          </figcaption>
+        </figure>
+
+        <p>
+          Επιστρέφοντας, ο Πέτρος επέβαλε τη δυτικοποίηση με το μαστίγιο:
+        </p>
+
+        <ul>
+          <li><strong>Φόρος Γενειάδας:</strong> Έκοψε ο ίδιος τις ιερές γενειάδες των ευγενών και επέβαλε βαρύτατο φόρο σε όποιον αρνούνταν να ξυριστεί.</li>
+          <li><strong>Ευρωπαϊκό Ένδυμα:</strong> Απαγόρευσε τα ασιατικά καφτάνια και επέβαλε τα δυτικά ενδύματα, τον καπνό, τον καφέ και τη συμμετοχή των γυναικών στη δημόσια ζωή.</li>
+          <li><strong>Αγία Πετρούπολη (1703):</strong> Μετά τη νίκη επί των Σουηδών στην Πολτάβα (1709), ίδρυσε τη νέα πρωτεύουσα στα έλη του Νέβα —το μνημειώδες «Παράθυρο στην Ευρώπη», χτισμένο πάνω στα οστά δεκάδων χιλιάδων εργατών.</li>
+        </ul>
+
+        <!-- Maria Quote Box 3 -->
+        <div class="box-maria">
+          <div class="box-maria-header">
+            <span class="box-maria-badge">Η ΜΑΤΙΑ ΤΗΣ ΜΑΡΙΑΣ ΕΥΘΥΜΙΟΥ</span>
+            <a href="https://www.youtube.com/watch?v=dRsrX9Zns7Y&t=6495s" target="_blank" class="timestamp-badge">▶ Άκουσε το στο 1:48:15</a>
+          </div>
+          <p class="box-maria-quote">
+            «Ο Μέγας Πέτρος είναι το απόλυτο παράδοξο! Ένας αυτοκράτορας πάνω από δύο μέτρα, που δεν καθόταν σε θρόνους αλλά έπιανε το τσεκούρι και δούλευε με τα χέρια του σαν κοινός μαραγκός στα ναυπηγεία του Άμστερνταμ! Και όταν γύρισε πίσω, είπε: "Θα σας κάνω Ευρωπαίους θέλετε δεν θέλετε!". Και έπιασε ο ίδιος το ψαλίδι και έκοβε τις γενειάδες των ευγενών! Και έχτισε την Πετρούπολη μέσα στα παγωμένα έλη, πάνω στα πτώματα χιλιάδων δουλοπάροικων. Ήταν ένας τύραννος που εκπολίτισε τη χώρα του με τη βία και το μαστίγιο!»
+          </p>
+        </div>
+
+        <h2 id="sec-7">7. Η Μεγάλη Αικατερίνη & το «Ελληνικό Σχέδιο»</h2>
+
+        <p>
+          Η Γερμανίδα πριγκίπισσα που έμεινε στην ιστορία ως <strong>Μεγάλη Αικατερίνη (1762–1796)</strong> ολοκλήρωσε τον θρίαμβο:
+        </p>
+
+        <figure class="chapter-figure">
+          <img src="../assets/images/catherine_the_great.jpg" alt="Προσωπογραφία της Μεγάλης Αικατερίνης (έργο του Ντμίτρι Λεβίτσκι, 1783, Πινακοθήκη Τρετιακόφ)" class="figure-img">
+          <figcaption class="figure-caption">
+            <strong>Εικόνα 17.4:</strong> Η Αυτοκράτειρα Αικατερίνη Β΄ η Μεγάλη (έργο του Dmitry Levitzky, 1783, Πινακοθήκη Τρετιακόφ, Μόσχα). Αλληλογραφούσε με τον Βολταίρο, προσάρτησε την Κριμαία και εμπνεύστηκε το «Ελληνικό Σχέδιο».
+          </figcaption>
+        </figure>
+
+        <p>
+          Αλληλογραφώντας με τον Βολταίρο και τον Ντιντερό, η Αικατερίνη συνδύασε τον ευρωπαϊκό Διαφωτισμό με τον σκληρότερο αυταρχισμό. Στο στρατιωτικό πεδίο, συνέτριψε τους Οθωμανούς (Συνθήκη Κιουτσούκ-Καϊναρτζή 1774), προσάρτησε την Κριμαία (1783) και ίδρυσε τα λιμάνια της Οδησσού και της Σεβαστούπολης.
+        </p>
+
+        <p>
+          Το περίφημο <strong>«Ελληνικό Σχέδιο»</strong> της προέβλεπε τη διάλυση της Οθωμανικής Αυτοκρατορίας και την αναβίωση του Βυζαντίου με αυτοκράτορα τον εγγονό της, τον οποίο ονόμασε συμβολικά <em>Κωνσταντίνο</em> —μια φιλοδοξία που πυροδότησε τα Ορλωφικά του 1770 και ενέπνευσε το όραμα της ελληνικής παλιγγενεσίας.
+        </p>
+
+        <!-- Summary Table -->
+        <h2 id="sec-8">8. Οι Τρεις Εποχές της Προεπαναστατικής Ρωσίας</h2>
+        <div class="table-responsive">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Περίοδος</th>
+                <th>Κέντρο / Πρωτεύουσα</th>
+                <th>Κομβικό Γεγονός</th>
+                <th>Πολιτισμική Ταυτότητα</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Ρως του Κιέβου (988–1240)</strong></td>
+                <td>Κίεβο</td>
+                <td>Βάπτιση στον Δνείπερο, εμπορικός άξονας Βαράγγων</td>
+                <td>Βυζαντινή Ορθοδοξία, Κυριλλικό</td>
+              </tr>
+              <tr>
+                <td><strong>Μοσχοβία (1240–1689)</strong></td>
+                <td>Μόσχα</td>
+                <td>Μογγολικός Ζυγός, Τρίτη Ρώμη, Ιβάν ο Τρομερός</td>
+                <td>Ανατολικός Δεσποτισμός, Απομόνωση</td>
+              </tr>
+              <tr>
+                <td><strong>Ρωσική Αυτοκρατορία (1703–1917)</strong></td>
+                <td>Αγία Πετρούπολη</td>
+                <td>Μέγας Πέτρος, Μεγάλη Αικατερίνη, Έξοδος σε Βαλτική & Εύξεινο</td>
+                <td>Εκδυτικοποίηση, Ευρωπαϊκή Υπερδύναμη</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </article>
+
+      <!-- Synthesis Section -->
+      <footer class="synthesis-section">
+        <div class="synthesis-icon">🐻</div>
+        <h3 class="synthesis-title">Αναστοχασμός: Η Διχοτομημένη Ψυχή της Ρωσίας</h3>
+        <p class="synthesis-text">
+          «Από την εποχή του Μεγάλου Πέτρου, η Ρωσία πάσχει από έναν βαθύ πολιτισμικό διχασμό: από τη μία πλευρά οι "Δυτικόφιλοι" που βλέπουν τη σωτηρία στην ευρωπαϊκή επιστήμη, τον διαφωτισμό και τον ορθολογισμό, και από την άλλη οι "Σλαβόφιλοι" που θεωρούν τη Δύση παρακμιακή και υλιστική, πιστεύοντας στη μυστικιστική, αγνή αποστολή της αγίας ρωσικής γης.
+          <br><br>
+          Στο επόμενο κεφάλαιο (Κεφάλαιο 18), θα παρακολουθήσουμε τη Ρωσία να συγκρούεται μετωπικά με τη Δύση: τη συντριβή της Μεγάλης Στρατιάς του Ναπολέοντα το 1812, την κατάργηση της δουλοπαροικίας, τη σεισμική έκρηξη της Μπολσεβίκικης Επανάστασης του 1917, και τον τιτάνιο αγώνα του Β΄ Παγκοσμίου Πολέμου.»
+        </p>
+      </footer>
+
+      <!-- Bottom Chapter Navigation -->
+      <nav class="chapter-navigation">
+        <a href="ch16.html" class="nav-card nav-card-prev">
+          <span class="nav-label">◀ Προηγουμενο Μαθημα</span>
+          <span class="nav-title">16. Κίνα & Νοτιοανατολική Ασία</span>
+        </a>
+        <a href="ch18.html" class="nav-card nav-card-next">
+          <span class="nav-label">Επομενο Μαθημα ▶</span>
+          <span class="nav-title">18. Ρωσία & ο Κόσμος</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/reader.js"></script>
+</body>
+</html>

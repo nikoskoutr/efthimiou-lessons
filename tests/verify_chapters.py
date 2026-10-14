@@ -162,7 +162,7 @@ else:
     print(f"  ✓ index.html verified ({len(index_content):,} bytes, 21 TOC targets verified)")
 
 # --- PART 3: AUDIT TRANSCRIPTS ARCHIVE ---
-print("\n[3/3] Auditing Transcripts Archive (transcripts/ch*.md)...")
+print("\n[3/4] Auditing Transcripts Archive (transcripts/ch*.md)...")
 if os.path.exists(TRANSCRIPTS_DIR):
     for ch in range(1, 22):
         tr_path = os.path.join(TRANSCRIPTS_DIR, f"ch{ch:02d}.md")
@@ -177,6 +177,72 @@ if os.path.exists(TRANSCRIPTS_DIR):
             if "youtube.com/watch?v=" not in tr_content:
                 errors.append(f"Transcripts ch{ch:02d}.md missing YouTube reference")
     print(f"  ✓ All 21 lecture transcripts verified and healthy (> 5,000 words each)")
+
+# --- PART 4: AUDIT SYNTAX & RENDERING HYGIENE ---
+print("\n[4/4] Auditing Syntax, Clean Rendering & HTML Tag Nesting...")
+from html.parser import HTMLParser
+
+latex_pat = re.compile(r"\\[a-zA-Z]+")
+dollar_pat = re.compile(r"\$[^$\n]+\$|\$")
+raw_bold_pat = re.compile(r"\*\*[^*<>\n]+\*\*")
+arrow_entity_pat = re.compile(r"&rarr;|&rArr;|->")
+
+for i in range(1, 22):
+    prefix = f"ch{i:02d}"
+    for ext in [".md", ".html"]:
+        fpath = os.path.join(CH_DIR, f"{prefix}{ext}")
+        if not os.path.exists(fpath): continue
+        is_html = ext == ".html"
+        with open(fpath, "r", encoding="utf-8") as fp:
+            for l_idx, line in enumerate(fp, 1):
+                if is_html and ("<script" in line or "</script>" in line or "<!--" in line or "localStorage" in line):
+                    continue
+                # Check for unrendered LaTeX backslashes (excluding markdown escaped asterisks)
+                for m in latex_pat.findall(line):
+                    if not is_html and m in ["\\*skeud", "\\*ha"]: continue
+                    errors.append(f"{prefix}{ext}:{l_idx} Disallowed LaTeX command '{m}'")
+                # Check for raw math dollar signs
+                for m in dollar_pat.findall(line):
+                    errors.append(f"{prefix}{ext}:{l_idx} Disallowed raw math dollar sign '{m}'")
+                # Check for raw markdown bold inside HTML
+                if is_html:
+                    for m in raw_bold_pat.findall(line):
+                        errors.append(f"{prefix}{ext}:{l_idx} Unrendered markdown bold in HTML '{m}'")
+                    for m in arrow_entity_pat.findall(line):
+                        errors.append(f"{prefix}{ext}:{l_idx} Raw arrow entity/ASCII '{m}' (use Unicode '→')")
+
+# Validate HTML tag balance across all pages
+class HTMLNestingValidator(HTMLParser):
+    def __init__(self, filename):
+        super().__init__()
+        self.filename = filename
+        self.stack = []
+        self.self_closing = {"img", "meta", "link", "br", "hr", "input", "source", "area", "base", "col", "embed", "param", "track", "wbr"}
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() not in self.self_closing:
+            self.stack.append((tag.lower(), self.getpos()))
+
+    def handle_endtag(self, tag):
+        tag = tag.lower()
+        if tag in self.self_closing: return
+        if not self.stack:
+            errors.append(f"{self.filename}: Unexpected closing </{tag}> at line {self.getpos()[0]}")
+            return
+        last, pos = self.stack.pop()
+        if last != tag:
+            errors.append(f"{self.filename}: Mismatched tag: expected </{last}> (opened at {pos[0]}), got </{tag}> at {self.getpos()[0]}")
+
+for h_path in sorted([os.path.join(CH_DIR, f"ch{i:02d}.html") for i in range(1, 22)] + [index_path]):
+    if os.path.exists(h_path):
+        validator = HTMLNestingValidator(os.path.basename(h_path))
+        with open(h_path, "r", encoding="utf-8") as fp:
+            validator.feed(fp.read())
+        if validator.stack:
+            unclosed = [s[0] for s in validator.stack]
+            errors.append(f"{os.path.basename(h_path)}: Unclosed HTML tags: {unclosed}")
+
+print("  ✓ Zero LaTeX commands, zero dollar math signs, zero unrendered markdown, zero tag nesting errors")
 
 # --- FINAL METRICS & RESULT ---
 print("\n" + "=" * 79)

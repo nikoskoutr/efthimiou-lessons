@@ -14,4 +14,4 @@ This repository contains the complete digital book and interactive reading inter
 4. **Historical Visual Assets**:
    - Only authentic museum artifacts, archaeological photography, period miniatures, and verified historical maps. Never use AI-generated images.
 5. **Quality Verification**:
-   - Always run `python3 scratch/verify_all_chapters.py` and `python3 scratch/test_deep_parity.py` after editing content or layout.
+   - Always run `python3 tests/verify_chapters.py` and `python3 tests/verify_ui.py` (or `python3 tests/run_all.py`) after editing content or layout.

@@ -9,4 +9,4 @@ description: Core invariants and quality standards for the Maria Efthymiou histo
 - Preserve Professor Maria Efthymiou's lecture storytelling style and tone.
 - Ensure all Maria quote boxes (`box-maria`) retain exact YouTube timestamp links.
 - Strictly authentic historical and museum assets only; no AI-generated images.
-- Verify changes with `python3 scratch/verify_all_chapters.py` and `python3 scratch/test_deep_parity.py`.
+- Verify changes with `python3 tests/verify_chapters.py` and `python3 tests/verify_ui.py` (or `python3 tests/run_all.py`).

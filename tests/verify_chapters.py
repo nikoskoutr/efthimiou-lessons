@@ -80,6 +80,20 @@ for i in range(1, 22):
         if 'target="_blank"' not in b and "target='_blank'" not in b:
             ch_errors.append(f"Chapter {i:02d}: Timestamp badge link missing target='_blank': {b}")
 
+    # Verbatim transcript alignment check (>= 45% token match)
+    tr_path = os.path.join(TRANSCRIPTS_DIR, f"{prefix}.md")
+    if os.path.exists(tr_path):
+        with open(tr_path, "r", encoding="utf-8") as tf:
+            tr_content_lower = tf.read().lower()
+        html_boxes = re.findall(r'<div class="box-maria">.*?<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>.*?<div class="box-maria-quote">(.*?)</div>', html_content, re.DOTALL)
+        for b_idx, (b_url, b_label, b_quote) in enumerate(html_boxes, 1):
+            clean_q = re.sub(r'<[^>]+>', '', b_quote).strip()
+            words = [w for w in re.findall(r'[\u0370-\u03ff]{4,}', clean_q.lower())]
+            matched = [w for w in words if w in tr_content_lower]
+            pct = (len(matched) / len(words) * 100) if words else 0
+            if pct < 45:
+                ch_errors.append(f"Chapter {i:02d}: Quote {b_idx} low transcript match ({pct:.1f}% < 45%): '{clean_q[:40]}...'")
+
     # Images audit: strictly local museum assets
     local_imgs = re.findall(r'src=["\']\.\./assets/images/([^"\']+)["\']', html_content)
     external_imgs = re.findall(r'src=["\'](https?://[^"\']+)["\']', html_content)

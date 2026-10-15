@@ -2,26 +2,53 @@
  * ΜΙΚΡΑ ΜΑΘΗΜΑΤΑ ΓΙΑ ΕΝΑΝ ΜΕΓΑΛΟ ΚΟΣΜΟ
  * Modern Book Reader Engine
  * Handles themes, responsive drawer, font controls, TOC search,
- * reading progress, keyboard shortcuts, and floating navigation.
+ * reading progress, section scrollspy, image lightbox, and keyboard shortcuts.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initDOMEnrichment();
+  initFloatingActions();
   initProgressBar();
   initThemeSwitcher();
   initFontSizeControls();
   initSidebarDrawer();
   initTOCSearch();
   initReadingTimeEstimate();
-  initFloatingActions();
   initKeyboardShortcuts();
+  initSectionScrollSpy();
+  initSectionAnchors();
+  initImageLightbox();
 });
+
+/**
+ * Helper to show a brief toast notification in Greek
+ */
+function showReaderToast(message) {
+  let toast = document.getElementById('reader-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'reader-toast';
+    toast.className = 'reader-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add('visible');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => {
+    toast.classList.remove('visible');
+  }, 2000);
+}
 
 /**
  * Ensures required UI helper elements exist in the DOM for full backward & cross-page compatibility.
  */
 function initDOMEnrichment() {
-  // 1. Ensure Drawer Backdrop exists
+  // 1. Remove any legacy author avatar image if present in DOM
+  document.querySelectorAll('.author-avatar').forEach(img => img.remove());
+
+  // 2. Ensure Drawer Backdrop exists
   if (!document.getElementById('drawer-backdrop')) {
     const backdrop = document.createElement('div');
     backdrop.id = 'drawer-backdrop';
@@ -29,7 +56,7 @@ function initDOMEnrichment() {
     document.body.appendChild(backdrop);
   }
 
-  // 2. Ensure Sidebar Close Button exists in sidebar header
+  // 3. Ensure Sidebar Close Button exists in sidebar header
   const sidebarHeader = document.querySelector('.sidebar-header');
   if (sidebarHeader && !document.getElementById('sidebar-close')) {
     let topRow = sidebarHeader.querySelector('.sidebar-header-top');
@@ -53,7 +80,7 @@ function initDOMEnrichment() {
     topRow.appendChild(closeBtn);
   }
 
-  // 3. Ensure Sidebar Toggle Button exists in top-bar
+  // 4. Ensure Sidebar Toggle Button exists in top-bar
   const topBar = document.querySelector('.top-bar');
   if (topBar && !document.getElementById('sidebar-toggle')) {
     const topBarLeft = topBar.querySelector('.top-bar-left') || topBar;
@@ -71,24 +98,21 @@ function initDOMEnrichment() {
 }
 
 /**
- * Reading Progress Bar & Floating Indicator
+ * Top Reading Progress Bar
  */
 function initProgressBar() {
   const progressBar = document.getElementById('progress-bar');
-  const progressBadge = document.getElementById('floating-progress-badge');
+  if (!progressBar) return;
   let ticking = false;
 
   function updateProgress() {
     const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     if (height > 0) {
-      const percent = Math.min(100, Math.max(0, Math.round((winScroll / height) * 100)));
-      if (progressBar) {
-        progressBar.style.width = percent + '%';
-      }
-      if (progressBadge) {
-        progressBadge.textContent = percent + '%';
-      }
+      const percent = Math.min(100, Math.max(0, (winScroll / height) * 100));
+      progressBar.style.width = percent.toFixed(1) + '%';
+    } else {
+      progressBar.style.width = '0%';
     }
   }
 
@@ -130,19 +154,19 @@ function initThemeSwitcher() {
       document.documentElement.setAttribute('data-theme', theme);
     }
     localStorage.setItem('maria-book-theme', theme);
-    
-    // Update active class on all theme buttons
+
     document.querySelectorAll('.theme-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.theme === theme || (theme === 'parchment' && btn.dataset.theme === 'parchment'));
     });
   }
 
-  // Expose helper globally for shortcut cycling
   window.cycleBookTheme = function() {
     const current = document.documentElement.getAttribute('data-theme') || 'parchment';
     const themes = ['parchment', 'sepia', 'dark'];
+    const labels = { parchment: 'Θέμα: Πάπυρος', sepia: 'Θέμα: Σέπια', dark: 'Θέμα: Νύχτα' };
     const next = themes[(themes.indexOf(current) + 1) % themes.length];
     setTheme(next);
+    showReaderToast(labels[next]);
   };
 }
 
@@ -152,7 +176,7 @@ function initThemeSwitcher() {
 function initFontSizeControls() {
   const scaleSteps = [0.85, 0.92, 1.0, 1.08, 1.16, 1.25];
   let currentStep = 2; // Index 2 corresponds to 1.0 (default base)
-  
+
   const saved = localStorage.getItem('maria-book-font-size');
   if (saved !== null) {
     const parsed = parseInt(saved, 10);
@@ -173,6 +197,7 @@ function initFontSizeControls() {
         currentStep -= 1;
         applyFontScale(scaleSteps[currentStep]);
         localStorage.setItem('maria-book-font-size', (17 + currentStep).toString());
+        showReaderToast(`Μέγεθος κειμένου: ${Math.round(scaleSteps[currentStep] * 100)}%`);
       }
     });
   }
@@ -183,6 +208,7 @@ function initFontSizeControls() {
         currentStep += 1;
         applyFontScale(scaleSteps[currentStep]);
         localStorage.setItem('maria-book-font-size', (17 + currentStep).toString());
+        showReaderToast(`Μέγεθος κειμένου: ${Math.round(scaleSteps[currentStep] * 100)}%`);
       }
     });
   }
@@ -206,11 +232,10 @@ function initSidebarDrawer() {
     if (sidebarToggle) sidebarToggle.setAttribute('aria-expanded', 'true');
     if (sidebar) sidebar.setAttribute('aria-hidden', 'false');
 
-    // Auto-scroll active chapter into view inside drawer smoothly without moving the window
     const activeItem = sidebar ? sidebar.querySelector('.toc-item.active') : null;
     if (activeItem && sidebar) {
       setTimeout(() => {
-        const targetScroll = activeItem.offsetTop - (sidebar.clientHeight / 2) + (activeItem.clientHeight / 2);
+        const targetScroll = activeItem.offsetTop - (sidebar.clientHeight / 3);
         sidebar.scrollTo({ top: Math.max(0, targetScroll), behavior: 'smooth' });
       }, 150);
     }
@@ -223,7 +248,6 @@ function initSidebarDrawer() {
   }
 
   function toggleSidebar() {
-    // If mobile/tablet (drawer mode)
     if (window.innerWidth < 1024) {
       if (document.body.classList.contains('drawer-open')) {
         closeDrawer();
@@ -231,13 +255,11 @@ function initSidebarDrawer() {
         openDrawer();
       }
     } else {
-      // Desktop: collapse / expand sidebar for wide reading
       document.body.classList.toggle('sidebar-collapsed');
       localStorage.setItem('maria-book-sidebar-collapsed', document.body.classList.contains('sidebar-collapsed') ? 'true' : 'false');
     }
   }
 
-  // Restore desktop collapsed state
   if (window.innerWidth >= 1024 && localStorage.getItem('maria-book-sidebar-collapsed') === 'true') {
     document.body.classList.add('sidebar-collapsed');
   }
@@ -254,16 +276,15 @@ function initSidebarDrawer() {
     backdrop.addEventListener('click', closeDrawer);
   }
 
-  // Auto-close on clicking a chapter link on mobile
   if (sidebar) {
     sidebar.addEventListener('click', (e) => {
-      if (e.target.closest('.toc-link') && window.innerWidth < 1024) {
+      if ((e.target.closest('.toc-link') || e.target.closest('.toc-sublink')) && window.innerWidth < 1024) {
         closeDrawer();
       }
     });
   }
 
-  // Touch Swipe Gesture on mobile to close drawer: strictly check horizontal dominance
+  // Touch Swipe Gesture on mobile to close drawer
   let touchStartX = 0;
   let touchStartY = 0;
   let touchStartTime = 0;
@@ -282,7 +303,6 @@ function initSidebarDrawer() {
       const deltaY = Math.abs(touchStartY - touchEndY);
       const deltaTime = Date.now() - touchStartTime;
 
-      // Swiped left to close: must be predominantly horizontal (not diagonal or vertical scrolling)
       if (deltaX > 50 && (deltaX > deltaY * 1.5 || (deltaTime < 300 && deltaX > 35))) {
         closeDrawer();
       }
@@ -316,7 +336,6 @@ function initSidebarDrawer() {
     }
   }, { passive: true });
 
-  // Expose global drawer toggle
   window.toggleBookDrawer = toggleSidebar;
 }
 
@@ -330,7 +349,6 @@ function initTOCSearch() {
   const sidebarHeader = sidebar.querySelector('.sidebar-header');
   if (!sidebarHeader) return;
 
-  // Insert search box below header
   let searchBox = sidebar.querySelector('.sidebar-search-box');
   if (!searchBox) {
     searchBox = document.createElement('div');
@@ -345,9 +363,7 @@ function initTOCSearch() {
   const searchInput = searchBox.querySelector('.sidebar-search-input');
   const tocList = sidebar.querySelector('.toc-list');
   const tocItems = sidebar.querySelectorAll('.toc-item');
-  const countBadge = sidebar.querySelector('.sidebar-count-badge');
 
-  // Insert no results feedback element inside TOC list if not present
   let noResultsEl = sidebar.querySelector('.toc-no-results');
   if (!noResultsEl && tocList) {
     noResultsEl = document.createElement('li');
@@ -356,14 +372,13 @@ function initTOCSearch() {
   }
 
   if (searchInput) {
-    // Greek accent and final-sigma normalization helper
     const normalizeGreek = (str) => {
       if (!str) return '';
       return str
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "") // remove combining diacritics
+        .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
-        .replace(/ς/g, 'σ'); // normalize Greek final sigma to standard sigma
+        .replace(/ς/g, 'σ');
     };
 
     const performFilter = () => {
@@ -389,10 +404,6 @@ function initTOCSearch() {
           noResultsEl.classList.remove('visible');
         }
       }
-
-      if (countBadge) {
-        countBadge.textContent = normQuery ? visibleCount.toString() : '21';
-      }
     };
 
     searchInput.addEventListener('input', performFilter);
@@ -415,21 +426,19 @@ function initReadingTimeEstimate() {
   const chapterHeader = document.querySelector('.chapter-header');
   if (!article || !chapterHeader) return;
 
-  // Check if estimate badge already exists
   if (chapterHeader.querySelector('.reading-estimate-badge')) return;
 
   const text = article.innerText || article.textContent || '';
   const words = text.trim().split(/\s+/).filter(w => w.length > 0).length;
   if (words < 100) return;
 
-  // Average reading speed ~190 words/min for university lecture prose
   const minutes = Math.max(1, Math.round(words / 190));
-  
+
   const badge = document.createElement('div');
   badge.className = 'reading-estimate-badge';
   badge.innerHTML = `
     <span>⏱ ~${minutes} λεπτά ανάγνωση</span>
-    <span style="opacity: 0.6;">(${words.toLocaleString('el-GR')} λέξεις)</span>
+    <span style="opacity: 0.65;">(${words.toLocaleString('el-GR')} λέξεις)</span>
   `;
 
   let metaRow = chapterHeader.querySelector('.chapter-meta-row');
@@ -451,52 +460,159 @@ function initReadingTimeEstimate() {
 }
 
 /**
- * Floating Action Controls (Back to Top, Quick TOC, Progress Indicator)
+ * Minimalist Floating Scroll-to-Top Action
+ * (Removed redundant 0% badge and duplicate TOC button)
  */
 function initFloatingActions() {
-  if (document.getElementById('floating-actions')) return;
+  let container = document.getElementById('floating-actions');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'floating-actions';
+    container.className = 'floating-actions';
+    document.body.appendChild(container);
+  }
 
-  const container = document.createElement('div');
-  container.id = 'floating-actions';
-  container.className = 'floating-actions';
   container.innerHTML = `
-    <div id="floating-progress-badge" class="floating-progress-badge" title="Πρόοδος ανάγνωσης">0%</div>
-    <button id="floating-toc-btn" class="floating-btn" aria-label="Πίνακας Περιεχομένων" title="Πίνακας Περιεχομένων (T)">
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-    </button>
-    <button id="floating-top-btn" class="floating-btn" aria-label="Επιστροφή στην κορυφή" title="Επιστροφή στην Κορυφή" style="opacity: 0; pointer-events: none;">
+    <button id="floating-top-btn" class="floating-btn" aria-label="Επιστροφή στην κορυφή" title="Επιστροφή στην κορυφή">
       <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
   `;
-  document.body.appendChild(container);
 
   const topBtn = document.getElementById('floating-top-btn');
-  const tocBtn = document.getElementById('floating-toc-btn');
-
   if (topBtn) {
     topBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    window.addEventListener('scroll', () => {
+    const toggleVisibility = () => {
       const scrolled = window.scrollY || document.documentElement.scrollTop;
-      if (scrolled > 350) {
-        topBtn.style.opacity = '1';
-        topBtn.style.pointerEvents = 'auto';
-      } else {
-        topBtn.style.opacity = '0';
-        topBtn.style.pointerEvents = 'none';
-      }
-    }, { passive: true });
+      topBtn.classList.toggle('visible', scrolled > 400);
+    };
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility();
+  }
+}
+
+/**
+ * In-Chapter Section Outline & IntersectionObserver Scrollspy
+ */
+function initSectionScrollSpy() {
+  const headings = Array.from(document.querySelectorAll('.prose h2[id], .chapter-body h2[id]'));
+  const activeTocItem = document.querySelector('.toc-item.active');
+  const topBarTitle = document.querySelector('.top-bar-title');
+  const defaultTopBarText = topBarTitle ? topBarTitle.textContent : '';
+
+  if (!headings.length || !activeTocItem) return;
+
+  let sublist = activeTocItem.querySelector('.toc-sublist');
+  if (!sublist) {
+    sublist = document.createElement('ul');
+    sublist.className = 'toc-sublist';
+    headings.forEach(h2 => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.className = 'toc-sublink';
+      a.href = `#${h2.id}`;
+      a.textContent = h2.textContent.replace(/#$/, '').trim();
+      li.appendChild(a);
+      sublist.appendChild(li);
+    });
+    activeTocItem.appendChild(sublist);
   }
 
-  if (tocBtn) {
-    tocBtn.addEventListener('click', () => {
-      if (window.toggleBookDrawer) {
-        window.toggleBookDrawer();
+  const sublinks = Array.from(sublist.querySelectorAll('.toc-sublink'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        sublinks.forEach(link => {
+          const isMatch = link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('active-section', isMatch);
+          if (isMatch && topBarTitle && window.scrollY > 280) {
+            topBarTitle.textContent = link.textContent;
+          }
+        });
       }
     });
+  }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+  headings.forEach(h2 => observer.observe(h2));
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY <= 280 && topBarTitle) {
+      topBarTitle.textContent = defaultTopBarText;
+    }
+  }, { passive: true });
+}
+
+/**
+ * Copyable Section Anchor Links on H2 Headings
+ */
+function initSectionAnchors() {
+  const headings = document.querySelectorAll('.prose h2[id], .chapter-body h2[id]');
+  headings.forEach(h2 => {
+    if (h2.querySelector('.section-anchor-btn')) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'section-anchor-btn';
+    btn.setAttribute('aria-label', 'Αντιγραφή συνδέσμου ενότητας');
+    btn.setAttribute('title', 'Αντιγραφή συνδέσμου ενότητας');
+    btn.textContent = '#';
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const url = `${window.location.origin}${window.location.pathname}#${h2.id}`;
+      history.replaceState(null, '', `#${h2.id}`);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+          showReaderToast('Ο σύνδεσμος της ενότητας αντιγράφηκε!');
+        }).catch(() => {});
+      }
+    });
+    h2.appendChild(btn);
+  });
+}
+
+/**
+ * Accessible Full-Screen Image Lightbox for Historical Maps & Plates
+ */
+function initImageLightbox() {
+  const images = document.querySelectorAll('.figure-img');
+  if (!images.length) return;
+
+  let overlay = document.getElementById('lightbox-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'lightbox-overlay';
+    overlay.className = 'lightbox-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.innerHTML = `
+      <img class="lightbox-img" src="" alt="">
+      <div class="lightbox-caption"></div>
+    `;
+    document.body.appendChild(overlay);
   }
+
+  const lightboxImg = overlay.querySelector('.lightbox-img');
+  const lightboxCaption = overlay.querySelector('.lightbox-caption');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || '';
+      const fig = img.closest('.figure-container, .chapter-figure');
+      const cap = fig ? fig.querySelector('.figure-caption') : null;
+      lightboxCaption.textContent = cap ? cap.textContent.trim() : (img.alt || '');
+      overlay.classList.add('open');
+    });
+  });
+
+  overlay.addEventListener('click', () => {
+    overlay.classList.remove('open');
+  });
 }
 
 /**
@@ -504,7 +620,6 @@ function initFloatingActions() {
  */
 function initKeyboardShortcuts() {
   window.addEventListener('keydown', (e) => {
-    // Ignore keystrokes when typing inside an input or textarea
     if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
       if (e.key === 'Escape') {
         document.activeElement.blur();
@@ -514,6 +629,8 @@ function initKeyboardShortcuts() {
 
     if (e.key === 'Escape') {
       document.body.classList.remove('drawer-open');
+      const lightbox = document.getElementById('lightbox-overlay');
+      if (lightbox) lightbox.classList.remove('open');
     } else if ((e.key === 't' || e.key === 'T' || e.key === 'τ' || e.key === 'Τ' || e.code === 'KeyT') && !e.ctrlKey && !e.metaKey && !e.altKey) {
       if (window.toggleBookDrawer) {
         window.toggleBookDrawer();

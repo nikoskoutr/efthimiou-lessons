@@ -1403,7 +1403,8 @@ body.drawer-open .drawer-backdrop {
   margin-left: auto;
 }
 
-.nav-label {
+.nav-label,
+.nav-card-label {
   font-family: var(--font-sans);
   font-size: 0.74rem;
   font-weight: 700;
@@ -1413,7 +1414,17 @@ body.drawer-open .drawer-backdrop {
   margin-bottom: 0.4rem;
 }
 
-.nav-title {
+.nav-card-chapter {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  margin-bottom: 0.2rem;
+}
+
+.nav-title,
+.nav-card-title {
   font-family: var(--font-serif);
   font-size: 1.18rem;
   font-weight: 600;
@@ -1739,3 +1750,52 @@ body.drawer-open .drawer-backdrop {
     padding: 1.4rem 0.85rem 3.8rem;
   }
 }
+
+/* ==========================================================================
+   16. Accessibility & Print Media
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  #progress-bar,
+  .sidebar,
+  .drawer-backdrop,
+  .top-bar,
+  .floating-actions,
+  .chapter-navigation {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .content-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .box-maria,
+  .box-history,
+  .box-etymology,
+  .did-you-know,
+  .figure-container,
+  .timeline-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #CCC !important;
+  }
+}
+

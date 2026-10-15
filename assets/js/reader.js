@@ -216,6 +216,20 @@ function initFontSizeControls() {
   function applyFontScale(scale) {
     document.documentElement.style.setProperty('--font-scale', scale);
   }
+
+  window.adjustBookFontSize = function(delta) {
+    if (delta > 0 && currentStep < scaleSteps.length - 1) {
+      currentStep += 1;
+      applyFontScale(scaleSteps[currentStep]);
+      localStorage.setItem('maria-book-font-size', (17 + currentStep).toString());
+      showReaderToast(`Μέγεθος κειμένου: ${Math.round(scaleSteps[currentStep] * 100)}%`);
+    } else if (delta < 0 && currentStep > 0) {
+      currentStep -= 1;
+      applyFontScale(scaleSteps[currentStep]);
+      localStorage.setItem('maria-book-font-size', (17 + currentStep).toString());
+      showReaderToast(`Μέγεθος κειμένου: ${Math.round(scaleSteps[currentStep] * 100)}%`);
+    }
+  };
 }
 
 /**
@@ -638,6 +652,14 @@ function initKeyboardShortcuts() {
     } else if ((e.key === 'd' || e.key === 'D' || e.key === 'δ' || e.key === 'Δ' || e.code === 'KeyD') && !e.ctrlKey && !e.metaKey && !e.altKey) {
       if (window.cycleBookTheme) {
         window.cycleBookTheme();
+      }
+    } else if ((e.key === '+' || e.key === '=' || e.code === 'NumpadAdd') && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      if (window.adjustBookFontSize) {
+        window.adjustBookFontSize(1);
+      }
+    } else if ((e.key === '-' || e.key === '_' || e.code === 'NumpadSubtract') && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      if (window.adjustBookFontSize) {
+        window.adjustBookFontSize(-1);
       }
     } else if (e.altKey && (e.key === 'ArrowRight' || e.code === 'ArrowRight')) {
       const nextCard = document.querySelector('.nav-card-next');
